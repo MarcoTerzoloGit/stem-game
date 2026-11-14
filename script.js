@@ -292,20 +292,353 @@ const TOPICS = [
       {
         level: 3,
         title: "Somma e sottrazione di frazioni",
-        blueprint: "Esegui l'addizione o la sottrazione tra due frazioni con denominatore uguale o diverso.",
-        exercises: []
+        blueprint: "Denominatori diversi, mcm, somma dei numeratori.",
+        exercises: [
+          {
+            id: "frazioni-3-01",
+            text: "Calcola la seguente somma di frazioni:\n1/2 + 1/4\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "3/4",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il denominatore 4 è multiplo di 2, quindi è il denominatore comune: trasformiamo 1/2 in 2/4. Eseguiamo la somma dei numeratori: 2/4 + 1/4 = 3/4.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-02",
+            text: "Calcola la seguente somma di frazioni:\n2/5 + 3/10\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "7/10",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il denominatore comune tra 5 e 10 è 10. Trasformiamo 2/5 in 4/10 moltiplicando per 2. Sommando i numeratori otteniamo 4/10 + 3/10 = 7/10.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-03",
+            text: "Calcola la seguente somma di frazioni:\n1/4 + 5/12\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "2/3",
+            accepted: ["8/12"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il denominatore 12 è multiplo di 4, quindi 1/4 diventa 3/12. Sommando otteniamo 3/12 + 5/12 = 8/12; semplificando per 4 (MCD) si ottiene la frazione ridotta ai minimi termini 2/3.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-04",
+            text: "Calcola la seguente somma di frazioni:\n1/2 + 1/3\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "5/6",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "I denominatori 2 e 3 sono primi tra loro, quindi il loro mcm è 2 × 3 = 6. Trasformiamo le frazioni in 3/6 e 2/6. La somma dei numeratori è 3/6 + 2/6 = 5/6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-05",
+            text: "Calcola la seguente somma di frazioni:\n2/3 + 1/5\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "13/15",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il minimo comune multiplo tra 3 e 5 è 15. Portiamo le frazioni allo stesso denominatore: 2/3 = 10/15 e 1/5 = 3/15. Sommando otteniamo 10/15 + 3/15 = 13/15.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-06",
+            text: "Calcola la seguente somma di frazioni:\n3/4 + 2/3\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "17/12",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il mcm tra 4 e 3 è 12. Trasformiamo le frazioni: 3/4 = 9/12 e 2/3 = 8/12. Sommando i numeratori si ha 9/12 + 8/12 = 17/12, che è la frazione impropria ridotta ai minimi termini.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-07",
+            text: "Calcola la seguente sottrazione di frazioni:\n5/6 - 1/2\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b).",
+            answer: "1/3",
+            accepted: ["2/6"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il denominatore 6 è multiplo di 2, perciò 1/2 diventa 3/6. Sottraiamo i numeratori: 5/6 - 3/6 = 2/6. Dividendo per 2 sia il numeratore che il denominatore otteniamo 1/3.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-08",
+            text: "Calcola la seguente sottrazione di frazioni:\n4/5 - 1/3\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b).",
+            answer: "7/15",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il minimo comune multiplo tra 5 e 3 è 15. Trasformiamo le frazioni: 4/5 = 12/15 e 1/3 = 5/15. Sottraendo i numeratori otteniamo 12/15 - 5/15 = 7/15.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-09",
+            text: "A una festa di compleanno, Marco mangia 1/4 di una crostata e Giulia ne mangia 1/3. Quale frazione dell'intera crostata hanno mangiato insieme i due amici?\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "7/12",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Per trovare la quantità totale consumata sommiamo 1/4 e 1/3. Il denominatore comune tra 4 e 3 è 12: 1/4 = 3/12 e 1/3 = 4/12. Insieme hanno mangiato 3/12 + 4/12 = 7/12 della crostata.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-3-10",
+            text: "Durante una gita in montagna, una comitiva percorre 2/5 del sentiero prima di pranzo e 1/2 del sentiero nel pomeriggio. Quale frazione del sentiero complessivo è stata percorsa in tutta la giornata?\nScrivi il risultato come frazione ridotta ai minimi termini (nel formato a/b). Se il risultato è maggiore di 1, scrivi la frazione impropria.",
+            answer: "9/10",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Sommiamo le due frazioni di percorso: 2/5 e 1/2. Il mcm tra 5 e 2 è 10, quindi 2/5 = 4/10 e 1/2 = 5/10. In totale è stato percorso 4/10 + 5/10 = 9/10 del sentiero.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 4,
         title: "Percentuali e frazione di una quantità",
-        blueprint: "Calcola il valore della frazione o della percentuale indicata rispetto a una quantità intera data.",
-        exercises: []
+        blueprint: "Calcolare una percentuale o una frazione di un valore, anche in un contesto reale.",
+        exercises: [
+          {
+            id: "frazioni-4-01",
+            text: "Calcola i 3/5 di 40.\nInserisci solo il valore numerico del risultato.",
+            answer: "24",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per calcolare la frazione di una quantità, dividiamo il numero per il denominatore e moltiplichiamo per il numeratore: (40 ÷ 5) × 3 = 8 × 3 = 24.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-02",
+            text: "Un sentiero escursionistico è lungo complessivamente 60 km. Un gruppo di camminatori ha percorso i 2/3 dell'intero tragitto. Quanti chilometri hanno percorso finora?\nRisposta in km (inserisci solo il valore numerico).",
+            answer: "40",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo i 2/3 di 60 km: dividiamo 60 per 3 e moltiplichiamo per 2, cioè (60 ÷ 3) × 2 = 20 × 2 = 40 km percorsi.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-03",
+            text: "In una biblioteca ci sono 120 libri di narrativa per ragazzi. Se i 5/8 di questi libri sono romanzi d'avventura, quanti sono i romanzi d'avventura?\nInserisci solo il valore numerico del risultato.",
+            answer: "75",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Dividiamo il totale dei libri per il denominatore 8 e moltiplichiamo per il numeratore 5: (120 ÷ 8) × 5 = 15 × 5 = 75 romanzi d'avventura.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-04",
+            text: "A quale percentuale corrisponde la frazione 3/4?\nInserisci solo il valore numerico senza il simbolo % (ad esempio per 50% scrivi 50).",
+            answer: "75",
+            accepted: ["75%"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Dividiamo il numeratore per il denominatore: 3 ÷ 4 = 0,75. Moltiplicando per 100 otteniamo il valore percentuale: 75%.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-05",
+            text: "A quale percentuale corrisponde la frazione 3/8?\nInserisci solo il valore numerico senza il simbolo % (usa la virgola o il punto per i decimali, es. 12,5).",
+            answer: "37,5",
+            accepted: ["37.5", "37,5%", "37.5%"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Dividiamo il numeratore per il denominatore: 3 ÷ 8 = 0,375. Moltiplicando per 100 otteniamo il 37,5%.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-06",
+            text: "Calcola il 15% di 200.\nInserisci solo il valore numerico del risultato.",
+            answer: "30",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per calcolare il 15% di 200, moltiplichiamo 200 per 15 e dividiamo per 100: (200 × 15) ÷ 100 = 3000 ÷ 100 = 30.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-07",
+            text: "In una scuola ci sono 350 studenti. Il 40% degli iscritti partecipa ai laboratori pomeridiani di musica e teatro. Quanti studenti partecipano a questi laboratori?\nInserisci solo il valore numerico del risultato.",
+            answer: "140",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo il 40% di 350: moltiplichiamo 350 per 40 e dividiamo per 100, ottenendo (350 × 40) ÷ 100 = 14000 ÷ 100 = 140 studenti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-08",
+            text: "Una confezione di cereali da 450 g contiene il 12% di fibre. Quanti grammi di fibre sono contenuti nella confezione?\nRisposta in grammi (inserisci solo il valore numerico).",
+            answer: "54",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo il 12% di 450 g moltiplicando per 12 e dividendo per 100: (450 × 12) ÷ 100 = 5400 ÷ 100 = 54 g di fibre.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-09",
+            text: "Un paio di scarpe da ginnastica costa 80 €. Durante i saldi viene applicato uno sconto del 20%. Qual è il prezzo finale scontato delle scarpe?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "64",
+            accepted: ["64.00", "64,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo prima lo sconto: il 20% di 80 € è (80 × 20) ÷ 100 = 16 €. Sottraendo lo sconto dal prezzo iniziale si ottiene il prezzo finale: 80 − 16 = 64 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-4-10",
+            text: "L'abbonamento mensile a un servizio di musica in streaming costa 12 €. Dal mese prossimo è previsto un aumento di prezzo del 15%. Quale sarà il nuovo prezzo mensile del servizio?\nRisposta in euro (usa la virgola o il punto per i decimali, es. 15,50).",
+            answer: "13,8",
+            accepted: ["13.8", "13,80", "13.80"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo l'aumento del 15% su 12 €: (12 × 15) ÷ 100 = 1,80 €. Aggiungiamo l'aumento al prezzo di partenza: 12 + 1,80 = 13,80 €.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 5,
         title: "Problema a più passaggi",
-        blueprint: "Risolvi un problema pratico a più passaggi che coinvolge frazioni, sconti percentuali o parti rimanenti.",
-        exercises: []
+        blueprint: "Frazioni e percentuali applicate in sequenza su quantità che cambiano.",
+        exercises: [
+          {
+            id: "frazioni-5-01",
+            text: "Un libro ha 240 pagine. Lunedì Marco legge 1/4 del libro. Martedì legge il 40% delle pagine rimaste. Quante pagine gli restano ancora da leggere per finire il libro?\nInserisci solo il valore numerico del risultato.",
+            answer: "108",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: lunedì Marco legge 1/4 di 240 pagine, cioè 240 ÷ 4 = 60 pagine; ne restano 240 − 60 = 180 pagine.\nPassaggio 2: martedì legge il 40% di 180 pagine, cioè (180 × 40) ÷ 100 = 72 pagine.\nPassaggio 3: le pagine ancora da leggere sono 180 − 72 = 108 pagine.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-02",
+            text: "Sofia ha risparmiato 150 €. Spende i 2/5 della somma per comprare un videogioco. Del denaro rimanente, spende il 30% per fare un regalo a sua sorella. Quanti euro le restano alla fine?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "63",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: spesa per il videogioco: (150 ÷ 5) × 2 = 60 €; denaro rimasto: 150 − 60 = 90 €.\nPassaggio 2: spesa per il regalo: (90 × 30) ÷ 100 = 27 €.\nPassaggio 3: denaro finale rimasto: 90 − 27 = 63 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-03",
+            text: "Un tragitto in auto è lungo 300 km. Prima della sosta l'autista percorre il 35% dell'intero viaggio. Del tragitto rimanente, percorre poi i 4/5. Quanti chilometri restano ancora da percorrere fino alla destinazione?\nRisposta in km (inserisci solo il valore numerico).",
+            answer: "39",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: prima della sosta percorre il 35% di 300 km, cioè (300 × 35) ÷ 100 = 105 km; restano 300 − 105 = 195 km.\nPassaggio 2: dopo la sosta percorre i 4/5 di 195 km, cioè (195 ÷ 5) × 4 = 156 km.\nPassaggio 3: chilometri mancanti all'arrivo: 195 − 156 = 39 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-04",
+            text: "Una pasticceria prepara 200 pasticcini al mattino. A mezzogiorno ne ha venduti la metà (1/2). Nel pomeriggio vende il 60% dei pasticcini rimasti. Quanti pasticcini rimangono invenduti alla chiusura?\nInserisci solo il valore numerico del risultato.",
+            answer: "40",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: a mezzogiorno sono stati venduti 1/2 di 200 pasticcini, cioè 200 ÷ 2 = 100; ne rimangono 200 − 100 = 100.\nPassaggio 2: nel pomeriggio viene venduto il 60% di 100 pasticcini, cioè (100 × 60) ÷ 100 = 60 pasticcini.\nPassaggio 3: i pasticcini invenduti alla sera sono 100 − 60 = 40.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-05",
+            text: "Un paio di cuffie costa 50 €. Il negozio applica uno sconto del 20%. Ai clienti con carta fedeltà viene applicato un ulteriore sconto del 10% sul prezzo già scontato. Quanto spende un cliente con carta fedeltà che acquista 2 paia di queste cuffie?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "72",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: primo sconto del 20% su 50 €: (50 × 20) ÷ 100 = 10 €; prezzo scontato: 50 − 10 = 40 €.\nPassaggio 2: secondo sconto del 10% su 40 €: (40 × 10) ÷ 100 = 4 €; prezzo fedeltà per paio: 40 − 4 = 36 €.\nPassaggio 3: spesa totale per 2 paia di cuffie: 36 × 2 = 72 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-06",
+            text: "Una maglietta sportiva costa 30 €. Viene applicato uno sconto del 10%. Sul prezzo scontato si aggiunge un costo di personalizzazione del 20%. Quanto costa ordinare 3 di queste magliette personalizzate?\nRisposta in euro (usa la virgola o il punto per i decimali, es. 50,50).",
+            answer: "97,2",
+            accepted: ["97.2", "97,20", "97.20"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: sconto del 10% su 30 €: (30 × 10) ÷ 100 = 3 €; prezzo scontato: 30 − 3 = 27 €.\nPassaggio 2: aumento del 20% su 27 €: (27 × 20) ÷ 100 = 5,40 €; costo per singola maglietta: 27 + 5,40 = 32,40 €.\nPassaggio 3: costo totale per 3 magliette: 32,40 × 3 = 97,20 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-07",
+            text: "In una serra ci sono inizialmente 400 piante. Nella prima settimana vengono vendute 1/4 delle piante totali. Nella seconda settimana vengono vendute 2/3 delle piante rimaste. Nella terza settimana viene venduto il 50% delle piante ancora presenti. Quante piante restano alla fine?\nInserisci solo il valore numerico del risultato.",
+            answer: "50",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: piante vendute la prima settimana: 400 ÷ 4 = 100; piante rimaste: 400 − 100 = 300.\nPassaggio 2: piante vendute la seconda settimana: (300 ÷ 3) × 2 = 200; piante rimaste: 300 − 200 = 100.\nPassaggio 3: piante vendute la terza settimana: 50% di 100 = 50; piante rimaste alla fine: 100 − 50 = 50.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-08",
+            text: "Una scatola di un gioco da tavolo costa 40 €. Il negozio applica uno sconto del 15% su ogni scatola. Una ludoteca ne compra 3 scatole e alla cassa riceve un ulteriore buono sconto pari a 1/6 della spesa totale delle 3 scatole. Quanto paga complessivamente la ludoteca?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "85",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: sconto del 15% su 40 €: (40 × 15) ÷ 100 = 6 €; prezzo scontato per scatola: 40 − 6 = 34 €.\nPassaggio 2: spesa per 3 scatole: 34 × 3 = 102 €.\nPassaggio 3: sconto coupon di 1/6 su 102 €: 102 ÷ 6 = 17 €; totale pagato alla cassa: 102 − 17 = 85 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-09",
+            text: "Un ciclista deve percorrere una tappa di 160 km. Nella prima ora percorre il 25% dell'intero tragitto. Nella seconda ora percorre i 2/5 dei chilometri che gli erano rimasti dopo la prima ora. Quanti chilometri gli restano ancora da percorrere?\nRisposta in km (inserisci solo il valore numerico).",
+            answer: "72",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: calcoliamo prima il 25% dell'intero tragitto (160 km): (160 × 25) ÷ 100 = 40 km percorsi nella prima ora.\nPassaggio 2: calcoliamo i chilometri rimasti: 160 − 40 = 120 km.\nPassaggio 3: calcoliamo i 2/5 della distanza rimasta: (120 ÷ 5) × 2 = 48 km percorsi nella seconda ora.\nPassaggio 4: chilometri mancanti alla conclusione della tappa: 120 − 48 = 72 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-5-10",
+            text: "Un camion trasporta un carico di 450 kg di frutta. I 2/9 del carico sono arance. Della frutta rimanente, il 40% è costituito da mele e la parte restante da pere. Quanti chilogrammi di pere ci sono nel carico?\nRisposta in kg (inserisci solo il valore numerico).",
+            answer: "210",
+            accepted: [],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passaggio 1: dobbiamo calcolare prima il peso delle arance sul totale: (450 ÷ 9) × 2 = 100 kg.\nPassaggio 2: calcoliamo i chilogrammi di frutta rimanenti: 450 − 100 = 350 kg.\nPassaggio 3: calcoliamo il 40% di mele sulla parte rimasta: (350 × 40) ÷ 100 = 140 kg.\nPassaggio 4: i chilogrammi di pere corrispondono al resto: 350 − 140 = 210 kg.",
+            table: null,
+            svg: null
+          }
+        ]
       }
     ]
   },
