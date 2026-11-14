@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Applicazione web per esercizi di matematica per la scuola primaria e secondaria di primo grado, organizzata per livelli di apprendimento.">
+  <title>Matematica: esercizi per livelli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Link rapido per accessibilità da tastiera -->
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+  <!-- Intestazione superiore -->
+  <header class="app-header">
+    <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="sidebar" aria-label="Apri menu">
+      <span class="hamburger-box" aria-hidden="true">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="menu-label">Menu</span>
+    </button>
+    <a href="#/" class="header-brand">
+      <span class="brand-icon" aria-hidden="true">📐</span>
+      <span class="brand-title">Matematica: esercizi per livelli</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <!-- Overlay per chiusura su mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- Barra laterale di navigazione -->
+    <nav id="sidebar" class="sidebar" aria-label="Menu argomenti e livelli">
+      <div class="sidebar-header">
+        <a href="#/" class="sidebar-home-link" id="nav-home-link">
+          <span class="home-icon" aria-hidden="true">🏠</span>
+          <span>Home</span>
+        </a>
+      </div>
+      <div id="topics-accordion" class="topics-accordion" role="region" aria-label="Elenco argomenti">
+        <!-- Generato dinamicamente da script.js -->
+      </div>
+    </nav>
+
+    <!-- Area principale dei contenuti -->
+    <main id="main-content" class="main-content" tabindex="-1">
+      <!-- Notifiche live per screen reader -->
+      <div id="status-live" class="sr-only" aria-live="polite"></div>
+      <!-- Il contenuto della vista corrente viene inserito qui da script.js -->
+      <div id="view-container" class="view-container"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
