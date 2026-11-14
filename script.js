@@ -1,12 +1,13 @@
 /**
  * MATH ARENA - Esercizi di matematica per livelli
  * Applicazione web statica per scuola primaria e secondaria di primo grado.
- * Tema GAME: blu elettrico e neri, progressione per stage, feedback interattivo.
+ * Step 2: Motore degli esercizi (navigazione, verifica risposte, rendering dinamico).
  */
 
 /* ==========================================================================
-   MODELLO DATI (TOPICS)
+   1. SEZIONE DATI (MODELLO DATI, COSTANTI E DATI DI PROVA)
    ========================================================================== */
+
 const TOPICS = [
   {
     id: "numeri",
@@ -58,7 +59,30 @@ const TOPICS = [
         level: 1,
         title: "Riconoscere una frazione",
         blueprint: "Individua la frazione corrispondente a una figura divisa in parti uguali o riconosce numeratore e denominatore.",
-        exercises: []
+        exercises: [
+          {
+            id: "frazioni-1-01",
+            text: "Una tavoletta di cioccolato è divisa in 8 quadretti uguali. Se ne mangi 3 quadretti, quale frazione della tavoletta hai mangiato?\nScrivi la frazione ridotta ai minimi termini (es. 3/8).",
+            answer: "3/8",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "L'intero è diviso in 8 parti uguali (denominatore) e ne sono state mangiate 3 (numeratore). La frazione ridotta ai minimi termini è esattamente 3/8.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-02",
+            text: "A quale numero decimale corrisponde la frazione 1/4?\nPuoi rispondere come numero decimale (es. 0,25) oppure come percentuale (es. 25%).",
+            answer: "0,25",
+            accepted: ["1/4", "25%"],
+            tolerance: 0.0001,
+            exact: false,
+            explanation: "Dividendo il numeratore per il denominatore (1 ÷ 4) otteniamo 0,25, che equivale anche al 25% dell'intero o alla frazione 1/4.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 2,
@@ -97,7 +121,25 @@ const TOPICS = [
         level: 1,
         title: "Perimetro con formula diretta",
         blueprint: "Calcola il perimetro di un poligono regolare o semplice applicando direttamente la formula geometrica.",
-        exercises: []
+        exercises: [
+          {
+            id: "geometria-1-01",
+            text: "Osserva la figura qui sotto che mostra un rettangolo con base di 8 cm e altezza di 5 cm.\nCalcola il perimetro del rettangolo in cm (inserisci solo il valore numerico).",
+            answer: "26",
+            accepted: ["26"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Il perimetro di un rettangolo si calcola sommando tutti i lati: P = 2 × (base + altezza) = 2 × (8 + 5) = 2 × 13 = 26 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 150" width="280" height="150" role="img" aria-label="Rettangolo con base di 8 cm e altezza di 5 cm">
+  <rect x="35" y="25" width="200" height="95" fill="var(--black-2)" stroke="var(--blue-400)" stroke-width="3" rx="6" />
+  <text x="135" y="18" fill="var(--text)" font-size="14" font-weight="bold" text-anchor="middle">8 cm</text>
+  <text x="135" y="140" fill="var(--text-dim)" font-size="13" text-anchor="middle">8 cm</text>
+  <text x="20" y="78" fill="var(--text)" font-size="14" font-weight="bold" text-anchor="middle">5 cm</text>
+  <text x="250" y="78" fill="var(--text-dim)" font-size="13" text-anchor="middle">5 cm</text>
+</svg>`
+          }
+        ]
       },
       {
         level: 2,
@@ -253,7 +295,27 @@ const TOPICS = [
         level: 1,
         title: "Leggere una tabella o un grafico",
         blueprint: "Estrai e interpreta i dati numerici rappresentati in una tabella, in un istogramma o in un grafico a barre.",
-        exercises: []
+        exercises: [
+          {
+            id: "statistica-1-01",
+            text: "La tabella riporta il numero di libri letti da quattro studenti durante il mese.\nQuanti libri hanno letto complessivamente i quattro studenti?",
+            answer: "14",
+            accepted: ["14"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per trovare il totale dei libri letti si calcola la somma dei singoli valori: 4 + 3 + 5 + 2 = 14 libri in totale.",
+            table: {
+              headers: ["Studente", "Libri letti"],
+              rows: [
+                ["Anna", "4"],
+                ["Marco", "3"],
+                ["Sofia", "5"],
+                ["Luca", "2"]
+              ]
+            },
+            svg: null
+          }
+        ]
       },
       {
         level: 2,
@@ -288,9 +350,7 @@ const STAGE_RANKS = ["Novizio", "Apprendista", "Esperto", "Maestro", "Leggenda"]
 const TOTAL_APP_EXERCISES = 350; // 7 argomenti * 5 livelli * 10 esercizi
 const STORAGE_KEY = "math_arena_progress";
 
-/* ==========================================================================
-   STATO GLOBALE E RIFERIMENTI DOM
-   ========================================================================== */
+/* Riferimenti agli elementi DOM memorizzati in cache */
 const DOM = {
   menuToggle: null,
   sidebar: null,
@@ -310,9 +370,7 @@ const DOM = {
 /** Argomento attualmente aperto nell'accordion (stringa id o null) */
 let openAccordionTopicId = null;
 
-/* ==========================================================================
-   INIZIALIZZAZIONE
-   ========================================================================== */
+/* Inizializzazione al caricamento della pagina */
 document.addEventListener("DOMContentLoaded", () => {
   initDOMReferences();
   initSidebarAccordion();
@@ -338,8 +396,138 @@ function initDOMReferences() {
 }
 
 /* ==========================================================================
-   GESTIONE PROGRESSI E RANGO HUD
+   2. SEZIONE LOGICA (NORMALIZZAZIONE, PARSER NUMERICO, CHECK ANSWER E STATO)
    ========================================================================== */
+
+/**
+ * Normalizza una stringa per il confronto testuale:
+ * - trim e conversione in minuscolo
+ * - rimozione di tutti gli spazi interni
+ * - sostituzione dei segni "−" (\u2212) e "–" (\u2013) con il trattino standard "-"
+ * NOTA: la virgola NON viene sostituita qui, ma solo in parseNumber quando si interpreta come numero.
+ */
+function normalizeText(val) {
+  if (val === null || val === undefined) return "";
+  return String(val)
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[\u2212\u2013]/g, "-");
+}
+
+/**
+ * Riconosce e converte una stringa in un numero a virgola mobile:
+ * - interi e decimali (con virgola o punto)
+ * - frazioni "a/b" (con denominatore diverso da 0)
+ * - percentuali "x%" (valore corrispondente: x / 100)
+ * Ritorna un valore di tipo number, oppure null se la stringa non è un numero valido.
+ */
+function parseNumber(str) {
+  if (typeof str === "number") {
+    return isNaN(str) ? null : str;
+  }
+  if (typeof str !== "string") {
+    return null;
+  }
+
+  // Pulizia preliminare: rimozione spazi e unificazione segno meno
+  const s = str.trim().replace(/\s+/g, "").replace(/[\u2212\u2013]/g, "-");
+  if (!s) return null;
+
+  // 1. Percentuale: es. "37,5%", "25%", "-10%"
+  const percentMatch = s.match(/^([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))%$/);
+  if (percentMatch) {
+    const val = parseFloat(percentMatch[1].replace(",", "."));
+    return isNaN(val) ? null : val / 100;
+  }
+
+  // 2. Frazione: es. "3/8", "-1/2", "+4/5" (con b != 0)
+  const fractionMatch = s.match(/^([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))\s*\/\s*([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))$/);
+  if (fractionMatch) {
+    const num = parseFloat(fractionMatch[1].replace(",", "."));
+    const den = parseFloat(fractionMatch[2].replace(",", "."));
+    if (isNaN(num) || isNaN(den) || den === 0) return null;
+    return num / den;
+  }
+
+  // 3. Intero o decimale con virgola o punto: es. "0,375", "42", "-12.5"
+  const numMatch = s.match(/^([+-]?(?:\d+(?:[.,]\d+)?|[.,]\d+))$/);
+  if (numMatch) {
+    const val = parseFloat(numMatch[1].replace(",", "."));
+    return isNaN(val) ? null : val;
+  }
+
+  return null;
+}
+
+/**
+ * Verifica la correttezza della risposta dell'utente secondo le regole:
+ * 1. Normalizzazione iniziale.
+ * 2. Se exercise.exact è true: confronto puramente testuale con answer/accepted normalizzati.
+ * 3. Altrimenti prova prima il confronto numerico (tramite parseNumber) con tolleranza (default 0.0001).
+ * 4. Se il confronto numerico non è applicabile, ripiega sul confronto testuale normalizzato.
+ *
+ * @param {Object} exercise - Oggetto esercizio dal modello dati
+ * @param {string} userInput - Testo inserito dall'utente nel campo di input
+ * @returns {boolean} - true se la risposta è corretta, false altrimenti
+ */
+function checkAnswer(exercise, userInput) {
+  if (!exercise || userInput === null || userInput === undefined) {
+    return false;
+  }
+
+  const normInput = normalizeText(userInput);
+  if (!normInput) {
+    return false;
+  }
+
+  // Lista di tutti i valori attesi accettati (risposta principale + alternative)
+  const targets = [
+    exercise.answer,
+    ...(Array.isArray(exercise.accepted) ? exercise.accepted : [])
+  ].filter((t) => t !== null && t !== undefined);
+
+  if (targets.length === 0) {
+    return false;
+  }
+
+  // 1. Caso esatto: confronto solo testuale
+  if (exercise.exact === true) {
+    return targets.some((target) => normalizeText(target) === normInput);
+  }
+
+  // 2. Prova prima il confronto numerico
+  const userNum = parseNumber(userInput);
+  const tolerance = typeof exercise.tolerance === "number" ? exercise.tolerance : 0.0001;
+
+  if (userNum !== null) {
+    for (const target of targets) {
+      const targetNum = parseNumber(target);
+      if (targetNum !== null && Math.abs(userNum - targetNum) <= tolerance) {
+        return true;
+      }
+    }
+  }
+
+  // 3. Ripiego sul confronto testuale normalizzato se non numerico o non combaciato
+  return targets.some((target) => normalizeText(target) === normInput);
+}
+
+/**
+ * Estrae una porzione iniziale di testo (snippet) di un dato numero di parole.
+ */
+function getSnippet(text, wordLimit = 8) {
+  if (!text) return "";
+  const cleaned = text.replace(/\s+/g, " ").trim();
+  const words = cleaned.split(" ");
+  if (words.length <= wordLimit) return cleaned;
+  return words.slice(0, wordLimit).join(" ") + "…";
+}
+
+/* ==========================================================================
+   GESTIONE PROGRESSI LOCALSTORAGE E RANGO HUD
+   ========================================================================== */
+
 function getSolvedExercises() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -349,7 +537,7 @@ function getSolvedExercises() {
       if (typeof parsed === "object" && parsed !== null) return Object.keys(parsed);
     }
   } catch (e) {
-    // localStorage disabilitato o non accessibile
+    // Gestione silenziosa errori storage
   }
   return [];
 }
@@ -366,16 +554,12 @@ function markExerciseSolved(exerciseId) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(solved));
     } catch (e) {
-      // Ignora errori di salvataggio in storage locale
+      // Ignora errori di scrittura
     }
   }
   updateHudProgress();
 }
 
-/**
- * Calcola il rango HUD in base agli esercizi risolti:
- * Novizio (0-9), Apprendista (10-49), Esperto (50-119), Maestro (120-249), Leggenda (250+)
- */
 function getRankInfo(solvedCount) {
   if (solvedCount >= 250) return { rank: "Leggenda" };
   if (solvedCount >= 120) return { rank: "Maestro" };
@@ -398,11 +582,8 @@ function updateHudProgress() {
   if (DOM.hudProgressBar) DOM.hudProgressBar.setAttribute("aria-valuenow", solved);
 }
 
-/* ==========================================================================
-   FEEDBACK DI GIOCO: SCINTILLE (12-16 span generati dinamicamente)
-   ========================================================================== */
+/* Effetto di gioco: scintille animate al completamento */
 function triggerSparks(targetElement) {
-  // Rispetta la preferenza prefers-reduced-motion
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     return;
   }
@@ -418,7 +599,7 @@ function triggerSparks(targetElement) {
   container.setAttribute("aria-hidden", "true");
   document.body.appendChild(container);
 
-  const count = 14; // Tra 12 e 16 elementi span
+  const count = 14;
   for (let i = 0; i < count; i++) {
     const spark = document.createElement("span");
     spark.className = "spark-particle";
@@ -447,8 +628,9 @@ function triggerSparks(targetElement) {
 }
 
 /* ==========================================================================
-   ACCORDION DELLA BARRA LATERALE
+   BARRA LATERALE E ACCORDION
    ========================================================================== */
+
 function initSidebarAccordion() {
   if (!DOM.topicsAccordion) return;
 
@@ -496,7 +678,6 @@ function initSidebarAccordion() {
 
   DOM.topicsAccordion.innerHTML = html;
 
-  // Gestione click su ciascun trigger dell'accordion
   DOM.topicsAccordion.querySelectorAll(".accordion-trigger").forEach((btn) => {
     btn.addEventListener("click", () => {
       const parentItem = btn.closest(".accordion-item");
@@ -505,7 +686,6 @@ function initSidebarAccordion() {
     });
   });
 
-  // Chiudi la sidebar mobile quando si clicca un link di navigazione
   DOM.sidebar.addEventListener("click", (e) => {
     const link = e.target.closest("a");
     if (link && window.innerWidth < 768) {
@@ -557,9 +737,6 @@ function setAccordionState(topicId, isOpen) {
   }
 }
 
-/* ==========================================================================
-   DRAWER MOBILE (SIDEBAR)
-   ========================================================================== */
 function initMobileDrawer() {
   if (!DOM.menuToggle || !DOM.sidebar || !DOM.sidebarOverlay) return;
 
@@ -597,13 +774,21 @@ function closeMobileDrawer() {
 }
 
 /* ==========================================================================
-   ROUTING BASATO SU HASH
+   3. SEZIONE ROUTER (PARSING HASH, CAMBIO VISTA E GESTIONE ERRORI 404)
    ========================================================================== */
+
 function initRouter() {
   window.addEventListener("hashchange", handleRoute);
   handleRoute();
 }
 
+/**
+ * Interpreta l'hash corrente della finestra e restituisce l'oggetto rotta corrispondente:
+ * - #/ oppure #/home: vista "home"
+ * - #/<topicId>: vista "topic"
+ * - #/<topicId>/<level>: vista "level"
+ * - #/<topicId>/<level>/<n>: vista "exercise" (solo se n esiste nei dati, altrimenti "404")
+ */
 function parseHash() {
   const hash = window.location.hash || "";
   const cleaned = hash.replace(/^#\/?/, "").replace(/\/+$/, "");
@@ -614,7 +799,7 @@ function parseHash() {
 
   const parts = cleaned.split("/");
 
-  // Rotta argomento: #/<topicId>
+  // 1. Rotta Argomento: #/<topicId>
   if (parts.length === 1) {
     const topic = TOPICS.find((t) => t.id === parts[0]);
     if (topic) {
@@ -623,27 +808,41 @@ function parseHash() {
     return { view: "404" };
   }
 
-  // Rotta livello: #/<topicId>/<level>
+  // 2. Rotta Livello: #/<topicId>/<livello>
   if (parts.length === 2) {
     const topic = TOPICS.find((t) => t.id === parts[0]);
     const levelNumber = parseInt(parts[1], 10);
     const level = topic ? topic.levels.find((l) => l.level === levelNumber) : null;
 
     if (topic && level) {
-      return { view: "level", topic, level, exerciseIndex: 1 };
+      return { view: "level", topic, level };
     }
     return { view: "404" };
   }
 
-  // Rotta esercizio: #/<topicId>/<level>/<exerciseIndex>
+  // 3. Rotta Esercizio: #/<topicId>/<livello>/<n>
   if (parts.length === 3) {
     const topic = TOPICS.find((t) => t.id === parts[0]);
     const levelNumber = parseInt(parts[1], 10);
-    const exerciseIndex = parseInt(parts[2], 10);
+    const exerciseNum = parseInt(parts[2], 10);
     const level = topic ? topic.levels.find((l) => l.level === levelNumber) : null;
 
-    if (topic && level && !isNaN(exerciseIndex) && exerciseIndex >= 1 && exerciseIndex <= 10) {
-      return { view: "level", topic, level, exerciseIndex };
+    // L'esercizio deve esistere effettivamente all'interno dell'array exercises
+    if (
+      topic &&
+      level &&
+      !isNaN(exerciseNum) &&
+      exerciseNum >= 1 &&
+      level.exercises &&
+      exerciseNum <= level.exercises.length
+    ) {
+      return {
+        view: "exercise",
+        topic,
+        level,
+        exerciseIndex: exerciseNum,
+        exercise: level.exercises[exerciseNum - 1]
+      };
     }
     return { view: "404" };
   }
@@ -664,7 +863,10 @@ function handleRoute() {
       renderTopic(route.topic);
       break;
     case "level":
-      renderLevel(route.topic, route.level, route.exerciseIndex || 1);
+      renderLevel(route.topic, route.level);
+      break;
+    case "exercise":
+      renderExercise(route.topic, route.level, route.exerciseIndex, route.exercise);
       break;
     default:
       renderNotFound();
@@ -672,10 +874,14 @@ function handleRoute() {
   }
 
   window.scrollTo(0, 0);
-  DOM.mainContent.focus();
+  if (DOM.mainContent) {
+    DOM.mainContent.focus();
+  }
 }
 
 function updateSidebarActiveState(route) {
+  if (!DOM.sidebar) return;
+
   DOM.sidebar.querySelectorAll(".active").forEach((el) => {
     el.classList.remove("active");
     el.removeAttribute("aria-current");
@@ -694,7 +900,7 @@ function updateSidebarActiveState(route) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
     }
-  } else if (route.view === "level") {
+  } else if (route.view === "level" || route.view === "exercise") {
     ensureAccordionOpen(route.topic.id);
     const link = DOM.sidebar.querySelector(`[data-route="${route.topic.id}/${route.level.level}"]`);
     if (link) {
@@ -713,15 +919,15 @@ function announceForScreenReader(message) {
 }
 
 /* ==========================================================================
-   RENDER DELLE VISTE
+   4. SEZIONE VISTE (HOME, ARGOMENTO, LIVELLO, ESERCIZIO E NOT FOUND)
    ========================================================================== */
 
 /**
- * Vista Home: panoramica con card arcade di tutti i 7 argomenti
+ * Vista Home: panoramica arcade con card per ciascuno dei 7 argomenti
  */
 function renderHome() {
-  document.title = "Home | MATH ARENA";
-  announceForScreenReader("Pagina Home di MATH ARENA caricata.");
+  document.title = "MATH ARENA | Esercizi di matematica per livelli";
+  announceForScreenReader("Pagina Home caricata.");
 
   const topicsCardsHtml = TOPICS.map((topic) => `
     <a href="#/${topic.id}" class="card topic-card">
@@ -754,7 +960,7 @@ function renderHome() {
 }
 
 /**
- * Vista Sezione (Topic): i 5 livelli disposti come percorso stage di gioco
+ * Vista Argomento (Topic): mappa dei 5 livelli disposti in sequenza
  */
 function renderTopic(topic) {
   document.title = `${topic.title} | MATH ARENA`;
@@ -814,104 +1020,128 @@ function renderTopic(topic) {
 }
 
 /**
- * Ottiene i dati dell'esercizio attivo. Se presente nell'array TOPICS lo utilizza,
- * altrimenti genera un esercizio coerente con il blueprint dello stage per consentire
- * il collaudo immediato di stili, tabelle, SVG, feedback e scintille.
+ * Vista Livello (#/<topicId>/<livello>):
+ * - Se exercises è vuoto: messaggio "Esercizi in arrivo".
+ * - Altrimenti: mostra blueprint e griglia di card numerate (1, 2, 3...) con prime parole del testo.
+ * - Pulsanti "Livello precedente" e "Livello successivo" (all'interno dello stesso argomento).
  */
-function getExerciseData(topic, level, exerciseIndex) {
-  if (level.exercises && level.exercises.length >= exerciseIndex && level.exercises[exerciseIndex - 1]) {
-    return level.exercises[exerciseIndex - 1];
+function renderLevel(topic, level) {
+  document.title = `Livello ${level.level} - ${topic.title} | MATH ARENA`;
+  announceForScreenReader(`Livello ${level.level}: ${level.title} caricato.`);
+
+  const hasExercises = Array.isArray(level.exercises) && level.exercises.length > 0;
+
+  let exercisesSectionHtml = "";
+  if (!hasExercises) {
+    exercisesSectionHtml = `
+      <div class="exercise-placeholder-card" role="status">
+        <div class="placeholder-icon" aria-hidden="true">⏳</div>
+        <h2 class="placeholder-title">Esercizi in arrivo</h2>
+        <p class="placeholder-message">
+          I contenuti di questo livello sono attualmente in preparazione. Torna presto per affrontare le nuove sfide!
+        </p>
+      </div>
+    `;
+  } else {
+    const cards = level.exercises.map((ex, idx) => {
+      const exNum = idx + 1;
+      const solved = isExerciseSolved(ex.id);
+      const snippet = getSnippet(ex.text, 8);
+
+      return `
+        <a href="#/${topic.id}/${level.level}/${exNum}" class="level-exercise-card ${solved ? "is-solved" : ""}">
+          <div class="level-exercise-card-header">
+            <span class="level-exercise-num-badge">Esercizio ${exNum}</span>
+            <span class="exercise-status-icon" aria-hidden="true">${solved ? "✔" : "○"}</span>
+          </div>
+          <p class="level-exercise-snippet">${snippet}</p>
+          <div class="level-exercise-card-footer">
+            <span>${solved ? "Risolto" : "Apri esercizio"}</span>
+            <span aria-hidden="true">→</span>
+          </div>
+        </a>
+      `;
+    }).join("");
+
+    exercisesSectionHtml = `
+      <section class="exercise-section" aria-label="Elenco esercizi del livello">
+        <div class="section-label">
+          <span>Esercizi disponibili (${level.exercises.length})</span>
+        </div>
+        <div class="level-exercises-grid">
+          ${cards}
+        </div>
+      </section>
+    `;
   }
 
-  const id = `${topic.id}-${level.level}-${String(exerciseIndex).padStart(2, "0")}`;
+  // Pulsanti di navigazione tra livelli dello stesso argomento
+  const prevLevel = level.level > 1 ? level.level - 1 : null;
+  const nextLevel = level.level < topic.levels.length ? level.level + 1 : null;
 
-  // Dimostrativo ricco per frazioni (Stage 1): figura SVG e tabella comparativa
-  if (topic.id === "frazioni" && level.level === 1) {
-    return {
-      id,
-      text: "Osserva la figura e la tabella: quale frazione rappresenta la parte evidenziata rispetto all'intero? Inserisci la frazione ridotta ai minimi termini (formato numeratore/denominatore, es. 3/8).",
-      answer: "3/8",
-      accepted: ["3/8"],
-      tolerance: 0,
-      exact: true,
-      explanation: "L'intero è diviso in 8 parti uguali e 3 sono evidenziate in blu. La frazione corrispondente è 3/8.",
-      table: {
-        headers: ["Componente", "Valore", "Significato"],
-        rows: [
-          ["Numeratore", "3", "Parti evidenziate in blu"],
-          ["Denominatore", "8", "Numero totale di parti uguali"],
-          ["Rapporto", "3/8", "Frazione propria (< 1)"]
-        ]
-      },
-      svg: `<svg viewBox="0 0 320 60" width="320" height="60" role="img" aria-label="Barra rettangolare divisa in 8 segmenti uguali con 3 segmenti colorati in blu">
-        <rect x="2" y="10" width="316" height="40" fill="var(--black-2)" stroke="var(--black-4)" stroke-width="2" rx="6" />
-        <rect x="2" y="10" width="39.5" height="40" fill="var(--blue-500)" stroke="var(--black-4)" stroke-width="1" />
-        <rect x="41.5" y="10" width="39.5" height="40" fill="var(--blue-500)" stroke="var(--black-4)" stroke-width="1" />
-        <rect x="81" y="10" width="39.5" height="40" fill="var(--blue-500)" stroke="var(--black-4)" stroke-width="1" />
-        <line x1="120.5" y1="10" x2="120.5" y2="50" stroke="var(--black-4)" stroke-width="1" />
-        <line x1="160" y1="10" x2="160" y2="50" stroke="var(--black-4)" stroke-width="1" />
-        <line x1="199.5" y1="10" x2="199.5" y2="50" stroke="var(--black-4)" stroke-width="1" />
-        <line x1="239" y1="10" x2="239" y2="50" stroke="var(--black-4)" stroke-width="1" />
-        <line x1="278.5" y1="10" x2="278.5" y2="50" stroke="var(--black-4)" stroke-width="1" />
-      </svg>`
-    };
-  }
+  DOM.viewContainer.innerHTML = `
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="#/">Home</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li><a href="#/${topic.id}">${topic.title}</a></li>
+        <li class="breadcrumb-separator" aria-hidden="true">/</li>
+        <li class="breadcrumb-current" aria-current="page">Livello ${level.level}</li>
+      </ol>
+    </nav>
 
-  // Fallback didattico coerente per ogni altro stage
-  const sampleAnswer = String(exerciseIndex * 3 + level.level);
-  return {
-    id,
-    text: `[Esercizio ${exerciseIndex}] ${level.blueprint} Risolvi il problema e inserisci il risultato nel campo di testo.`,
-    answer: sampleAnswer,
-    accepted: [sampleAnswer],
-    tolerance: 0,
-    exact: false,
-    explanation: `Passo 1: individua i dati. Passo 2: applica il calcolo corretto. Il risultato esatto è ${sampleAnswer}.`,
-    table: null,
-    svg: null
-  };
+    <header class="view-header">
+      <span class="badge-tag">
+        <span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number} · Livello ${level.level} di ${topic.levels.length}
+      </span>
+      <h1 class="view-title">${level.title}</h1>
+    </header>
+
+    <section class="blueprint-card" aria-label="Struttura del livello">
+      <div class="blueprint-label">Struttura tipo dell'esercizio (Blueprint)</div>
+      <p class="blueprint-text">"${level.blueprint}"</p>
+    </section>
+
+    ${exercisesSectionHtml}
+
+    <nav class="level-nav-bar" aria-label="Navigazione tra livelli">
+      ${
+        prevLevel
+          ? `<a href="#/${topic.id}/${prevLevel}" class="btn-arcade btn-secondary">← Livello precedente</a>`
+          : `<button type="button" class="btn-arcade btn-secondary" disabled aria-disabled="true">← Livello precedente</button>`
+      }
+      <a href="#/${topic.id}" class="btn-arcade btn-secondary">Mappa argomento</a>
+      ${
+        nextLevel
+          ? `<a href="#/${topic.id}/${nextLevel}" class="btn-arcade btn-primary">Livello successivo →</a>`
+          : `<button type="button" class="btn-arcade btn-primary" disabled aria-disabled="true">Livello successivo →</button>`
+      }
+    </nav>
+  `;
 }
 
 /**
- * Vista Livello / Stage: blueprint, griglia dei 10 esercizi e arena dell'esercizio attivo
+ * Vista Esercizio (#/<topicId>/<livello>/<n>):
+ * - Breadcrumb: Home > Sezione > Livello > Esercizio n
+ * - Testo con a capo rispettati, eventuale tabella e eventuale SVG
+ * - Form di risposta con pulsante "Controlla" (anche tasto Invio)
+ * - Area feedback aria-live="polite" con "Corretto!" o "Non ancora, riprova"
+ * - Pulsante "Mostra soluzione" con risposta corretta e spiegazione passo-passo
+ * - Navigazione: Esercizio precedente/successivo (disabilitati ai bordi) e link "Torna all'elenco"
  */
-function renderLevel(topic, level, exerciseIndex = 1) {
-  const currentEx = Math.max(1, Math.min(10, exerciseIndex));
-  const rankLabel = STAGE_RANKS[level.level - 1] || "Novizio";
-  const exercise = getExerciseData(topic, level, currentEx);
+function renderExercise(topic, level, exerciseIndex, exercise) {
+  document.title = `Esercizio ${exerciseIndex} - Livello ${level.level} - ${topic.title} | MATH ARENA`;
+  announceForScreenReader(`Esercizio ${exerciseIndex} di ${level.exercises.length}: ${level.title} caricato.`);
 
-  document.title = `Stage ${level.level} - Ex ${currentEx} | ${topic.title} | MATH ARENA`;
-  announceForScreenReader(`Stage ${level.level}: ${level.title}, esercizio ${currentEx} di 10 caricato.`);
+  const solved = isExerciseSolved(exercise.id);
 
-  // Genera griglia dei 10 esercizi dello stage
-  const exerciseCardsHtml = Array.from({ length: 10 }, (_, i) => {
-    const exNum = i + 1;
-    const exId = `${topic.id}-${level.level}-${String(exNum).padStart(2, "0")}`;
-    const solved = isExerciseSolved(exId);
-    const active = exNum === currentEx;
-
-    return `
-      <a
-        href="#/${topic.id}/${level.level}/${exNum}"
-        class="exercise-card ${active ? "is-active" : ""} ${solved ? "is-solved" : ""}"
-        data-exercise-id="${exId}"
-        aria-label="Esercizio ${exNum} di 10 ${solved ? "(risolto)" : ""}"
-      >
-        <span class="exercise-card-num">${String(exNum).padStart(2, "0")}</span>
-        <span class="exercise-status-icon" aria-hidden="true">${solved ? "✔" : "○"}</span>
-      </a>
-    `;
-  }).join("");
-
-  // Tabella dell'esercizio (se presente)
+  // Tabella se presente
   let tableHtml = "";
-  if (exercise.table && exercise.table.headers && exercise.table.rows) {
+  if (exercise.table && Array.isArray(exercise.table.headers) && Array.isArray(exercise.table.rows)) {
     const ths = exercise.table.headers.map((h) => `<th>${h}</th>`).join("");
-    const trs = exercise.table.rows.map((row) => `
-      <tr>
-        ${row.map((cell) => `<td>${cell}</td>`).join("")}
-      </tr>
-    `).join("");
+    const trs = exercise.table.rows
+      .map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`)
+      .join("");
 
     tableHtml = `
       <div class="exercise-table-container">
@@ -927,7 +1157,7 @@ function renderLevel(topic, level, exerciseIndex = 1) {
     `;
   }
 
-  // Figura SVG dell'esercizio (se presente)
+  // SVG se presente (posizionato sotto il testo dell'esercizio)
   let svgHtml = "";
   if (exercise.svg) {
     svgHtml = `
@@ -937,8 +1167,9 @@ function renderLevel(topic, level, exerciseIndex = 1) {
     `;
   }
 
-  const prevEx = currentEx > 1 ? currentEx - 1 : null;
-  const nextEx = currentEx < 10 ? currentEx + 1 : null;
+  // Bottoni di navigazione tra esercizi: disabilitati ai bordi
+  const prevEx = exerciseIndex > 1 ? exerciseIndex - 1 : null;
+  const nextEx = exerciseIndex < level.exercises.length ? exerciseIndex + 1 : null;
 
   DOM.viewContainer.innerHTML = `
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -947,53 +1178,27 @@ function renderLevel(topic, level, exerciseIndex = 1) {
         <li class="breadcrumb-separator" aria-hidden="true">/</li>
         <li><a href="#/${topic.id}">${topic.title}</a></li>
         <li class="breadcrumb-separator" aria-hidden="true">/</li>
-        <li><a href="#/${topic.id}/${level.level}">Stage ${level.level}</a></li>
+        <li><a href="#/${topic.id}/${level.level}">Livello ${level.level}</a></li>
         <li class="breadcrumb-separator" aria-hidden="true">/</li>
-        <li class="breadcrumb-current" aria-current="page">Esercizio ${currentEx}</li>
+        <li class="breadcrumb-current" aria-current="page">Esercizio ${exerciseIndex}</li>
       </ol>
     </nav>
 
     <header class="view-header">
-      <span class="badge-tag">
-        <span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number} · Stage ${level.level} di 5 (${rankLabel})
-      </span>
-      <h1 class="view-title">${level.title}</h1>
+      <div class="card-header-line">
+        <span class="badge-tag">
+          <span aria-hidden="true">${topic.icon}</span> ${topic.title} · Livello ${level.level}
+        </span>
+        ${solved ? `<span class="exercise-solved-badge" aria-label="Esercizio già risolto">✔ Risolto</span>` : ""}
+      </div>
+      <h1 class="view-title">Esercizio ${exerciseIndex} di ${level.exercises.length}</h1>
     </header>
 
-    <section class="blueprint-card" aria-label="Struttura dello stage">
-      <div class="blueprint-label">Blueprint di gioco (Struttura tipo)</div>
-      <p class="blueprint-text">"${level.blueprint}"</p>
-    </section>
-
-    <section class="exercise-section" aria-label="Elenco esercizi dello stage">
-      <div class="section-label">
-        <span>Elenco sfide dello stage (10 esercizi)</span>
-        <span class="tabular-nums">Ex ${currentEx}/10</span>
-      </div>
-      <div class="exercise-grid">
-        ${exerciseCardsHtml}
-      </div>
-    </section>
-
-    <!-- Card Arena dell'Esercizio Attivo -->
-    <section class="exercise-arena-card" aria-label="Esercizio attivo">
-      <div class="exercise-arena-header">
-        <div class="exercise-stage-info">
-          <span class="stage-rank-tag">${rankLabel}</span>
-          <span class="card-badge-count tabular-nums">Sfida ${String(currentEx).padStart(2, "0")} / 10</span>
-        </div>
-        <div class="stage-difficulty" aria-label="Difficoltà ${level.level} su 5">
-          <span class="sr-only">Difficoltà ${level.level} su 5</span>
-          <div class="difficulty-meter" aria-hidden="true">
-            ${[1, 2, 3, 4, 5].map((s) => `<span class="meter-segment ${s <= level.level ? "is-active" : ""}"></span>`).join("")}
-          </div>
-        </div>
-      </div>
-
+    <section class="exercise-arena-card" aria-label="Area dell'esercizio">
       <p class="exercise-prompt-text" id="exercise-text">${exercise.text}</p>
 
-      ${svgHtml}
       ${tableHtml}
+      ${svgHtml}
 
       <form class="exercise-form" id="exercise-form" onsubmit="return false;">
         <label for="answer-input" class="answer-label">La tua risposta:</label>
@@ -1002,8 +1207,9 @@ function renderLevel(topic, level, exerciseIndex = 1) {
             type="text"
             id="answer-input"
             class="answer-input"
-            placeholder="Scrivi qui..."
+            inputmode="text"
             autocomplete="off"
+            placeholder="Scrivi qui la risposta..."
             aria-describedby="exercise-text feedback-live"
           />
           <button type="submit" id="btn-check" class="btn-arcade btn-primary">
@@ -1017,26 +1223,27 @@ function renderLevel(topic, level, exerciseIndex = 1) {
 
         <div id="feedback-live" class="feedback-box" role="status" aria-live="polite"></div>
 
-        <div id="solution-box" class="solution-box" aria-live="polite">
-          <div class="solution-header">💡 Spiegazione passo-passo:</div>
-          <p id="solution-text">${exercise.explanation}</p>
+        <div id="solution-box" class="solution-box" aria-live="polite" hidden>
+          <div class="solution-header">💡 Risposta corretta e spiegazione</div>
+          <div class="solution-correct-answer">
+            <strong>Risposta corretta:</strong> <span class="solution-answer-value">${exercise.answer}</span>
+          </div>
+          <p class="solution-explanation-text">${exercise.explanation}</p>
         </div>
       </form>
     </section>
 
-    <!-- Barra navigazione esercizi e stage (fissa in basso su mobile) -->
-    <nav class="exercise-nav-bar" aria-label="Navigazione tra sfide">
-      ${prevEx
-        ? `<a href="#/${topic.id}/${level.level}/${prevEx}" class="btn-arcade btn-secondary">← Sfida precedente</a>`
-        : `<a href="#/${topic.id}" class="btn-arcade btn-secondary">← Mappa stage</a>`
+    <nav class="exercise-nav-bar" aria-label="Navigazione esercizi">
+      ${
+        prevEx
+          ? `<a href="#/${topic.id}/${level.level}/${prevEx}" class="btn-arcade btn-secondary">← Esercizio precedente</a>`
+          : `<button type="button" class="btn-arcade btn-secondary" disabled aria-disabled="true">← Esercizio precedente</button>`
       }
-      <a href="#/${topic.id}/${level.level}" class="btn-arcade btn-secondary">Reset stage</a>
-      ${nextEx
-        ? `<a href="#/${topic.id}/${level.level}/${nextEx}" class="btn-arcade btn-primary">Sfida successiva →</a>`
-        : (level.level < 5
-            ? `<a href="#/${topic.id}/${level.level + 1}" class="btn-arcade btn-primary">Stage successivo →</a>`
-            : `<a href="#/${topic.id}" class="btn-arcade btn-secondary">Fine argomento 🎉</a>`
-          )
+      <a href="#/${topic.id}/${level.level}" class="btn-arcade btn-secondary">Torna all'elenco</a>
+      ${
+        nextEx
+          ? `<a href="#/${topic.id}/${level.level}/${nextEx}" class="btn-arcade btn-primary">Esercizio successivo →</a>`
+          : `<button type="button" class="btn-arcade btn-primary" disabled aria-disabled="true">Esercizio successivo →</button>`
       }
     </nav>
   `;
@@ -1045,7 +1252,10 @@ function renderLevel(topic, level, exerciseIndex = 1) {
 }
 
 /**
- * Gestione eventi di verifica risposta, scintille, shake e visualizzazione soluzione
+ * Gestione degli eventi del form esercizio:
+ * - click o invio su Controlla -> esegue checkAnswer
+ * - click su Mostra/Nascondi soluzione
+ * - feedback accessibile e animazioni
  */
 function attachExerciseHandlers(exercise) {
   const form = document.getElementById("exercise-form");
@@ -1055,28 +1265,19 @@ function attachExerciseHandlers(exercise) {
   const feedbackBox = document.getElementById("feedback-live");
   const solutionBox = document.getElementById("solution-box");
 
-  if (!input || !checkBtn) return;
+  if (!input) return;
+
+  input.focus();
 
   function doCheck() {
-    const rawVal = (input.value || "").trim();
-    if (!rawVal) {
+    const rawVal = input.value;
+    if (!rawVal || !rawVal.trim()) {
       input.focus();
       return;
     }
 
-    const expected = String(exercise.answer).trim().toLowerCase();
-    const acceptedList = (exercise.accepted || []).map((a) => String(a).trim().toLowerCase());
-    const userVal = rawVal.toLowerCase();
+    const isCorrect = checkAnswer(exercise, rawVal);
 
-    const normalize = (s) => s.replace(",", ".");
-    const isCorrect = (
-      userVal === expected ||
-      normalize(userVal) === normalize(expected) ||
-      acceptedList.includes(userVal) ||
-      acceptedList.map(normalize).includes(normalize(userVal))
-    );
-
-    // Reset classi precedenti
     input.classList.remove("is-correct", "is-wrong");
     feedbackBox.classList.remove("is-correct", "is-wrong");
 
@@ -1085,58 +1286,55 @@ function attachExerciseHandlers(exercise) {
       feedbackBox.classList.add("is-visible", "is-correct");
       feedbackBox.innerHTML = `
         <span class="feedback-icon" aria-hidden="true">✔</span>
-        <strong>Corretto!</strong> ${exercise.explanation || "Ottimo lavoro, risposta esatta!"}
+        <strong>Corretto!</strong>
       `;
-      announceForScreenReader(`Corretto! ${exercise.explanation || "Risposta esatta."}`);
+      announceForScreenReader("Corretto!");
       triggerSparks(input);
       markExerciseSolved(exercise.id);
-
-      // Aggiorna visivamente la card dell'elenco dei 10 esercizi
-      const cardEl = document.querySelector(`[data-exercise-id="${exercise.id}"]`);
-      if (cardEl) {
-        cardEl.classList.add("is-solved");
-        const statusIcon = cardEl.querySelector(".exercise-status-icon");
-        if (statusIcon) statusIcon.textContent = "✔";
-      }
     } else {
-      // Trigger animazione di shake orizzontale
-      void input.offsetWidth;
+      void input.offsetWidth; // Riavvia l'animazione shake
       input.classList.add("is-wrong");
       feedbackBox.classList.add("is-visible", "is-wrong");
       feedbackBox.innerHTML = `
         <span class="feedback-icon" aria-hidden="true">✖</span>
-        <strong>Non ancora, riprova</strong> Controlla i tuoi calcoli e reinserisci il valore.
+        <strong>Non ancora, riprova</strong>
       `;
-      announceForScreenReader("Non ancora, riprova. Risposta errata.");
+      announceForScreenReader("Non ancora, riprova.");
     }
   }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    doCheck();
-  });
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      doCheck();
+    });
+  }
 
-  checkBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    doCheck();
-  });
+  if (checkBtn) {
+    checkBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      doCheck();
+    });
+  }
 
   if (solutionBtn && solutionBox) {
     solutionBtn.addEventListener("click", () => {
-      const isShown = solutionBox.classList.contains("is-visible");
-      if (isShown) {
-        solutionBox.classList.remove("is-visible");
-        solutionBtn.innerHTML = `<span>Mostra soluzione</span>`;
-      } else {
+      const isHidden = solutionBox.hasAttribute("hidden") || !solutionBox.classList.contains("is-visible");
+      if (isHidden) {
+        solutionBox.removeAttribute("hidden");
         solutionBox.classList.add("is-visible");
         solutionBtn.innerHTML = `<span>Nascondi soluzione</span>`;
+      } else {
+        solutionBox.setAttribute("hidden", "");
+        solutionBox.classList.remove("is-visible");
+        solutionBtn.innerHTML = `<span>Mostra soluzione</span>`;
       }
     });
   }
 }
 
 /**
- * Vista 404: percorso non riconosciuto
+ * Vista 404: percorso o esercizio inesistente
  */
 function renderNotFound() {
   document.title = "Pagina non trovata | MATH ARENA";
@@ -1145,11 +1343,162 @@ function renderNotFound() {
   DOM.viewContainer.innerHTML = `
     <section class="not-found-view" aria-label="Errore 404">
       <div class="not-found-code">404</div>
-      <h1 class="view-title">Zona non esplorata</h1>
+      <h1 class="view-title">Pagina non trovata</h1>
       <p class="view-subtitle" style="margin-bottom: 1.5rem;">
-        Le coordinate inserite non corrispondono ad alcun argomento o stage valido nell'arena.
+        Le coordinate o il numero di esercizio inseriti non esistono in questa arena.
       </p>
       <a href="#/" class="btn-arcade btn-primary">Torna alla Home Arena</a>
     </section>
   `;
+}
+
+/* ==========================================================================
+   5. SEZIONE AUTO-TEST (ESECUTORE DI COLLAUDO PER CONSOLE DEVTOOLS)
+   ========================================================================== */
+
+/**
+ * Esegue la suite di auto-test su checkAnswer e parseNumber.
+ * Può essere richiamata in qualsiasi momento dalla console del browser: runSelfTests()
+ */
+function runSelfTests() {
+  const tests = [
+    {
+      name: "1. Exact match: frazione identica",
+      exercise: { answer: "3/8", exact: true },
+      input: "3/8",
+      expected: true
+    },
+    {
+      name: "2. Exact match: spazi rimossi e formato esatto",
+      exercise: { answer: "3/8", exact: true },
+      input: "  3 / 8  ",
+      expected: true
+    },
+    {
+      name: "3. Exact match: frazione equivalente (6/16) deve fallire",
+      exercise: { answer: "3/8", exact: true },
+      input: "6/16",
+      expected: false
+    },
+    {
+      name: "4. Exact match: decimale equivalente (0.375) deve fallire",
+      exercise: { answer: "3/8", exact: true },
+      input: "0.375",
+      expected: false
+    },
+    {
+      name: "5. Numerico: frazione equivalente quando exact è false (6/16 per 3/8)",
+      exercise: { answer: "3/8", exact: false },
+      input: "6/16",
+      expected: true
+    },
+    {
+      name: "6. Numerico: decimale con virgola (0,375 per 3/8)",
+      exercise: { answer: "3/8" },
+      input: "0,375",
+      expected: true
+    },
+    {
+      name: "7. Numerico: decimale con punto (0.375 per 3/8)",
+      exercise: { answer: "3/8" },
+      input: "0.375",
+      expected: true
+    },
+    {
+      name: "8. Numerico: percentuale con virgola (37,5% per 3/8)",
+      exercise: { answer: "3/8" },
+      input: "37,5%",
+      expected: true
+    },
+    {
+      name: "9. Numerico: percentuale con punto (37.5% per 3/8)",
+      exercise: { answer: "3/8" },
+      input: "37.5%",
+      expected: true
+    },
+    {
+      name: "10. Numerico: frazione per risposta espressa in decimale (1/4 per 0,25)",
+      exercise: { answer: "0,25" },
+      input: "1/4",
+      expected: true
+    },
+    {
+      name: "11. Numerico: percentuale per risposta espressa in decimale (25% per 0,25)",
+      exercise: { answer: "0,25" },
+      input: "25%",
+      expected: true
+    },
+    {
+      name: "12. Numerico: segno meno unicode '−' (es. −0,5 per -1/2)",
+      exercise: { answer: "-1/2" },
+      input: "−0,5",
+      expected: true
+    },
+    {
+      name: "13. Numerico: tolleranza numerica personalizzata (3,14 per 3.14159 con tol 0.01)",
+      exercise: { answer: "3.14159", tolerance: 0.01 },
+      input: "3,14",
+      expected: true
+    },
+    {
+      name: "14. Numerico: divisione per zero rifiutata (4/0)",
+      exercise: { answer: "0" },
+      input: "4/0",
+      expected: false
+    },
+    {
+      name: "15. Ripiego testuale: parola con spazi e maiuscole ('  Rettangolo  ')",
+      exercise: { answer: "rettangolo" },
+      input: "  Rettangolo  ",
+      expected: true
+    },
+    {
+      name: "16. Lista accepted: risposte alternative accettate",
+      exercise: { answer: "1/2", accepted: ["metà"] },
+      input: "metà",
+      expected: true
+    },
+    {
+      name: "17. Input non valido: stringa vuota o di soli spazi",
+      exercise: { answer: "10" },
+      input: "   ",
+      expected: false
+    }
+  ];
+
+  let passed = 0;
+  const results = [];
+
+  for (const t of tests) {
+    const actual = checkAnswer(t.exercise, t.input);
+    const ok = actual === t.expected;
+    if (ok) passed++;
+    results.push({
+      Test: t.name,
+      Input: t.input,
+      Atteso: t.expected,
+      Ottenuto: actual,
+      Esito: ok ? "✔ PASS" : "✖ FAIL"
+    });
+  }
+
+  console.group(`[AUTO-TEST MATH ARENA] checkAnswer: ${passed}/${tests.length} superati`);
+  if (console.table) {
+    console.table(results);
+  } else {
+    results.forEach((r) => console.log(`${r.Esito} | ${r.Test}`));
+  }
+  console.groupEnd();
+
+  return { total: tests.length, passed, failed: tests.length - passed, results };
+}
+
+// Esponi runSelfTests globalmente per l'esecuzione manuale da console
+window.runSelfTests = runSelfTests;
+
+// Esegui automaticamente gli auto-test al caricamento dello script
+try {
+  runSelfTests();
+} catch (err) {
+  console.error("Errore durante l'esecuzione degli auto-test:", err);
 }
