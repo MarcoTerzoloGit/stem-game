@@ -1,56 +1,133 @@
 /* ==========================================================================
-   Stili generali e variabili CSS
+   1. VARIABILI (CSS Variables & Design Tokens - Tema GAME)
    ========================================================================== */
 :root {
-  --color-primary: #1d4ed8;
-  --color-primary-hover: #1e40af;
-  --color-primary-light: #eff6ff;
-  --color-primary-border: #bfdbfe;
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-border: #e2e8f0;
-  --color-focus: #2563eb;
-  --color-active: #dbeafe;
-  --header-height: 56px;
-  --sidebar-width: 300px;
+  /* Neri: dal più profondo al più chiaro */
+  --black-0: #04060B; /* sfondo pagina */
+  --black-1: #0A0E17; /* sidebar, header */
+  --black-2: #111725; /* card */
+  --black-3: #1A2236; /* card in hover, input */
+  --black-4: #263149; /* bordi */
+
+  /* Blu elettrico (unico colore protagonista) */
+  --blue-500: #1F6BFF; /* colore principale */
+  --blue-400: #4D8DFF; /* hover, link */
+  --blue-300: #8DB6FF; /* testi evidenziati */
+  --blue-glow: rgba(31, 107, 255, 0.45); /* bagliori e ombre */
+
+  /* Tonalità blu ausiliarie per effetti 3D e profondità */
+  --blue-600: #144FCC;
+  --blue-700: #0E3B99; /* bordo inferiore pulsanti 3D, intestazione tabelle */
+  --blue-900: #081B44;
+  --blue-glow-subtle: rgba(31, 107, 255, 0.15);
+  --blue-glow-strong: rgba(31, 107, 255, 0.7);
+
+  /* Testo ad alto contrasto */
+  --text: #EAF0FF;
+  --text-dim: #9AA7C7;
+
+  /* Stati di feedback */
+  --ok: #2BE4A0;   /* risposta corretta */
+  --bad: #FF4D6D;  /* risposta sbagliata */
+  --warn: #FFC145; /* suggerimenti e soluzioni */
+
+  /* Bagliori di stato */
+  --ok-glow: rgba(43, 228, 160, 0.45);
+  --bad-glow: rgba(255, 77, 109, 0.45);
+  --warn-glow: rgba(255, 193, 69, 0.45);
+
+  /* Ausiliari neutri e pattern */
+  --white: #FFFFFF;
+  --transparent: transparent;
+  --black-overlay: rgba(4, 6, 11, 0.75);
+  --grid-line: rgba(31, 107, 255, 0.07);
+
+  /* Dimensioni e raggi */
+  --header-height: 60px;
+  --sidebar-width: 310px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --transition-fast: 0.15s ease;
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.25s ease;
 }
 
+/* ==========================================================================
+   2. BASE (Reset, tipografia, accessibilità)
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--text);
+  background-color: var(--black-0);
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Accessibilità: salto contenuti e classi assistive */
+/* Titoli in peso 800, maiuscolo e spaziatura lettere */
+h1, h2, h3, h4,
+.view-title,
+.brand-title,
+.card-title,
+.stage-rank-tag,
+.stage-rank-label,
+.stage-node-num,
+.hud-rank-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Numeri in font monospace con cifre tabulari */
+.hud-rank-score,
+.stage-node-num,
+.exercise-card-num,
+.exercise-num-badge,
+.answer-input,
+.topic-num-badge,
+.meter-segment,
+.tabular-nums {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bagliori testuali parsimoniosi */
+.view-title,
+.brand-title {
+  text-shadow: 0 0 14px var(--blue-glow);
+}
+
+.hud-rank-badge,
+.stage-node-num {
+  text-shadow: 0 0 8px var(--blue-glow);
+}
+
+/* Accessibilità: link di salto e focus visibile coerente */
 .skip-link {
   position: absolute;
-  top: -100px;
+  top: -120px;
   left: 1rem;
-  background: var(--color-primary);
-  color: #ffffff;
-  padding: 0.75rem 1rem;
+  background-color: var(--blue-500);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
   z-index: 1000;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  border: 2px solid var(--blue-300);
+  box-shadow: 0 0 16px var(--blue-glow);
   transition: top var(--transition-fast);
 }
 
@@ -71,43 +148,158 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-focus);
+  outline: 3px solid var(--blue-400);
   outline-offset: 2px;
 }
 
 /* ==========================================================================
-   Header superiore
+   3. LAYOUT (Struttura e sfondo mappa a griglia)
+   ========================================================================== */
+/* Alone radiale blu e griglia mappa di gioco (nessuna immagine) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-color: var(--black-0);
+  background-image:
+    radial-gradient(circle at 50% -10%, var(--blue-glow) 0%, var(--transparent) 70%),
+    linear-gradient(var(--grid-line) 1px, var(--transparent) 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, var(--transparent) 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+.app-layout {
+  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  padding: 1.25rem 1rem 3rem;
+  outline: none;
+}
+
+.view-container {
+  max-width: 960px;
+  margin: 0 auto;
+  animation: viewFadeIn var(--transition-normal) ease-out;
+}
+
+/* Breadcrumb discreto */
+.breadcrumb-nav {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.breadcrumb-list a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-list a:hover {
+  color: var(--blue-400);
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: var(--black-4);
+  font-size: 0.8rem;
+}
+
+.breadcrumb-current {
+  color: var(--blue-300);
+  font-weight: 700;
+}
+
+/* Header di sezione / vista */
+.view-header {
+  margin-bottom: 2rem;
+}
+
+.view-title {
+  font-size: 1.85rem;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.view-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--blue-300);
+  background-color: var(--black-2);
+  border: 1px solid var(--black-4);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.65rem;
+  box-shadow: 0 0 10px var(--blue-glow-subtle);
+}
+
+/* ==========================================================================
+   4. HEADER (Barra HUD e Rango)
    ========================================================================== */
 .app-header {
   position: sticky;
   top: 0;
   z-index: 40;
   height: var(--header-height);
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--black-1);
+  border-bottom: 1px solid var(--black-4);
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  box-shadow: var(--shadow-sm);
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  box-shadow: 0 4px 18px var(--black-overlay);
 }
 
 .menu-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: transparent;
-  border: 1px solid var(--color-border);
+  background: var(--transparent);
+  border: 1px solid var(--black-4);
   border-radius: var(--radius-sm);
-  padding: 0.45rem 0.65rem;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
-  color: var(--color-text);
-  font-size: 0.95rem;
-  font-weight: 500;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .menu-toggle:hover {
-  background-color: var(--color-primary-light);
-  border-color: var(--color-primary-border);
+  background-color: var(--black-2);
+  border-color: var(--blue-500);
+  box-shadow: 0 0 10px var(--blue-glow);
 }
 
 .hamburger-box {
@@ -130,41 +322,89 @@ body {
 }
 
 .header-brand {
-  margin-left: 0.75rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  color: var(--color-text);
-  font-weight: 700;
-  font-size: 1.1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.header-brand:hover {
-  color: var(--color-primary);
+  color: var(--text);
+  margin-left: 0.75rem;
 }
 
 .brand-icon {
+  font-size: 1.35rem;
+  color: var(--blue-400);
+  text-shadow: 0 0 10px var(--blue-glow);
+}
+
+.brand-title {
   font-size: 1.25rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* Riquadro Rango HUD a destra */
+.hud-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  min-width: 135px;
+}
+
+.hud-rank-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.hud-rank-label {
+  color: var(--text-dim);
+  font-size: 0.68rem;
+}
+
+.hud-rank-badge {
+  background-color: var(--black-3);
+  color: var(--blue-300);
+  border: 1px solid var(--black-4);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.hud-rank-score {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.hud-progress-bar {
+  width: 100%;
+  max-width: 150px;
+  height: 7px;
+  background-color: var(--black-3);
+  border: 1px solid var(--black-4);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.hud-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-600), var(--blue-400), var(--blue-300));
+  border-radius: 9999px;
+  box-shadow: 0 0 8px var(--blue-glow);
+  transition: width 0.4s ease;
 }
 
 /* ==========================================================================
-   Layout principale: Sidebar e Main
+   5. SIDEBAR (Navigazione, drawer mobile, accordion)
    ========================================================================== */
-.app-layout {
-  display: flex;
-  min-height: calc(100vh - var(--header-height));
-  position: relative;
-}
-
 .sidebar-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.4);
+  background-color: var(--black-overlay);
+  backdrop-filter: blur(2px);
   z-index: 45;
 }
 
@@ -178,17 +418,18 @@ body {
   left: 0;
   bottom: 0;
   width: var(--sidebar-width);
-  max-width: 85vw;
-  background-color: var(--color-surface);
-  border-right: 1px solid var(--color-border);
+  max-width: 86vw;
+  background-color: var(--black-1);
+  border-right: 1px solid var(--black-4);
+  box-shadow: 4px 0 20px var(--black-overlay);
   overflow-y: auto;
   z-index: 50;
   transform: translateX(-100%);
-  transition: transform 0.25s ease-in-out;
-  padding: 0.75rem 0.5rem;
+  transition: transform var(--transition-normal);
+  padding: 1rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
 .sidebar.open {
@@ -196,48 +437,54 @@ body {
 }
 
 .sidebar-header {
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--black-4);
 }
 
 .sidebar-home-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 0.75rem;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
   text-decoration: none;
-  color: var(--color-text);
-  font-weight: 600;
+  color: var(--text);
+  font-weight: 700;
   border-radius: var(--radius-sm);
+  border-left: 4px solid var(--transparent);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .sidebar-home-link:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: var(--black-2);
+  color: var(--blue-300);
+  border-left-color: var(--blue-400);
 }
 
 .sidebar-home-link.active {
-  background-color: var(--color-active);
-  color: var(--color-primary);
-  font-weight: 700;
+  background-color: var(--black-3);
+  color: var(--blue-300);
+  border-left: 4px solid var(--blue-500);
+  box-shadow: inset 0 0 14px var(--blue-glow-subtle), 0 0 10px var(--blue-glow);
 }
 
-/* Accordion argomenti nella sidebar */
+/* Accordion argomenti */
 .topics-accordion {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .accordion-item {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--black-4);
   border-radius: var(--radius-sm);
-  background-color: var(--color-surface);
+  background-color: var(--black-2);
   overflow: hidden;
+  transition: border-color var(--transition-fast);
 }
 
 .accordion-item.is-open {
-  border-color: var(--color-primary-border);
+  border-color: var(--blue-500);
+  box-shadow: 0 0 12px var(--blue-glow-subtle);
 }
 
 .accordion-trigger {
@@ -245,44 +492,55 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.65rem 0.75rem;
-  background: transparent;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--transparent);
   border: none;
+  border-left: 4px solid var(--transparent);
   cursor: pointer;
   text-align: left;
   font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--color-text);
+  font-weight: 700;
+  color: var(--text);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .accordion-trigger:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: var(--black-3);
+  color: var(--blue-300);
+  border-left-color: var(--blue-400);
 }
 
 .accordion-item.is-open > .accordion-trigger {
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
+  color: var(--blue-300);
+  background-color: var(--black-3);
+  border-left: 4px solid var(--blue-500);
+  box-shadow: inset 0 0 14px var(--blue-glow-subtle);
+}
+
+.topic-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
 }
 
 .topic-num-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 50%;
-  background-color: var(--color-border);
-  color: var(--color-text);
-  font-size: 0.78rem;
-  font-weight: 700;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 4px;
+  background-color: var(--black-4);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
 .accordion-item.is-open .topic-num-badge {
-  background-color: var(--color-primary);
-  color: #ffffff;
+  background-color: var(--blue-500);
+  color: var(--white);
+  box-shadow: 0 0 8px var(--blue-glow);
 }
 
 .topic-trigger-title {
@@ -290,21 +548,21 @@ body {
 }
 
 .accordion-chevron {
-  display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   transition: transform var(--transition-fast);
-  color: var(--color-text-muted);
+  color: var(--text-dim);
 }
 
 .accordion-item.is-open .accordion-chevron {
   transform: rotate(180deg);
+  color: var(--blue-400);
 }
 
 .accordion-panel {
   display: none;
-  background-color: #fafbfc;
-  border-top: 1px solid var(--color-border);
-  padding: 0.35rem 0.35rem 0.5rem;
+  background-color: var(--black-1);
+  border-top: 1px solid var(--black-4);
+  padding: 0.45rem 0.45rem 0.65rem;
 }
 
 .accordion-item.is-open .accordion-panel {
@@ -315,223 +573,259 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
 }
 
 .level-link,
 .topic-overview-link {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.6rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0.65rem;
   text-decoration: none;
-  color: var(--color-text-muted);
+  color: var(--text-dim);
   font-size: 0.88rem;
   border-radius: var(--radius-sm);
+  border-left: 3px solid var(--transparent);
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .level-link:hover,
 .topic-overview-link:hover {
-  color: var(--color-primary);
-  background-color: #ffffff;
+  color: var(--blue-300);
+  background-color: var(--black-3);
+  border-left-color: var(--blue-400);
 }
 
 .level-link.active,
 .topic-overview-link.active {
-  color: var(--color-primary);
-  background-color: var(--color-active);
-  font-weight: 600;
+  color: var(--blue-300);
+  background-color: var(--black-3);
+  border-left: 3px solid var(--blue-500);
+  font-weight: 700;
+  box-shadow: inset 0 0 10px var(--blue-glow-subtle);
 }
 
 .level-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  background-color: #e2e8f0;
-  color: var(--color-text);
-  padding: 0.1rem 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background-color: var(--black-4);
+  color: var(--text);
+  padding: 0.15rem 0.4rem;
   border-radius: 4px;
 }
 
 .level-link.active .level-badge {
-  background-color: var(--color-primary);
-  color: #ffffff;
+  background-color: var(--blue-500);
+  color: var(--white);
+  box-shadow: 0 0 6px var(--blue-glow);
 }
 
 /* ==========================================================================
-   Contenuto Principale
+   6. CARD (Argomenti, stage, percorso livelli, blueprint)
    ========================================================================== */
-.main-content {
-  flex: 1;
-  width: 100%;
-  padding: 1.25rem 1rem 2.5rem;
-  outline: none;
-}
-
-.view-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* Breadcrumb */
-.breadcrumb-nav {
-  margin-bottom: 1.25rem;
-}
-
-.breadcrumb-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  list-style: none;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.breadcrumb-list a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.breadcrumb-list a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  color: #94a3b8;
-  font-size: 0.8rem;
-}
-
-.breadcrumb-current {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-/* Pagine e Sezioni */
-.view-header {
-  margin-bottom: 1.75rem;
-}
-
-.view-title {
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: var(--color-text);
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-}
-
-.view-subtitle {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-}
-
-.badge-tag {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
-  border: 1px solid var(--color-primary-border);
-  padding: 0.2rem 0.6rem;
-  border-radius: 9999px;
-  margin-bottom: 0.5rem;
-}
-
-/* Griglie di Card */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .card {
   display: block;
   text-decoration: none;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1.15rem;
-  box-shadow: var(--shadow-sm);
-  color: inherit;
+  background-color: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  color: var(--text);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary-border);
+  transform: translateY(-3px);
+  border-color: var(--blue-500);
+  box-shadow: 0 6px 20px var(--blue-glow);
 }
 
 .card-header-line {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.65rem;
+  gap: 0.5rem;
 }
 
-.card-topic-num {
+.card-topic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
-  padding: 0.15rem 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--blue-300);
+  background-color: var(--black-3);
+  border: 1px solid var(--black-4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.card-badge-count {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  background-color: var(--black-3);
+  border: 1px solid var(--black-4);
+  padding: 0.2rem 0.5rem;
   border-radius: var(--radius-sm);
 }
 
 .card-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  color: var(--color-text);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  line-height: 1.3;
 }
 
 .card-description {
-  font-size: 0.92rem;
-  color: var(--color-text-muted);
-  line-height: 1.45;
-  margin-bottom: 0.75rem;
+  font-size: 0.94rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .card-footer-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.85rem;
-  color: var(--color-primary);
-  font-weight: 600;
-  border-top: 1px solid var(--color-border);
-  padding-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--blue-400);
+  font-weight: 700;
+  border-top: 1px solid var(--black-4);
+  padding-top: 0.75rem;
 }
 
-/* Box Blueprint e Placeholder Livello */
+.card-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .card-arrow {
+  transform: translateX(4px);
+  color: var(--blue-300);
+}
+
+/* Percorso degli Stage (Livelli come percorso di gioco) */
+.stages-path-container {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.stages-path {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stage-card {
+  padding-left: 4.5rem;
+  position: relative;
+}
+
+.stage-node-indicator {
+  position: absolute;
+  top: 1.35rem;
+  left: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--black-3);
+  border: 2px solid var(--blue-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px var(--blue-glow);
+  z-index: 2;
+}
+
+.stage-node-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--blue-300);
+}
+
+.stage-rank-tag {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--blue-300);
+  background-color: var(--black-3);
+  border: 1px solid var(--black-4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Indicatore di difficoltà a 5 segmenti */
+.stage-difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.difficulty-meter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meter-segment {
+  width: 12px;
+  height: 6px;
+  border-radius: 2px;
+  background-color: var(--black-4);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.meter-segment.is-active {
+  background-color: var(--blue-500);
+  box-shadow: 0 0 6px var(--blue-glow);
+}
+
+/* Scheda Blueprint */
 .blueprint-card {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
+  background-color: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-left: 4px solid var(--blue-500);
   border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 14px var(--black-overlay);
 }
 
 .blueprint-label {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #166534;
+  color: var(--blue-300);
   margin-bottom: 0.35rem;
 }
 
 .blueprint-text {
-  font-size: 1rem;
-  color: #14532d;
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.5;
   font-style: italic;
-  line-height: 1.45;
 }
 
+/* Box Placeholder / Arrivo Esercizi */
 .exercise-placeholder-card {
-  background-color: var(--color-surface);
-  border: 2px dashed var(--color-border);
+  background-color: var(--black-2);
+  border: 2px dashed var(--black-4);
   border-radius: var(--radius-lg);
   padding: 2.5rem 1.5rem;
   text-align: center;
@@ -541,52 +835,463 @@ body {
 .placeholder-icon {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 10px var(--blue-glow));
 }
 
 .placeholder-title {
   font-size: 1.35rem;
-  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--color-text);
+  color: var(--text);
 }
 
 .placeholder-message {
   font-size: 0.95rem;
-  color: var(--color-text-muted);
-  max-width: 500px;
+  color: var(--text-dim);
+  max-width: 520px;
   margin: 0 auto;
 }
 
-/* Navigazione tra livelli */
-.level-nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border);
-}
-
+/* ==========================================================================
+   7. PULSANTI (Arcade 3D, ghost e controlli)
+   ========================================================================== */
+.btn-arcade,
+.btn-primary,
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 0.55rem 0.95rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  transition: background-color var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-primary-light);
-  border-color: var(--color-primary-border);
-  color: var(--color-primary);
+/* Pulsante Arcade Principale: blu elettrico, effetto 3D */
+.btn-primary,
+.btn-arcade-primary {
+  background-color: var(--blue-500);
+  color: var(--white);
+  border: 1px solid var(--blue-400);
+  border-bottom: 4px solid var(--blue-700);
+  box-shadow: 0 4px 14px var(--blue-glow);
+}
+
+.btn-primary:hover,
+.btn-arcade-primary:hover {
+  background-color: var(--blue-400);
+  border-color: var(--blue-300);
+  box-shadow: 0 6px 18px var(--blue-glow-strong);
+}
+
+.btn-primary:active,
+.btn-arcade-primary:active {
+  transform: translateY(3px);
+  border-bottom-width: 1px;
+  box-shadow: 0 1px 6px var(--blue-glow);
+}
+
+/* Pulsante Arcade Secondario (Ghost): trasparente con bordo blu */
+.btn-secondary,
+.btn-arcade-secondary,
+.btn-ghost {
+  background-color: var(--transparent);
+  color: var(--blue-300);
+  border: 2px solid var(--blue-500);
+  box-shadow: none;
+}
+
+.btn-secondary:hover,
+.btn-arcade-secondary:hover,
+.btn-ghost:hover {
+  background-color: var(--blue-glow-subtle);
+  color: var(--blue-400);
+  border-color: var(--blue-400);
+  box-shadow: 0 0 12px var(--blue-glow);
+}
+
+.btn-secondary:active,
+.btn-arcade-secondary:active,
+.btn-ghost:active {
+  transform: translateY(2px);
+}
+
+/* Barre di navigazione tra livelli / esercizi */
+.level-nav-bar,
+.exercise-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--black-4);
+}
+
+/* ==========================================================================
+   8. ESERCIZIO (Elenco card, box esercizio, campo risposta, feedback)
+   ========================================================================== */
+.exercise-section {
+  margin-top: 2rem;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Griglia elenco dei 10 esercizi dello stage */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.exercise-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.95rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue-500);
+  box-shadow: 0 4px 14px var(--blue-glow);
+}
+
+.exercise-card.is-active {
+  border-color: var(--blue-400);
+  background-color: var(--black-3);
+  box-shadow: inset 0 0 12px var(--blue-glow-subtle);
+}
+
+.exercise-card-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--blue-300);
+}
+
+.exercise-status-icon {
+  font-size: 1rem;
+  color: var(--text-dim);
+}
+
+/* Spunta e bagliore blu se risolto */
+.exercise-card.is-solved {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 14px var(--blue-glow);
+}
+
+.exercise-card.is-solved .exercise-status-icon {
+  color: var(--ok);
+}
+
+/* Scheda attiva dell'Esercizio */
+.exercise-arena-card {
+  background-color: var(--black-2);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px var(--black-overlay);
+}
+
+.exercise-arena-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--black-4);
+}
+
+.exercise-stage-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.exercise-prompt-text {
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Modulo di risposta */
+.exercise-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.answer-input-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.answer-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+
+/* Campo di risposta grande con font monospace */
+.answer-input {
+  background-color: var(--black-3);
+  color: var(--text);
+  border: 2px solid var(--black-4);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.15rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  width: 100%;
+  max-width: 300px;
+  min-height: 48px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 16px var(--blue-glow);
+}
+
+/* Feedback di gioco */
+.feedback-box {
+  display: none;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid var(--transparent);
+}
+
+.feedback-box.is-visible {
+  display: block;
+}
+
+.feedback-icon {
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Risposta corretta (verde --ok con pulse luminoso) */
+.feedback-box.is-correct {
+  background-color: var(--black-3);
+  border-color: var(--ok);
+  color: var(--ok);
+  animation: pulseCorrect 0.6s ease;
+  box-shadow: 0 0 16px var(--ok-glow);
+}
+
+.answer-input.is-correct {
+  border-color: var(--ok);
+  box-shadow: 0 0 16px var(--ok-glow);
+}
+
+/* Risposta errata (rosso --bad con shake orizzontale) */
+.feedback-box.is-wrong {
+  background-color: var(--black-3);
+  border-color: var(--bad);
+  color: var(--bad);
+  box-shadow: 0 0 16px var(--bad-glow);
+}
+
+.answer-input.is-wrong {
+  border-color: var(--bad);
+  box-shadow: 0 0 16px var(--bad-glow);
+  animation: shakeWrong 0.3s ease;
+}
+
+/* Box Soluzione / Spiegazione (colore --warn o blu) */
+.solution-box {
+  display: none;
+  background-color: var(--black-3);
+  border: 1px solid var(--warn);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  color: var(--text);
+  box-shadow: 0 0 12px var(--warn-glow);
+}
+
+.solution-box.is-visible {
+  display: block;
+}
+
+.solution-header {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--warn);
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   9. TABELLE E FIGURE SVG (Tabelle alternate e SVG dark)
+   ========================================================================== */
+.exercise-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--black-4);
+  background-color: var(--black-1);
+}
+
+.exercise-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.exercise-table th {
+  background-color: var(--blue-700);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--black-4);
+  white-space: nowrap;
+}
+
+.exercise-table td {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--black-4);
+  color: var(--text);
+  font-size: 0.94rem;
+}
+
+.exercise-table tbody tr:nth-child(odd) {
+  background-color: var(--black-2);
+}
+
+.exercise-table tbody tr:nth-child(even) {
+  background-color: var(--black-3);
+}
+
+/* Riquadro SVG dark con bordo sottile */
+.exercise-svg-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black-1);
+  border: 1px solid var(--black-4);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  color: var(--text);
+}
+
+.exercise-svg-box svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   10. ANIMAZIONI (Fade-in, shake, pulse, scintille)
+   ========================================================================== */
+@keyframes viewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shakeWrong {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-6px);
+  }
+  40%, 80% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes pulseCorrect {
+  0% {
+    box-shadow: 0 0 0 var(--transparent);
+  }
+  50% {
+    box-shadow: 0 0 22px var(--ok-glow);
+  }
+  100% {
+    box-shadow: 0 0 16px var(--ok-glow);
+  }
+}
+
+/* Effetto Scintille (12-16 span generati in JS) */
+.sparks-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.spark-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--ok);
+  box-shadow: 0 0 8px var(--ok), 0 0 12px var(--blue-400);
+  transform: translate(-50%, -50%);
+  animation: sparkFly 0.8s ease-out forwards;
+}
+
+@keyframes sparkFly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2);
+  }
 }
 
 /* 404 Not Found */
@@ -597,15 +1302,79 @@ body {
 
 .not-found-code {
   font-size: 4rem;
-  font-weight: 900;
-  color: var(--color-primary);
+  font-weight: 800;
+  color: var(--blue-500);
+  text-shadow: 0 0 18px var(--blue-glow);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
 
 /* ==========================================================================
-   Desktop Layout (min-width: 768px)
+   11. RESPONSIVE E ACCESSIBILITÀ (Mobile first, 360px, desktop, reduced motion)
    ========================================================================== */
+/* Mobile fino a 640px: barra fissa in basso per gli esercizi */
+@media (max-width: 640px) {
+  .exercise-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--black-1);
+    border-top: 1px solid var(--black-4);
+    padding: 0.75rem 1rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 35;
+    box-shadow: 0 -4px 18px var(--black-overlay);
+  }
+
+  .main-content {
+    /* Spazio extra per evitare sovrapposizioni con la barra fissa */
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Dispositivi molto compatti (360px) */
+@media (max-width: 420px) {
+  .app-header {
+    padding: 0 0.75rem;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .hud-rank {
+    min-width: 100px;
+  }
+
+  .hud-progress-bar {
+    max-width: 90px;
+  }
+
+  .hud-rank-score {
+    display: none; /* Risparmia spazio su schermi strettissimi */
+  }
+
+  .stage-card {
+    padding-left: 3.8rem;
+  }
+
+  .stage-node-indicator {
+    left: 0.85rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .stage-node-num {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet e Desktop (min-width: 768px) */
 @media (min-width: 768px) {
   .menu-toggle {
     display: none; /* Sidebar fissa su desktop */
@@ -632,14 +1401,51 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .stages-path {
+    grid-template-columns: 1fr;
+  }
+
   .main-content {
-    padding: 2rem 2.5rem;
+    padding: 2rem 2.5rem 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
+  }
+}
+
+/* Rispetto delle preferenze di movimento ridotto */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .view-container {
+    animation: none !important;
+  }
+
+  .answer-input.is-wrong {
+    animation: none !important;
+  }
+
+  .feedback-box.is-correct {
+    animation: none !important;
+  }
+
+  .spark-particle {
+    display: none !important;
+  }
+
+  .btn-primary:active,
+  .btn-arcade-primary:active,
+  .btn-secondary:active,
+  .btn-arcade-secondary:active {
+    transform: none !important;
   }
 }
