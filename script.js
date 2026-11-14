@@ -58,27 +58,115 @@ const TOPICS = [
       {
         level: 1,
         title: "Riconoscere una frazione",
-        blueprint: "Individua la frazione corrispondente a una figura divisa in parti uguali o riconosce numeratore e denominatore.",
+        blueprint: "Una figura o situazione concreta divisa in parti uguali, da tradurre in frazione.",
         exercises: [
           {
             id: "frazioni-1-01",
-            text: "Una tavoletta di cioccolato è divisa in 8 quadretti uguali. Se ne mangi 3 quadretti, quale frazione della tavoletta hai mangiato?\nScrivi la frazione ridotta ai minimi termini (es. 3/8).",
+            text: "Una pizza margherita è tagliata in 8 fette uguali. Se durante la cena ne mangi 3 fette, quale frazione dell'intera pizza hai mangiato? Scrivi la risposta come frazione nel formato a/b.",
             answer: "3/8",
             accepted: [],
             tolerance: 0,
             exact: true,
-            explanation: "L'intero è diviso in 8 parti uguali (denominatore) e ne sono state mangiate 3 (numeratore). La frazione ridotta ai minimi termini è esattamente 3/8.",
+            explanation: "L'intera pizza è divisa in 8 parti uguali, che formano il denominatore. Avendo mangiato 3 fette (il numeratore), hai consumato i 3/8 della pizza.",
             table: null,
             svg: null
           },
           {
             id: "frazioni-1-02",
-            text: "A quale numero decimale corrisponde la frazione 1/4?\nPuoi rispondere come numero decimale (es. 0,25) oppure come percentuale (es. 25%).",
-            answer: "0,25",
-            accepted: ["1/4", "25%"],
-            tolerance: 0.0001,
-            exact: false,
-            explanation: "Dividendo il numeratore per il denominatore (1 ÷ 4) otteniamo 0,25, che equivale anche al 25% dell'intero o alla frazione 1/4.",
+            text: "Una tavoletta di cioccolato è formata da 10 quadretti uguali. Se regali a un amico 7 quadretti, quale frazione della tavoletta gli hai regalato? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "7/10",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il totale dei quadretti della tavoletta è 10 (denominatore) e le parti regalate sono 7 (numeratore). La frazione corrispondente è quindi 7/10.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-03",
+            text: "Su un vassoio ci sono 6 bicchieri uguali: 5 contengono spremuta d'arancia e 1 è vuoto. Quale frazione di tutti i bicchieri contiene spremuta? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "5/6",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Ci sono 6 bicchieri in tutto (denominatore) e 5 di essi contengono spremuta (numeratore). La frazione richiesta è 5/6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-04",
+            text: "In una classe di prima media ci sono 25 studenti in totale, di cui 13 portano gli occhiali da vista. Quale frazione degli studenti della classe porta gli occhiali? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "13/25",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "L'insieme completo della classe è composto da 25 alunni (denominatore). Il gruppo considerato è formato dai 13 studenti con gli occhiali (numeratore), quindi la frazione è 13/25.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-05",
+            text: "Una crostata alla marmellata è divisa in 7 fette uguali. A merenda vengono mangiate 4 fette. Quale frazione della crostata è rimasta? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "3/7",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "L'intera crostata corrisponde a 7/7. Sottraendo le 4 fette mangiate (4/7), rimangono 3 fette su 7, ovvero la frazione complementare 3/7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-06",
+            text: "Chiara sta leggendo un romanzo e finora ha completato i 5/9 delle pagine totali. Quale frazione del libro le resta ancora da leggere? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "4/9",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il libro intero rappresenta l'unità, cioè 9/9. Togliendo la parte già letta (5/9), resta da leggere la frazione complementare: 9/9 - 5/9 = 4/9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-07",
+            text: "Il serbatoio dello scooter di Luca è pieno per i 2/5 della sua capienza totale. Quale frazione del serbatoio è ancora vuota? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "3/5",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il serbatoio al massimo della capienza vale 5/5. Sottraendo la parte occupata dal carburante (2/5), la frazione complementare che rimane vuota è 5/5 - 2/5 = 3/5.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-08",
+            text: "Un disco circolare è suddiviso in 8 settori uguali tra loro. 5 di questi settori sono colorati di verde e i restanti sono bianchi. Quale frazione del disco è colorata di verde? Scrivi la risposta come frazione nel formato a/b.",
+            answer: "5/8",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il disco intero è diviso in 8 parti uguali, che indicano il denominatore. I settori colorati di verde sono 5 (il numeratore), perciò la frazione è 5/8.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-09",
+            text: "Un rettangolo è diviso in 12 quadratini uguali. 4 di questi quadratini sono colorati di blu. Quale frazione del rettangolo è colorata di blu? Scrivi la frazione ridotta ai minimi termini (es. 1/3).",
+            answer: "1/3",
+            accepted: ["4/12"],
+            tolerance: 0,
+            exact: true,
+            explanation: "I quadratini blu sono 4 su 12 totali, cioè 4/12. Dividendo sia il numeratore sia il denominatore per il loro Massimo Comune Divisore (4), otteniamo la frazione ridotta ai minimi termini 1/3.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-1-10",
+            text: "Un'ora è formata da 60 minuti. Che frazione di un'ora rappresentano 15 minuti? Scrivi la frazione ridotta ai minimi termini (es. 1/4).",
+            answer: "1/4",
+            accepted: ["15/60"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Poiché un'ora dura 60 minuti, 15 minuti corrispondono a 15/60. Semplificando la frazione dividendo numeratore e denominatore per 15 otteniamo 1/4, il classico 'quarto d'ora'.",
             table: null,
             svg: null
           }
@@ -87,8 +175,119 @@ const TOPICS = [
       {
         level: 2,
         title: "Confrontare frazioni",
-        blueprint: "Confronta due o più frazioni inserendo il simbolo di ordine corretto o riducendole allo stesso denominatore.",
-        exercises: []
+        blueprint: "Due frazioni con denominatori diversi, da ridurre a denominatore comune.",
+        exercises: [
+          {
+            id: "frazioni-2-01",
+            text: "Qual è la frazione maggiore tra 3/7 e 5/7?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "5/7",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Quando due frazioni hanno lo stesso denominatore, le parti hanno la stessa grandezza: è maggiore quella con il numeratore più grande. Quindi 5/7 è maggiore di 3/7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-02",
+            text: "Qual è la frazione minore tra 5/11 e 3/11?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "3/11",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Avendo lo stesso denominatore (11), le parti sono identiche per grandezza. La frazione con il numeratore minore rappresenta la quantità più piccola: 3/11 è minore di 5/11.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-03",
+            text: "Qual è la frazione maggiore tra 3/4 e 5/8?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "3/4",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Portiamo le frazioni allo stesso denominatore comune 8: moltiplicando per 2, 3/4 diventa 6/8. Poiché 6/8 è maggiore di 5/8, la frazione maggiore è 3/4.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-04",
+            text: "Qual è la frazione maggiore tra 2/3 e 6/9?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "uguali",
+            accepted: ["uguale"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Semplificando 6/9 (dividendo per 3) otteniamo 2/3, oppure moltiplicando numeratore e denominatore di 2/3 per 3 otteniamo 6/9. Le due frazioni hanno lo stesso valore, quindi sono uguali.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-05",
+            text: "Qual è la frazione minore tra 5/6 e 7/9?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "7/9",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Troviamo il minimo comune denominatore tra 6 e 9, che è 18. Riduciamo le frazioni: 5/6 = 15/18 e 7/9 = 14/18. Poiché 14/18 è minore di 15/18, la frazione minore è 7/9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-06",
+            text: "Qual è la frazione maggiore tra 2/3 e 3/4?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "3/4",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Riduciamo le frazioni al denominatore comune 12: 2/3 diventa 8/12 e 3/4 diventa 9/12. Confrontando i numeratori, 9/12 è maggiore di 8/12, quindi la frazione maggiore è 3/4.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-07",
+            text: "Qual è la frazione maggiore tra 6/8 e 9/12?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "uguali",
+            accepted: ["uguale"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Semplificando entrambe le frazioni ai minimi termini, 6/8 diventa 3/4 (dividendo per 2) e 9/12 diventa 3/4 (dividendo per 3). Avendo lo stesso valore ridotto, le due frazioni sono uguali.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-08",
+            text: "Qual è la frazione maggiore tra 3/5 e 5/8?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "5/8",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Portiamo entrambe le frazioni al denominatore comune 40: 3/5 = 24/40 e 5/8 = 25/40. Dato che 25/40 è più grande di 24/40, la frazione maggiore è 5/8.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-09",
+            text: "Qual è la frazione maggiore tra 4/7 e 5/9?\nRispondi scrivendo la frazione scelta così come compare nel testo, oppure scrivi \"uguali\" se hanno lo stesso valore.",
+            answer: "4/7",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il denominatore comune tra 7 e 9 è 63. Trasformiamo le frazioni: 4/7 = 36/63 e 5/9 = 35/63. Essendo 36/63 maggiore di 35/63, la frazione maggiore è 4/7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "frazioni-2-10",
+            text: "Qual è la frazione maggiore tra 2/3, 3/4 e 5/6?\nRispondi scrivendo la frazione scelta così come compare nel testo.",
+            answer: "5/6",
+            accepted: [],
+            tolerance: 0,
+            exact: true,
+            explanation: "Troviamo il minimo comune denominatore tra 3, 4 e 6, che è 12. Riduciamo tutte le frazioni: 2/3 = 8/12, 3/4 = 9/12 e 5/6 = 10/12. La frazione con il numeratore più alto è 10/12, quindi la maggiore è 5/6.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 3,
