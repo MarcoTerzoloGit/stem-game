@@ -19,8 +19,119 @@ const TOPICS = [
       {
         level: 1,
         title: "Operazione singola con numeri piccoli",
-        blueprint: "Calcola il risultato di una singola operazione fondamentale tra numeri interi entro il 100.",
-        exercises: []
+        blueprint: "Una sola operazione, due numeri, eventualmente con riporto.",
+        exercises: [
+          {
+            id: "numeri-1-01",
+            text: "In una scuola ci sono due scatole di matite colorate per le attività di disegno: la prima contiene 48 matite e la seconda ne contiene 37. Quante matite colorate ci sono in totale?\nInserisci solo il valore numerico del risultato.",
+            answer: "85",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo l'addizione in colonna 48 + 37. Sommiamo prima le unità: 8 + 7 = 15, quindi scriviamo 5 e riportiamo 1 decina. Ora sommiamo le decine con il riporto: 4 + 3 + 1 = 8. Il risultato finale è 85 matite.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-02",
+            text: "Per prepararsi a una gara di corsa campestre, Matteo ha programmato una sessione di allenamento di 74 minuti. Finora ha corso per 38 minuti. Quanti minuti gli mancano per completare l'allenamento?\nInserisci solo il valore numerico del risultato.",
+            answer: "36",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Mettiamo in colonna la sottrazione 74 - 38 partendo dalle unità. Poiché a 4 non possiamo togliere 8, chiediamo in prestito 1 decina (le 7 decine diventano 6 e le unità diventano 14): 14 - 8 = 6. Sottraiamo poi le decine rimaste: 6 - 3 = 3. Mancano quindi 36 minuti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-03",
+            text: "Durante le vacanze, la famiglia di Sara compie un viaggio in treno diviso in due tratte: la prima tratta è lunga 368 km e la seconda 275 km. Quanti chilometri percorrono in tutto?\nRisposta in km (inserisci solo il valore numerico).",
+            answer: "643",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Incolonniamo 368 + 275 e calcoliamo da destra a sinistra. Per le unità facciamo 8 + 5 = 13: scriviamo 3 e riportiamo 1 alle decine. Per le decine sommiamo 6 + 7 + 1 = 14: scriviamo 4 e riportiamo 1 alle centinaia. Infine per le centinaia abbiamo 3 + 2 + 1 = 6, per un totale di 643 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-04",
+            text: "Nel suo salvadanaio Marco ha messo da parte 452 euro. Per acquistare una mountain bike spende 278 euro. Quanti euro gli rimangono nel salvadanaio?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "174",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo la sottrazione in colonna 452 - 278. Alle unità 2 non basta per togliere 8, quindi prendiamo in prestito 1 decina (le decine diventano 4) e calcoliamo 12 - 8 = 4. Alle decine 4 non basta per togliere 7, quindi chiediamo 1 centinaio (le centinaia diventano 3) e calcoliamo 14 - 7 = 7. Infine alle centinaia calcoliamo 3 - 2 = 1: a Marco rimangono 174 euro.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-05",
+            text: "Al teatro comunale si svolgono due spettacoli musicali per beneficenza: alla prima recita assistono 1485 spettatori e alla seconda 1768 spettatori. Quanti spettatori hanno assistito complessivamente ai due spettacoli?\nInserisci solo il valore numerico del risultato.",
+            answer: "3253",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sommiamo in colonna 1485 + 1768 partendo dalle unità: 5 + 8 = 13, scriviamo 3 e riportiamo 1. Alle decine: 8 + 6 + 1 = 15, scriviamo 5 e riportiamo 1. Alle centinaia: 4 + 7 + 1 = 12, scriviamo 2 e riportiamo 1. Alle migliaia: 1 + 1 + 1 = 3, ottenendo in totale 3253 spettatori.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-06",
+            text: "Un pasticciere ha aperto una confezione da 904 grammi di zucchero a velo. Ne preleva 368 grammi per guarnire dei croissant. Quanti grammi di zucchero a velo restano nella confezione?\nRisposta in g (inserisci solo il valore numerico).",
+            answer: "536",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo in colonna 904 - 368 affrontando il prestito con lo zero. Alle unità non possiamo togliere 8 da 4 e le decine sono 0: prendiamo 1 prestito dalle 9 centinaia (che diventano 8 centinaia e 10 decine), e poi 1 decina per le unità (rimangono 9 decine e abbiamo 14 unità). Calcoliamo ora le singole colonne: 14 - 8 = 6 alle unità, 9 - 6 = 3 alle decine e 8 - 3 = 5 alle centinaia. Restano quindi 536 grammi di zucchero.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-07",
+            text: "Per la festa di fine anno della scuola vengono acquistate 6 scatole di biscotti artigianali. Ciascuna scatola contiene 235 biscotti. Quanti biscotti sono stati acquistati in tutto?\nInserisci solo il valore numerico del risultato.",
+            answer: "1410",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Moltiplichiamo in colonna 235 per 6 cifra per cifra. Moltiplichiamo le unità: 6 × 5 = 30, scriviamo 0 e riportiamo 3 decine. Moltiplichiamo le decine: 6 × 3 = 18, aggiungiamo il riporto 3 ottenendo 21, scriviamo 1 e riportiamo 2 centinaia. Infine alle centinaia facciamo 6 × 2 = 12, più 2 di riporto fa 14: il totale è 1410 biscotti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-08",
+            text: "In una tribuna di un palazzetto dello sport ci sono 34 file di poltroncine, e ciascuna fila conta 26 posti a sedere. Quanti posti a sedere ci sono complessivamente nella tribuna?\nInserisci solo il valore numerico del risultato.",
+            answer: "884",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Calcoliamo in colonna 34 × 26 usando i due prodotti parziali. Prima moltiplichiamo 34 per le 6 unità: 6 × 4 = 24 (scrivo 4 con riporto di 2) e 6 × 3 + 2 = 20, ottenendo 204. Poi moltiplichiamo 34 per le 2 decine scalando di un posto a sinistra: 2 × 4 = 8 e 2 × 3 = 6, ottenendo 68 decine (cioè 680). Sommiamo infine i due prodotti parziali: 204 + 680 = 884 posti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-09",
+            text: "Un insegnante di arte deve distribuire equamente 432 cartoncini da disegno tra 4 classi della scuola. Quanti cartoncini riceverà ogni classe?\nInserisci solo il valore numerico del risultato.",
+            answer: "108",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo la divisione in colonna 432 ÷ 4 cifra per cifra da sinistra. Il 4 nel 4 sta 1 volta con resto 0; abbassiamo il 3: il 4 nel 3 sta 0 volte, quindi scriviamo 0 al quoziente e teniamo resto 3. Abbassiamo il 2 ottenendo 32: il 4 nel 32 sta 8 volte esatte con resto 0. Ogni classe riceve quindi 108 cartoncini.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-1-10",
+            text: "Per partecipare a un soggiorno studio di una settimana, un gruppo di 24 ragazzi spende complessivamente 840 euro per il noleggio delle biciclette. Se la spesa viene divisa in parti uguali, quanti euro paga ciascun ragazzo?\nRisposta in euro (inserisci solo il valore numerico).",
+            answer: "35",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo la divisione in colonna 840 ÷ 24 con il divisore a due cifre. Consideriamo l'84: il 24 nell'84 è contenuto 3 volte (infatti 24 × 3 = 72), con un resto di 84 - 72 = 12. Abbassiamo lo 0 formando 120: il 24 nel 120 è contenuto esattamente 5 volte (24 × 5 = 120) con resto 0. Ciascun ragazzo paga quindi 35 euro.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 2,
@@ -1093,19 +1204,20 @@ function markExerciseSolved(exerciseId) {
 }
 
 function getRankInfo(solvedCount) {
-  if (solvedCount >= 250) return { rank: "Leggenda" };
-  if (solvedCount >= 120) return { rank: "Maestro" };
-  if (solvedCount >= 50) return { rank: "Esperto" };
-  if (solvedCount >= 10) return { rank: "Apprendista" };
-  return { rank: "Novizio" };
+  if (solvedCount >= 250) return { rank: "Leggenda", icon: "👑", tier: "leggenda" };
+  if (solvedCount >= 120) return { rank: "Maestro", icon: "💎", tier: "maestro" };
+  if (solvedCount >= 50) return { rank: "Esperto", icon: "🥇", tier: "esperto" };
+  if (solvedCount >= 10) return { rank: "Apprendista", icon: "🥈", tier: "apprendista" };
+  return { rank: "Novizio", icon: "🥉", tier: "novizio" };
 }
 
 function updateHudProgress() {
   if (!DOM.hudRankName) return;
   const solved = getSolvedExercises().length;
-  const { rank } = getRankInfo(solved);
+  const { rank, icon, tier } = getRankInfo(solved);
 
-  DOM.hudRankName.textContent = rank;
+  DOM.hudRankName.innerHTML = `<span class="hud-rank-icon" aria-hidden="true">${icon}</span><span>${rank}</span>`;
+  DOM.hudRankName.setAttribute("data-tier", tier);
   if (DOM.hudSolvedCount) DOM.hudSolvedCount.textContent = solved;
   if (DOM.hudTotalCount) DOM.hudTotalCount.textContent = TOTAL_APP_EXERCISES;
 
@@ -1114,7 +1226,35 @@ function updateHudProgress() {
   if (DOM.hudProgressBar) DOM.hudProgressBar.setAttribute("aria-valuenow", solved);
 }
 
-/* Effetto di gioco: scintille animate al completamento */
+/** Calcola statistiche di avanzamento per un intero argomento */
+function getTopicStats(topic) {
+  const solved = getSolvedExercises();
+  let total = 0;
+  let count = 0;
+  if (topic && Array.isArray(topic.levels)) {
+    topic.levels.forEach((lvl) => {
+      if (Array.isArray(lvl.exercises)) {
+        total += lvl.exercises.length;
+        lvl.exercises.forEach((ex) => {
+          if (solved.includes(ex.id)) count++;
+        });
+      }
+    });
+  }
+  return { total, solved: count };
+}
+
+/** Calcola statistiche di avanzamento per un singolo livello */
+function getLevelStats(level) {
+  const solved = getSolvedExercises();
+  const total = level && Array.isArray(level.exercises) ? level.exercises.length : 0;
+  const count = level && Array.isArray(level.exercises)
+    ? level.exercises.filter((ex) => solved.includes(ex.id)).length
+    : 0;
+  return { total, solved: count };
+}
+
+/* Effetto di gioco: esplosione festosa di coriandoli e scintille arcade */
 function triggerSparks(targetElement) {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     return;
@@ -1131,23 +1271,39 @@ function triggerSparks(targetElement) {
   container.setAttribute("aria-hidden", "true");
   document.body.appendChild(container);
 
-  const count = 14;
+  const colors = ["#10B981", "#F59E0B", "#06B6D4", "#EC4899", "#8B5CF6", "#3B82F6", "#FBBF24"];
+  const shapes = ["★", "◆", "▲", "●", "+"];
+  const count = 22;
+
   for (let i = 0; i < count; i++) {
     const spark = document.createElement("span");
     spark.className = "spark-particle";
-    const angle = (i / count) * 360 + (Math.random() * 24 - 12);
-    const distance = 45 + Math.random() * 55;
+    
+    // Angolo distribuito a 360° con leggera dispersione casuale
+    const angle = (i / count) * 360 + (Math.random() * 20 - 10);
+    const distance = 40 + Math.random() * 85;
     const rad = (angle * Math.PI) / 180;
     const dx = Math.cos(rad) * distance;
     const dy = Math.sin(rad) * distance;
-    const size = 4 + Math.random() * 4;
+    const color = colors[i % colors.length];
+    const isSymbol = Math.random() > 0.45;
 
     spark.style.setProperty("--dx", `${dx}px`);
     spark.style.setProperty("--dy", `${dy}px`);
-    spark.style.width = `${size}px`;
-    spark.style.height = `${size}px`;
     spark.style.left = `${originX}px`;
     spark.style.top = `${originY}px`;
+    spark.style.color = color;
+
+    if (isSymbol) {
+      spark.classList.add("spark-symbol");
+      spark.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+    } else {
+      const size = 6 + Math.random() * 6;
+      spark.style.width = `${size}px`;
+      spark.style.height = `${size}px`;
+      spark.style.backgroundColor = color;
+      spark.style.boxShadow = `0 0 10px ${color}`;
+    }
 
     container.appendChild(spark);
   }
@@ -1156,7 +1312,7 @@ function triggerSparks(targetElement) {
     if (container.parentNode) {
       container.parentNode.removeChild(container);
     }
-  }, 900);
+  }, 1000);
 }
 
 /* ==========================================================================
@@ -1455,35 +1611,211 @@ function announceForScreenReader(message) {
    ========================================================================== */
 
 /**
+ * Restituisce una grafica vettoriale SVG tematica per ciascuno dei 7 argomenti
+ */
+function getTopicSvg(topicId) {
+  switch (topicId) {
+    case "numeri":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="14" width="42" height="42" rx="10" fill="#F59E0B" fill-opacity="0.18" stroke="#F59E0B" stroke-width="2"/>
+          <text x="35" y="42" fill="#F59E0B" font-size="20" font-weight="900" text-anchor="middle" dominant-baseline="middle">12</text>
+          <rect x="64" y="14" width="42" height="42" rx="10" fill="#F59E0B" fill-opacity="0.28" stroke="#F59E0B" stroke-width="2"/>
+          <path d="M85 25V45M75 35H95" stroke="#FBBF24" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="14" y="64" width="42" height="42" rx="10" fill="#F59E0B" fill-opacity="0.28" stroke="#F59E0B" stroke-width="2"/>
+          <path d="M25 85H45" stroke="#FBBF24" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="64" y="64" width="42" height="42" rx="10" fill="#F59E0B" fill-opacity="0.18" stroke="#F59E0B" stroke-width="2"/>
+          <path d="M75 75L95 95M95 75L75 95" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      `;
+    case "frazioni":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="60" cy="60" r="46" stroke="#10B981" stroke-width="2.5" stroke-dasharray="5 4" fill="#10B981" fill-opacity="0.1"/>
+          <path d="M60 60 L60 14 A46 46 0 0 1 106 60 Z" fill="#10B981" fill-opacity="0.8" stroke="#10B981" stroke-width="2"/>
+          <path d="M60 60 L106 60 A46 46 0 0 1 60 106 Z" fill="#10B981" fill-opacity="0.45" stroke="#10B981" stroke-width="2"/>
+          <circle cx="60" cy="60" r="14" fill="#0B0F19" stroke="#34D399" stroke-width="2.5"/>
+          <text x="60" y="62" fill="#34D399" font-size="12" font-weight="900" text-anchor="middle" dominant-baseline="middle">%</text>
+        </svg>
+      `;
+    case "geometria":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="18,98 102,98 60,24" fill="#06B6D4" fill-opacity="0.18" stroke="#06B6D4" stroke-width="2.5"/>
+          <circle cx="60" cy="72" r="24" stroke="#38BDF8" stroke-width="2" stroke-dasharray="3 3"/>
+          <line x1="60" y1="24" x2="60" y2="98" stroke="#06B6D4" stroke-width="2" stroke-dasharray="3 3"/>
+          <rect x="53" y="91" width="7" height="7" fill="#06B6D4"/>
+          <circle cx="60" cy="24" r="4.5" fill="#38BDF8"/>
+          <circle cx="18" cy="98" r="4.5" fill="#38BDF8"/>
+          <circle cx="102" cy="98" r="4.5" fill="#38BDF8"/>
+        </svg>
+      `;
+    case "misure":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="42" width="92" height="36" rx="8" fill="#8B5CF6" fill-opacity="0.18" stroke="#8B5CF6" stroke-width="2.5"/>
+          <line x1="26" y1="42" x2="26" y2="58" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="38" y1="42" x2="38" y2="52" stroke="#A78BFA" stroke-width="1.5"/>
+          <line x1="50" y1="42" x2="50" y2="58" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="62" y1="42" x2="62" y2="52" stroke="#A78BFA" stroke-width="1.5"/>
+          <line x1="74" y1="42" x2="74" y2="58" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="86" y1="42" x2="86" y2="52" stroke="#A78BFA" stroke-width="1.5"/>
+          <line x1="96" y1="42" x2="96" y2="58" stroke="#C4B5FD" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="60" y="70" fill="#DDD6FE" font-size="10" font-weight="800" text-anchor="middle">cm · kg · L</text>
+        </svg>
+      `;
+    case "algebra":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="60" cy="60" r="46" fill="#EC4899" fill-opacity="0.12" stroke="#EC4899" stroke-width="2"/>
+          <path d="M36 74L50 46M50 74L36 46" stroke="#F472B6" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M58 56H68M58 64H68" stroke="#EC4899" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="84" cy="60" r="15" fill="#EC4899" fill-opacity="0.35" stroke="#F472B6" stroke-width="2.5"/>
+          <text x="84" y="65" fill="#FFF" font-size="14" font-weight="900" text-anchor="middle">?</text>
+        </svg>
+      `;
+    case "piano":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="16" y="16" width="88" height="88" rx="10" fill="#6366F1" fill-opacity="0.1" stroke="#6366F1" stroke-width="1.5"/>
+          <line x1="18" y1="60" x2="102" y2="60" stroke="#818CF8" stroke-width="2.5"/>
+          <line x1="60" y1="18" x2="60" y2="102" stroke="#818CF8" stroke-width="2.5"/>
+          <polygon points="102,56 108,60 102,64" fill="#818CF8"/>
+          <polygon points="56,18 60,12 64,18" fill="#818CF8"/>
+          <circle cx="82" cy="38" r="5.5" fill="#4F46E5" stroke="#C7D2FE" stroke-width="2.5"/>
+          <text x="84" y="32" fill="#C7D2FE" font-size="10" font-weight="800">(x, y)</text>
+        </svg>
+      `;
+    case "statistica":
+      return `
+        <svg class="topic-card-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="20" y="66" width="15" height="34" rx="3" fill="#14B8A6" fill-opacity="0.5" stroke="#14B8A6" stroke-width="2"/>
+          <rect x="42" y="44" width="15" height="56" rx="3" fill="#14B8A6" fill-opacity="0.75" stroke="#14B8A6" stroke-width="2"/>
+          <rect x="64" y="28" width="15" height="72" rx="3" fill="#14B8A6" fill-opacity="0.95" stroke="#14B8A6" stroke-width="2"/>
+          <rect x="86" y="52" width="15" height="48" rx="3" fill="#14B8A6" fill-opacity="0.6" stroke="#14B8A6" stroke-width="2"/>
+          <path d="M22 62 Q 46 36, 71 24 T 98 42" stroke="#2DD4BF" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <line x1="14" y1="100" x2="106" y2="100" stroke="#5EEAD4" stroke-width="2.5"/>
+        </svg>
+      `;
+    default:
+      return "";
+  }
+}
+
+/**
  * Vista Home: panoramica arcade con card per ciascuno dei 7 argomenti
  */
 function renderHome() {
   document.title = "MATH ARENA | Esercizi di matematica per livelli";
   announceForScreenReader("Pagina Home caricata.");
 
-  const topicsCardsHtml = TOPICS.map((topic) => `
-    <a href="#/${topic.id}" class="card topic-card">
-      <div class="card-header-line">
-        <span class="card-topic-badge"><span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number}</span>
-        <span class="card-badge-count">5 STAGE</span>
-      </div>
-      <h2 class="card-title">${topic.title}</h2>
-      <p class="card-description">${topic.description}</p>
-      <div class="card-footer-info">
-        <span>Esplora i 5 stage</span>
-        <span class="card-arrow" aria-hidden="true">→</span>
-      </div>
-    </a>
-  `).join("");
+  const solvedTotal = getSolvedExercises().length;
+  const { rank, icon } = getRankInfo(solvedTotal);
+
+  const topicsCardsHtml = TOPICS.map((topic) => {
+    const stats = getTopicStats(topic);
+    const hasContent = stats.total > 0;
+    const pct = hasContent ? Math.round((stats.solved / stats.total) * 100) : 0;
+    const isCompleted = hasContent && stats.solved === stats.total;
+
+    return `
+      <a href="#/${topic.id}" class="card topic-card topic-card--${topic.id}">
+        <div class="topic-card-body">
+          <div class="card-header-line">
+            <span class="card-topic-badge"><span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number}</span>
+            <span class="card-badge-count ${isCompleted ? "is-completed" : ""}">
+              ${hasContent ? (isCompleted ? "✔ COMPLETATO" : `${stats.solved}/${stats.total} RISOLTI`) : "5 STAGE"}
+            </span>
+          </div>
+          <h2 class="card-title">${topic.title}</h2>
+          <p class="card-description">${topic.description}</p>
+          ${
+            hasContent
+              ? `
+              <div class="topic-progress-wrap" aria-label="Progresso argomento: ${pct}%">
+                <div class="topic-progress-track">
+                  <div class="topic-progress-fill" style="width: ${pct}%;"></div>
+                </div>
+              </div>
+              `
+              : ""
+          }
+          <div class="card-footer-info">
+            <span>Esplora i 5 stage</span>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
+        </div>
+        <div class="topic-card-visual" aria-hidden="true">
+          ${getTopicSvg(topic.id)}
+        </div>
+      </a>
+    `;
+  }).join("");
 
   DOM.viewContainer.innerHTML = `
-    <header class="view-header">
-      <h1 class="view-title">MATH ARENA: SFIDE PER LIVELLI</h1>
-      <p class="view-subtitle">
-        Percorso arcade progressivo pensato per studenti di scuola primaria e secondaria di primo grado.
-        Seleziona uno dei 7 argomenti per iniziare ad allenarti e scalare i ranghi!
-      </p>
-    </header>
+    <!-- Hero Banner Gamificato -->
+    <section class="arena-hero-banner" aria-label="Benvenuto nell'Arena">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span>Scuola Primaria & Secondaria di 1° Grado</span>
+        </div>
+        <h1 class="hero-title">MATH ARENA: SFIDE PER LIVELLI</h1>
+        <p class="hero-subtitle">
+          Unisciti alla sfida arcade! Risolvi gli esercizi passo dopo passo, allena la mente e scala i ranghi da <strong>Novizio</strong> fino a <strong>Leggenda</strong> della matematica.
+        </p>
+        <div class="hero-stats-row">
+          <div class="hero-stat-pill">
+            <span class="hero-stat-icon">⚡</span>
+            <div class="hero-stat-text">
+              <span class="hero-stat-val">7</span>
+              <span class="hero-stat-lbl">Argomenti</span>
+            </div>
+          </div>
+          <div class="hero-stat-pill">
+            <span class="hero-stat-icon">🎮</span>
+            <div class="hero-stat-text">
+              <span class="hero-stat-val">35</span>
+              <span class="hero-stat-lbl">Stage Totali</span>
+            </div>
+          </div>
+          <div class="hero-stat-pill">
+            <span class="hero-stat-icon">${icon}</span>
+            <div class="hero-stat-text">
+              <span class="hero-stat-val">${solvedTotal} / ${TOTAL_APP_EXERCISES}</span>
+              <span class="hero-stat-lbl">Rango: ${rank}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-graphic" aria-hidden="true">
+        <svg class="hero-trophy-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="70" fill="url(#hero-trophy-glow)" fill-opacity="0.25"/>
+          <path d="M50 45H110V75C110 92 96 106 80 106C64 106 50 92 50 75V45Z" fill="url(#trophy-gold)" stroke="#FBBF24" stroke-width="3"/>
+          <path d="M50 55H36C30 55 26 60 26 66C26 76 34 85 45 87L50 87" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+          <path d="M110 55H124C130 55 134 60 134 66C134 76 126 85 115 87L110 87" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+          <rect x="74" y="106" width="12" height="22" fill="#F59E0B"/>
+          <rect x="58" y="128" width="44" height="12" rx="4" fill="#D97706" stroke="#FBBF24" stroke-width="2"/>
+          <polygon points="80,58 84,68 94,68 86,74 89,84 80,78 71,84 74,74 66,68 76,68" fill="#FFF"/>
+          <defs>
+            <radialGradient id="hero-trophy-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(80 80) rotate(90) scale(70)">
+              <stop stop-color="#F59E0B"/>
+              <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="trophy-gold" x1="50" y1="45" x2="110" y2="106" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FDE68A"/>
+              <stop offset="0.5" stop-color="#F59E0B"/>
+              <stop offset="1" stop-color="#D97706"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <div class="section-label">
+      <span>Seleziona un argomento per iniziare</span>
+      <span class="section-label-count">7 mondi disponibili</span>
+    </div>
 
     <section aria-label="Sezioni disponibili" class="cards-grid">
       ${topicsCardsHtml}
@@ -1492,37 +1824,51 @@ function renderHome() {
 }
 
 /**
- * Vista Argomento (Topic): mappa dei 5 livelli disposti in sequenza
+ * Vista Argomento (Topic): mappa dei 5 livelli disposti in sequenza arcade
  */
 function renderTopic(topic) {
   document.title = `${topic.title} | MATH ARENA`;
   announceForScreenReader(`Sezione ${topic.number}: ${topic.title} caricata.`);
 
+  const topicStats = getTopicStats(topic);
+
   const levelsCardsHtml = topic.levels.map((lvl) => {
     const rankLabel = STAGE_RANKS[lvl.level - 1] || "Novizio";
+    const lvlStats = getLevelStats(lvl);
+    const hasExercises = lvlStats.total > 0;
+    const isCompleted = hasExercises && lvlStats.solved === lvlStats.total;
+
+    // Genera 5 segmenti di cristallo di difficoltà
     const segments = [1, 2, 3, 4, 5].map((s) => `
       <span class="meter-segment ${s <= lvl.level ? "is-active" : ""}"></span>
     `).join("");
 
     return `
-      <a href="#/${topic.id}/${lvl.level}" class="card stage-card" data-stage="${lvl.level}">
-        <div class="stage-node-indicator" aria-hidden="true">
-          <span class="stage-node-num">${lvl.level}</span>
+      <a href="#/${topic.id}/${lvl.level}" class="card stage-card ${isCompleted ? "is-completed" : ""}" data-stage="${lvl.level}">
+        <div class="stage-node-indicator ${isCompleted ? "is-completed" : ""}" aria-hidden="true">
+          <span class="stage-node-num">${isCompleted ? "✔" : lvl.level}</span>
         </div>
-        <div class="card-header-line">
-          <span class="stage-rank-tag">${rankLabel}</span>
-          <div class="stage-difficulty" aria-label="Difficoltà ${lvl.level} su 5">
-            <span class="sr-only">Difficoltà ${lvl.level} su 5</span>
-            <div class="difficulty-meter" aria-hidden="true">
-              ${segments}
+        <div class="stage-card-content">
+          <div class="card-header-line">
+            <div class="stage-tags-group">
+              <span class="stage-rank-tag">${rankLabel}</span>
+              <span class="stage-counter-tag ${isCompleted ? "is-completed" : ""}">
+                ${hasExercises ? (isCompleted ? "✔ 10/10 RISOLTI" : `${lvlStats.solved}/${lvlStats.total} RISOLTI`) : "IN ARRIVO"}
+              </span>
+            </div>
+            <div class="stage-difficulty" aria-label="Difficoltà ${lvl.level} su 5">
+              <span class="sr-only">Difficoltà ${lvl.level} su 5</span>
+              <div class="difficulty-meter" aria-hidden="true">
+                ${segments}
+              </div>
             </div>
           </div>
-        </div>
-        <h2 class="card-title">Stage ${lvl.level}: ${lvl.title}</h2>
-        <p class="card-description">${lvl.blueprint}</p>
-        <div class="card-footer-info">
-          <span>Entra nello stage</span>
-          <span class="card-arrow" aria-hidden="true">→</span>
+          <h2 class="card-title">Stage ${lvl.level}: ${lvl.title}</h2>
+          <p class="card-description">${lvl.blueprint}</p>
+          <div class="card-footer-info">
+            <span>Entra nello stage</span>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
         </div>
       </a>
     `;
@@ -1537,13 +1883,24 @@ function renderTopic(topic) {
       </ol>
     </nav>
 
-    <header class="view-header">
-      <span class="badge-tag"><span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number}</span>
-      <h1 class="view-title">${topic.title}</h1>
-      <p class="view-subtitle">${topic.description}</p>
+    <header class="view-header topic-header-banner topic-header--${topic.id}">
+      <div class="topic-header-text">
+        <span class="badge-tag"><span aria-hidden="true">${topic.icon}</span> Argomento ${topic.number}</span>
+        <h1 class="view-title">${topic.title}</h1>
+        <p class="view-subtitle">${topic.description}</p>
+        ${
+          topicStats.total > 0
+            ? `<div class="topic-header-stat">Progresso argomento: <strong>${topicStats.solved}/${topicStats.total} esercizi completati</strong></div>`
+            : ""
+        }
+      </div>
+      <div class="topic-header-visual" aria-hidden="true">
+        ${getTopicSvg(topic.id)}
+      </div>
     </header>
 
     <div class="stages-path-container">
+      <div class="stages-path-track" aria-hidden="true"></div>
       <section aria-label="Percorso dei 5 stage" class="stages-path">
         ${levelsCardsHtml}
       </section>
@@ -1553,15 +1910,16 @@ function renderTopic(topic) {
 
 /**
  * Vista Livello (#/<topicId>/<livello>):
- * - Se exercises è vuoto: messaggio "Esercizi in arrivo".
- * - Altrimenti: mostra blueprint e griglia di card numerate (1, 2, 3...) con prime parole del testo.
- * - Pulsanti "Livello precedente" e "Livello successivo" (all'interno dello stesso argomento).
+ * - Blueprint mission briefing card
+ * - Griglia dei 10 esercizi con stato di completamento
+ * - Navigazione tra livelli
  */
 function renderLevel(topic, level) {
   document.title = `Livello ${level.level} - ${topic.title} | MATH ARENA`;
   announceForScreenReader(`Livello ${level.level}: ${level.title} caricato.`);
 
   const hasExercises = Array.isArray(level.exercises) && level.exercises.length > 0;
+  const lvlStats = getLevelStats(level);
 
   let exercisesSectionHtml = "";
   if (!hasExercises) {
@@ -1584,11 +1942,14 @@ function renderLevel(topic, level) {
         <a href="#/${topic.id}/${level.level}/${exNum}" class="level-exercise-card ${solved ? "is-solved" : ""}">
           <div class="level-exercise-card-header">
             <span class="level-exercise-num-badge">Esercizio ${exNum}</span>
-            <span class="exercise-status-icon" aria-hidden="true">${solved ? "✔" : "○"}</span>
+            <span class="exercise-status-badge ${solved ? "is-solved" : ""}">
+              <span class="exercise-status-icon" aria-hidden="true">${solved ? "✔" : "○"}</span>
+              <span>${solved ? "Risolto" : "Da fare"}</span>
+            </span>
           </div>
           <p class="level-exercise-snippet">${snippet}</p>
           <div class="level-exercise-card-footer">
-            <span>${solved ? "Risolto" : "Apri esercizio"}</span>
+            <span>${solved ? "Rivedi sfida" : "Inizia esercizio"}</span>
             <span aria-hidden="true">→</span>
           </div>
         </a>
@@ -1599,6 +1960,7 @@ function renderLevel(topic, level) {
       <section class="exercise-section" aria-label="Elenco esercizi del livello">
         <div class="section-label">
           <span>Esercizi disponibili (${level.exercises.length})</span>
+          <span class="section-label-count">${lvlStats.solved}/${lvlStats.total} Completati</span>
         </div>
         <div class="level-exercises-grid">
           ${cards}
@@ -1630,7 +1992,10 @@ function renderLevel(topic, level) {
     </header>
 
     <section class="blueprint-card" aria-label="Struttura del livello">
-      <div class="blueprint-label">Struttura tipo dell'esercizio (Blueprint)</div>
+      <div class="blueprint-header-row">
+        <span class="blueprint-icon" aria-hidden="true">🎯</span>
+        <div class="blueprint-label">Obiettivo del Livello (Blueprint)</div>
+      </div>
       <p class="blueprint-text">"${level.blueprint}"</p>
     </section>
 
@@ -1655,11 +2020,9 @@ function renderLevel(topic, level) {
 /**
  * Vista Esercizio (#/<topicId>/<livello>/<n>):
  * - Breadcrumb: Home > Sezione > Livello > Esercizio n
- * - Testo con a capo rispettati, eventuale tabella e eventuale SVG
- * - Form di risposta con pulsante "Controlla" (anche tasto Invio)
- * - Area feedback aria-live="polite" con "Corretto!" o "Non ancora, riprova"
- * - Pulsante "Mostra soluzione" con risposta corretta e spiegazione passo-passo
- * - Navigazione: Esercizio precedente/successivo (disabilitati ai bordi) e link "Torna all'elenco"
+ * - Testo formattato, eventuale tabella o SVG
+ * - Form con feedback aria-live="polite", pulsante controlla e soluzione
+ * - Navigazione con pulsanti 3D
  */
 function renderExercise(topic, level, exerciseIndex, exercise) {
   document.title = `Esercizio ${exerciseIndex} - Livello ${level.level} - ${topic.title} | MATH ARENA`;
@@ -1689,7 +2052,7 @@ function renderExercise(topic, level, exerciseIndex, exercise) {
     `;
   }
 
-  // SVG se presente (posizionato sotto il testo dell'esercizio)
+  // SVG se presente
   let svgHtml = "";
   if (exercise.svg) {
     svgHtml = `
@@ -1699,7 +2062,7 @@ function renderExercise(topic, level, exerciseIndex, exercise) {
     `;
   }
 
-  // Bottoni di navigazione tra esercizi: disabilitati ai bordi
+  // Bottoni di navigazione tra esercizi
   const prevEx = exerciseIndex > 1 ? exerciseIndex - 1 : null;
   const nextEx = exerciseIndex < level.exercises.length ? exerciseIndex + 1 : null;
 
@@ -1749,14 +2112,17 @@ function renderExercise(topic, level, exerciseIndex, exercise) {
             <span aria-hidden="true">✔</span>
           </button>
           <button type="button" id="btn-solution" class="btn-arcade btn-secondary">
-            <span>Mostra soluzione</span>
+            <span>Mostra spiegazione</span>
+            <span aria-hidden="true">💡</span>
           </button>
         </div>
 
         <div id="feedback-live" class="feedback-box" role="status" aria-live="polite"></div>
 
         <div id="solution-box" class="solution-box" aria-live="polite" hidden>
-          <div class="solution-header">💡 Risposta corretta e spiegazione</div>
+          <div class="solution-header">
+            <span aria-hidden="true">💡</span> Risposta corretta e spiegazione passo-passo
+          </div>
           <div class="solution-correct-answer">
             <strong>Risposta corretta:</strong> <span class="solution-answer-value">${exercise.answer}</span>
           </div>
@@ -1817,8 +2183,13 @@ function attachExerciseHandlers(exercise) {
       input.classList.add("is-correct");
       feedbackBox.classList.add("is-visible", "is-correct");
       feedbackBox.innerHTML = `
-        <span class="feedback-icon" aria-hidden="true">✔</span>
-        <strong>Corretto!</strong>
+        <div class="feedback-inner">
+          <span class="feedback-icon" aria-hidden="true">🎉</span>
+          <div>
+            <strong>Eccellente! Risposta corretta!</strong>
+            <p class="feedback-sub">Hai completato questa sfida con successo. Continua così!</p>
+          </div>
+        </div>
       `;
       announceForScreenReader("Corretto!");
       triggerSparks(input);
@@ -1828,8 +2199,13 @@ function attachExerciseHandlers(exercise) {
       input.classList.add("is-wrong");
       feedbackBox.classList.add("is-visible", "is-wrong");
       feedbackBox.innerHTML = `
-        <span class="feedback-icon" aria-hidden="true">✖</span>
-        <strong>Non ancora, riprova</strong>
+        <div class="feedback-inner">
+          <span class="feedback-icon" aria-hidden="true">💪</span>
+          <div>
+            <strong>Non ancora, riprova!</strong>
+            <p class="feedback-sub">Fai un altro tentativo, controlla bene i passaggi o consulta la spiegazione.</p>
+          </div>
+        </div>
       `;
       announceForScreenReader("Non ancora, riprova.");
     }
@@ -1855,11 +2231,11 @@ function attachExerciseHandlers(exercise) {
       if (isHidden) {
         solutionBox.removeAttribute("hidden");
         solutionBox.classList.add("is-visible");
-        solutionBtn.innerHTML = `<span>Nascondi soluzione</span>`;
+        solutionBtn.innerHTML = `<span>Nascondi spiegazione</span> <span aria-hidden="true">▲</span>`;
       } else {
         solutionBox.setAttribute("hidden", "");
         solutionBox.classList.remove("is-visible");
-        solutionBtn.innerHTML = `<span>Mostra soluzione</span>`;
+        solutionBtn.innerHTML = `<span>Mostra spiegazione</span> <span aria-hidden="true">💡</span>`;
       }
     });
   }
