@@ -1357,20 +1357,483 @@ const TOPICS = [
       {
         level: 2,
         title: "Area di poligoni",
-        blueprint: "Calcola l'area di triangoli e quadrilateri noti le misure di base, altezza o diagonali.",
-        exercises: []
+        blueprint: "Applicare la formula dell'area di quadrato, rettangolo o triangolo.",
+        exercises: [
+          {
+            id: "geometria-2-01",
+            text: "Un tassello di mosaico quadrato ha il lato di 7 cm.\nCalcola l'area del tassello in cm² (inserisci solo il valore numerico).",
+            answer: "49",
+            accepted: ["49"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del quadrato si calcola moltiplicando la misura del lato per se stessa: A = lato × lato = 7 × 7 = 49 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 220 180" width="220" height="180" role="img" aria-label="Quadrato con lato di 7 cm">
+  <rect x="50" y="30" width="120" height="120" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="110" y="22" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">7 cm</text>
+  <text x="30" y="95" fill="#94A3B8" font-size="13" text-anchor="middle">7 cm</text>
+  <text x="110" y="95" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-02",
+            text: "Un cartoncino rettangolare per un invito ha la base di 8 cm e l'altezza di 6 cm.\nCalcola l'area del cartoncino in cm² (inserisci solo il valore numerico).",
+            answer: "48",
+            accepted: ["48"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del rettangolo si ottiene moltiplicando la misura della base per quella dell'altezza: A = base × altezza = 8 × 6 = 48 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 280 160" width="280" height="160" role="img" aria-label="Rettangolo con base di 8 cm e altezza di 6 cm">
+  <rect x="40" y="30" width="200" height="100" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="140" y="22" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">8 cm</text>
+  <text x="24" y="85" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">6 cm</text>
+  <text x="140" y="85" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-03",
+            text: "Un ciondolo ha la forma di un triangolo con la base di 8 cm e l'altezza di 5 cm.\nCalcola l'area del ciondolo in cm² (inserisci solo il valore numerico).",
+            answer: "20",
+            accepted: ["20"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del triangolo si calcola moltiplicando la base per l'altezza e dividendo il risultato per 2: A = (base × altezza) : 2 = (8 × 5) : 2 = 40 : 2 = 20 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Triangolo con base di 8 cm e altezza di 5 cm">
+  <polygon points="40,140 240,140 140,40" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <line x1="140" y1="40" x2="140" y2="140" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="140" y="128" width="12" height="12" fill="none" stroke="#64748B" stroke-width="1.5" />
+  <text x="140" y="160" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 8 cm</text>
+  <text x="175" y="90" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="start">h = 5 cm</text>
+  <text x="95" y="100" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-04",
+            text: "Il cortile di una scuola ha la forma quadrata con il lato lungo 15 m.\nCalcola l'area del cortile in m² (inserisci solo il valore numerico).",
+            answer: "225",
+            accepted: ["225"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per calcolare l'area del cortile quadrato moltiplichiamo la misura del lato per se stessa: A = 15 × 15 = 225 m².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-2-05",
+            text: "Un campo da basket rettangolare ha la base di 28 m e l'altezza di 15 m.\nCalcola l'area del campo da gioco in m² (inserisci solo il valore numerico).",
+            answer: "420",
+            accepted: ["420"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del rettangolo è data dal prodotto delle due dimensioni: A = base × altezza = 28 × 15 = 420 m².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-2-06",
+            text: "Un'aiuola a forma di triangolo ha la base di 9 m e l'altezza di 7 m.\nCalcola l'area dell'aiuola in m² (inserisci solo il valore numerico).",
+            answer: "31.5",
+            accepted: ["31.5", "31,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Applichiamo la formula dell'area del triangolo moltiplicando base per altezza e dividendo per 2: A = (9 × 7) : 2 = 63 : 2 = 31,5 m².",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Triangolo con base di 9 m e altezza di 7 m">
+  <polygon points="40,140 240,140 170,35" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <line x1="170" y1="35" x2="170" y2="140" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="158" y="128" width="12" height="12" fill="none" stroke="#64748B" stroke-width="1.5" />
+  <text x="140" y="160" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 9 m</text>
+  <text x="185" y="85" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="start">h = 7 m</text>
+  <text x="105" y="100" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-07",
+            text: "Un cartellone pubblicitario rettangolare ha la base di 8,5 m e l'altezza di 5 m.\nCalcola l'area del cartellone in m² (inserisci solo il valore numerico).",
+            answer: "42.5",
+            accepted: ["42.5", "42,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Moltiplichiamo la base per l'altezza del rettangolo: A = base × altezza = 8,5 × 5 = 42,5 m².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-2-08",
+            text: "La vela di un modellino ha la forma di un triangolo con la base di 15 cm e l'altezza di 9 cm.\nCalcola l'area della vela in cm² (inserisci solo il valore numerico).",
+            answer: "67.5",
+            accepted: ["67.5", "67,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo l'area del triangolo moltiplicando la misura della base per l'altezza e dividendo il prodotto per 2: A = (15 × 9) : 2 = 135 : 2 = 67,5 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Triangolo rettangolo con base di 15 cm e altezza di 9 cm">
+  <polygon points="50,140 230,140 50,30" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <rect x="50" y="126" width="14" height="14" fill="none" stroke="#64748B" stroke-width="1.5" />
+  <text x="140" y="160" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 15 cm</text>
+  <text x="24" y="85" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">9 cm</text>
+  <text x="105" y="98" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-09",
+            text: "Un quadro rettangolare ha un'area di 96 cm² e la base lunga 12 cm.\nQuanto misura l'altezza del quadro in cm? (inserisci solo il valore numerico).",
+            answer: "8",
+            accepted: ["8"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per trovare l'altezza del rettangolo usiamo la formula inversa dividendo l'area per la base: altezza = Area : base = 96 : 12 = 8 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 160" width="280" height="160" role="img" aria-label="Rettangolo con area di 96 cm², base di 12 cm e altezza incognita">
+  <rect x="40" y="25" width="200" height="95" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="140" y="18" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 12 cm</text>
+  <text x="24" y="78" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">h = ?</text>
+  <text x="140" y="78" fill="#94A3B8" font-size="14" font-weight="500" text-anchor="middle">Area = 96 cm²</text>
+</svg>`
+          },
+          {
+            id: "geometria-2-10",
+            text: "Un timpano triangolare sulla facciata di un edificio ha un'area di 30 m² e la base di 8 m.\nQuanto misura l'altezza del timpano in metri? (inserisci solo il valore numerico).",
+            answer: "7.5",
+            accepted: ["7.5", "7,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per trovare l'altezza del triangolo usiamo la formula inversa raddoppiando l'area e dividendo per la base: altezza = (2 × Area) : base = (2 × 30) : 8 = 60 : 8 = 7,5 m.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Triangolo con area di 30 m², base di 8 m e altezza incognita">
+  <polygon points="40,140 240,140 130,35" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <line x1="130" y1="35" x2="130" y2="140" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="130" y="128" width="12" height="12" fill="none" stroke="#64748B" stroke-width="1.5" />
+  <text x="140" y="160" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 8 m</text>
+  <text x="155" y="85" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="start">h = ?</text>
+  <text x="85" y="95" fill="#94A3B8" font-size="13" font-weight="500" text-anchor="middle">Area = 30 m²</text>
+</svg>`
+          }
+        ]
       },
       {
         level: 3,
         title: "Cerchio",
-        blueprint: "Determina la lunghezza della circonferenza o l'area del cerchio dato il raggio o il diametro.",
-        exercises: []
+        blueprint: "Calcolare circonferenza e area partendo dal raggio.",
+        exercises: [
+          {
+            id: "geometria-3-01",
+            text: "Un sottobicchiere circolare ha un raggio di 3 cm.\nCalcola la lunghezza della sua circonferenza in cm (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "18.84",
+            accepted: ["18.84", "18,84", "18.85", "18,85"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La formula per calcolare la circonferenza è C = 2 × π × r. Sostituendo i valori noti: C = 2 × 3,14 × 3 = 18,84 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cerchio con raggio di 3 cm e circonferenza incognita">
+  <circle cx="120" cy="95" r="55" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="120" cy="95" r="3.5" fill="#38BDF8" />
+  <line x1="120" y1="95" x2="175" y2="95" stroke="#38BDF8" stroke-width="2" />
+  <text x="148" y="87" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">r = 3 cm</text>
+  <text x="120" y="130" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">C = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-3-02",
+            text: "Un orologio da parete circolare ha un raggio di 5 cm.\nCalcola la misura della sua circonferenza in cm (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "31.4",
+            accepted: ["31.4", "31,4", "31.40", "31,40", "31.42", "31,42"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per calcolare la circonferenza applichiamo la formula C = 2 × π × r. Sostituendo le misure: C = 2 × 3,14 × 5 = 31,4 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-3-03",
+            text: "Un'aiuola circolare in un parco pubblico ha un raggio di 7 m.\nCalcola la lunghezza della bordura che la circonda in metri (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "43.96",
+            accepted: ["43.96", "43,96", "43.98", "43,98"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La bordura corrisponde alla circonferenza dell'aiuola calcolata con C = 2 × π × r. Sostituendo i valori: C = 2 × 3,14 × 7 = 43,96 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-3-04",
+            text: "Un coperchio circolare per un barattolo ha un diametro di 8 cm.\nCalcola la lunghezza della sua circonferenza in cm (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "25.12",
+            accepted: ["25.12", "25,12", "25.13", "25,13"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Dato il diametro, calcoliamo la circonferenza con la formula C = π × d. Sostituendo il valore del diametro: C = 3,14 × 8 = 25,12 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cerchio con diametro di 8 cm e circonferenza incognita">
+  <circle cx="120" cy="95" r="55" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="120" cy="95" r="3.5" fill="#38BDF8" />
+  <line x1="65" y1="95" x2="175" y2="95" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <text x="120" y="87" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">d = 8 cm</text>
+  <text x="120" y="130" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">C = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-3-05",
+            text: "La ruota circolare di un monopattino ha un diametro di 20 cm.\nCalcola la lunghezza della circonferenza della ruota in cm (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "62.8",
+            accepted: ["62.8", "62,8", "62.80", "62,80", "62.83", "62,83"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La circonferenza calcolata a partire dal diametro segue la formula C = π × d. Sostituendo i valori noti: C = 3,14 × 20 = 62,8 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-3-06",
+            text: "Un ciondolo rotondo in argento ha un raggio di 4 cm.\nCalcola l'area della sua superficie in cm² (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "50.24",
+            accepted: ["50.24", "50,24", "50.27", "50,27"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del cerchio si calcola con la formula A = π × r². Sostituendo la misura del raggio: A = 3,14 × 4² = 3,14 × 16 = 50,24 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cerchio con raggio di 4 cm e area incognita">
+  <circle cx="120" cy="95" r="55" fill="rgba(6, 182, 212, 0.15)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="120" cy="95" r="3.5" fill="#38BDF8" />
+  <line x1="120" y1="95" x2="175" y2="95" stroke="#38BDF8" stroke-width="2" />
+  <text x="148" y="87" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">r = 4 cm</text>
+  <text x="120" y="125" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-3-07",
+            text: "Una medaglia sportiva circolare ha un raggio di 5 cm.\nCalcola l'area della medaglia in cm² (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "78.5",
+            accepted: ["78.5", "78,5", "78.50", "78,50", "78.54", "78,54"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area del cerchio si ottiene moltiplicando pi greco per il raggio al quadrato: A = π × r². Sostituendo i dati: A = 3,14 × 5² = 3,14 × 25 = 78,5 cm².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-3-08",
+            text: "Un bersaglio circolare per le freccette ha un raggio di 10 cm.\nCalcola l'area totale del bersaglio in cm² (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "314",
+            accepted: ["314", "314.0", "314,0", "314.16", "314,16"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo l'area con la formula A = π × r². Sostituendo il raggio: A = 3,14 × 10² = 3,14 × 100 = 314 cm².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-3-09",
+            text: "Uno specchio circolare da parete ha un diametro di 12 cm.\nCalcola l'area dello specchio in cm² (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "113.04",
+            accepted: ["113.04", "113,04", "113.10", "113,10", "113.1"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Troviamo prima il raggio dividendo il diametro per 2: r = 12 : 2 = 6 cm. Applichiamo quindi la formula dell'area: A = π × r² = 3,14 × 6² = 3,14 × 36 = 113,04 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cerchio con diametro di 12 cm e area incognita">
+  <circle cx="120" cy="95" r="55" fill="rgba(6, 182, 212, 0.15)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="120" cy="95" r="3.5" fill="#38BDF8" />
+  <line x1="65" y1="95" x2="175" y2="95" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <text x="120" y="87" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">d = 12 cm</text>
+  <text x="120" y="125" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">Area = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-3-10",
+            text: "Una pista circolare per go-kart ha una recinzione esterna lunga 50,24 m.\nQuanto misura il raggio della pista in metri? (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "8",
+            accepted: ["8", "8.0", "8,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per ricavare il raggio dalla circonferenza usiamo la formula inversa r = C : (2 × π). Sostituendo i dati noti: r = 50,24 : (2 × 3,14) = 50,24 : 6,28 = 8 m.",
+            table: null,
+            svg: `<svg viewBox="0 0 260 180" width="260" height="180" role="img" aria-label="Cerchio con circonferenza di 50,24 m e raggio incognito">
+  <circle cx="130" cy="100" r="55" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="130" cy="100" r="3.5" fill="#38BDF8" />
+  <line x1="130" y1="100" x2="185" y2="100" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" />
+  <text x="158" y="92" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">r = ?</text>
+  <text x="130" y="32" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">Circonferenza = 50,24 m</text>
+</svg>`
+          }
+        ]
       },
       {
         level: 4,
         title: "Solidi",
-        blueprint: "Calcola il volume o l'area della superficie totale di cubi e parallelepipedi retti.",
-        exercises: []
+        blueprint: "Volume e superficie totale di un solido semplice.",
+        exercises: [
+          {
+            id: "geometria-4-01",
+            text: "Un dado da gioco a forma di cubo ha lo spigolo di 3 cm.\nCalcola il volume del cubo in cm³ (inserisci solo il valore numerico).",
+            answer: "27",
+            accepted: ["27", "27.0", "27,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il volume del cubo si calcola elevando lo spigolo alla terza potenza con la formula V = s³. Sostituendo la misura nota: V = 3³ = 3 × 3 × 3 = 27 cm³.",
+            table: null,
+            svg: `<svg viewBox="0 0 260 180" width="260" height="180" role="img" aria-label="Cubo con spigolo di 3 cm e volume incognito">
+  <polygon points="70,65 115,35 185,35 140,65" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="140,65 185,35 185,115 140,145" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="70,65 140,65 140,145 70,145" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <line x1="70" y1="145" x2="115" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="115" y1="35" x2="115" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="115" y1="115" x2="185" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="105" y="165" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">s = 3 cm</text>
+  <text x="105" y="110" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">V = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-4-02",
+            text: "Una scatola di latta a forma di cubo ha lo spigolo lungo 5 cm.\nCalcola il volume della scatola in cm³ (inserisci solo il valore numerico).",
+            answer: "125",
+            accepted: ["125", "125.0", "125,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per trovare il volume del cubo si applica la formula V = s³ (spigolo al cubo). Moltiplichiamo quindi la misura dello spigolo per se stessa tre volte: V = 5³ = 5 × 5 × 5 = 125 cm³.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-4-03",
+            text: "Un blocco di legno a forma di cubo ha lo spigolo di 4 cm.\nCalcola l'area della superficie totale del cubo in cm² (inserisci solo il valore numerico).",
+            answer: "96",
+            accepted: ["96", "96.0", "96,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il cubo è composto da 6 facce quadrate uguali, quindi la formula per la superficie totale è S_t = 6 × s². Calcoliamo prima l'area di una faccia (s² = 4² = 16 cm²) e moltiplichiamo per 6: S_t = 6 × 16 = 96 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 260 180" width="260" height="180" role="img" aria-label="Cubo con spigolo di 4 cm e superficie totale incognita">
+  <polygon points="70,65 115,35 185,35 140,65" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="140,65 185,35 185,115 140,145" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="70,65 140,65 140,145 70,145" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <line x1="70" y1="145" x2="115" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="115" y1="35" x2="115" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="115" y1="115" x2="185" y2="115" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="105" y="165" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">s = 4 cm</text>
+  <text x="105" y="110" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">S_t = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-4-04",
+            text: "Un contenitore per giochi a forma di cubo ha lo spigolo di 7 cm.\nCalcola l'area della superficie totale del contenitore in cm² (inserisci solo il valore numerico).",
+            answer: "294",
+            accepted: ["294", "294.0", "294,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area della superficie totale del cubo si calcola con la formula S_t = 6 × s². L'area di ciascuna faccia quadrata è s² = 7² = 49 cm²; moltiplicando per il numero delle facce otteniamo: S_t = 6 × 49 = 294 cm².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-4-05",
+            text: "Un astuccio a forma di parallelepipedo rettangolo ha la base lunga 8 cm e larga 5 cm, e un'altezza di 4 cm.\nCalcola il volume dell'astuccio in cm³ (inserisci solo il valore numerico).",
+            answer: "160",
+            accepted: ["160", "160.0", "160,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il volume del parallelepipedo rettangolo si calcola moltiplicando l'area di base per l'altezza con la formula V = A_b × h = a × b × c. Sostituendo le tre dimensioni: V = 8 × 5 × 4 = 160 cm³.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Parallelepipedo rettangolo con dimensioni 8 cm, 5 cm e 4 cm e volume incognito">
+  <polygon points="50,65 110,35 210,35 150,65" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="150,65 210,35 210,105 150,135" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="50,65 150,65 150,135 50,135" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <line x1="50" y1="135" x2="110" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="110" y1="35" x2="110" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="110" y1="105" x2="210" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="100" y="153" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">8 cm</text>
+  <text x="35" y="105" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">4 cm</text>
+  <text x="195" y="45" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">5 cm</text>
+  <text x="100" y="102" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">V = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-4-06",
+            text: "Una scatola di biscotti a forma di parallelepipedo rettangolo ha le dimensioni di 12 cm, 6 cm e 5 cm.\nCalcola il volume della scatola in cm³ (inserisci solo il valore numerico).",
+            answer: "360",
+            accepted: ["360", "360.0", "360,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il volume del parallelepipedo rettangolo si ottiene applicando la formula V = a × b × c (prodotto delle tre dimensioni). Sostituendo le misure assegnate: V = 12 × 6 × 5 = 72 × 5 = 360 cm³.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-4-07",
+            text: "Un cofanetto per profumo a forma di parallelepipedo rettangolo misura 6 cm di lunghezza, 4 cm di larghezza e 3 cm di altezza.\nCalcola l'area della superficie totale del cofanetto in cm² (inserisci solo il valore numerico).",
+            answer: "108",
+            accepted: ["108", "108.0", "108,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "L'area della superficie totale si trova con la formula S_t = 2 × (a×b + b×c + a×c), oppure sommando l'area laterale e le due basi: S_t = S_l + 2 × A_b. L'area laterale è S_l = 2 × (6 + 4) × 3 = 60 cm² e le due basi misurano 2 × (6 × 4) = 48 cm², quindi S_t = 60 + 48 = 108 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Parallelepipedo rettangolo con dimensioni 6 cm, 4 cm e 3 cm e superficie totale incognita">
+  <polygon points="50,65 110,35 210,35 150,65" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="150,65 210,35 210,105 150,135" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="50,65 150,65 150,135 50,135" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <line x1="50" y1="135" x2="110" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="110" y1="35" x2="110" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <line x1="110" y1="105" x2="210" y2="105" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="100" y="153" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">6 cm</text>
+  <text x="35" y="105" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">3 cm</text>
+  <text x="195" y="45" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">4 cm</text>
+  <text x="100" y="102" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">S_t = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-4-08",
+            text: "Una scatola di cartone a forma di parallelepipedo rettangolo ha la base che misura 10 cm per 5 cm e un'altezza di 8 cm.\nCalcola l'area della superficie totale della scatola in cm² (inserisci solo il valore numerico).",
+            answer: "340",
+            accepted: ["340", "340.0", "340,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La superficie totale del parallelepipedo rettangolo si calcola con la formula S_t = S_l + 2 × A_b, dove S_l = 2 × (a + b) × c e A_b = a × b. Calcoliamo l'area laterale S_l = 2 × (10 + 5) × 8 = 30 × 8 = 240 cm² e l'area delle due basi 2 × (10 × 5) = 100 cm²; sommando otteniamo: S_t = 240 + 100 = 340 cm².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-4-09",
+            text: "Un barattolo per conserve a forma di cilindro ha il raggio di base di 5 cm e l'altezza di 10 cm.\nCalcola il volume del cilindro in cm³ (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "785",
+            accepted: ["785", "785.0", "785,0", "785.4", "785,4", "785.40", "785,40"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il volume del cilindro si calcola con la formula V = A_b × h = π × r² × h. Calcoliamo prima l'area del cerchio di base: A_b = 3,14 × 5² = 3,14 × 25 = 78,5 cm². Moltiplichiamo quindi per l'altezza: V = 78,5 × 10 = 785 cm³.",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cilindro con raggio di base 5 cm, altezza 10 cm e volume incognito">
+  <path d="M 65 45 L 65 135 A 55 18 0 0 0 175 135 L 175 45" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2" />
+  <path d="M 65 135 A 55 18 0 0 1 175 135" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <ellipse cx="120" cy="45" rx="55" ry="18" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" />
+  <circle cx="120" cy="45" r="3" fill="#38BDF8" />
+  <line x1="120" y1="45" x2="175" y2="45" stroke="#38BDF8" stroke-width="2" />
+  <text x="148" y="38" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">r = 5 cm</text>
+  <text x="45" y="95" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">h = 10 cm</text>
+  <text x="120" y="100" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">V = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-4-10",
+            text: "Una candela decorativa a forma di cilindro ha il raggio di base di 3 cm e l'altezza di 7 cm.\nCalcola l'area della superficie totale del cilindro in cm² (usa π = 3,14; inserisci solo il valore numerico).",
+            answer: "188.4",
+            accepted: ["188.4", "188,4", "188.40", "188,40", "188.5", "188,5", "188.50", "188,50"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La superficie totale del cilindro si calcola sommando l'area laterale e le due basi con le formule S_l = 2 × π × r × h, A_b = π × r² e S_t = S_l + 2 × A_b. L'area laterale è S_l = 2 × 3,14 × 3 × 7 = 131,88 cm²; l'area delle due basi è 2 × (3,14 × 3²) = 2 × 28,26 = 56,52 cm². Otteniamo quindi S_t = 131,88 + 56,52 = 188,4 cm².",
+            table: null,
+            svg: `<svg viewBox="0 0 240 180" width="240" height="180" role="img" aria-label="Cilindro con raggio di base 3 cm, altezza 7 cm e superficie totale incognita">
+  <path d="M 65 45 L 65 135 A 55 18 0 0 0 175 135 L 175 45" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2" />
+  <path d="M 65 135 A 55 18 0 0 1 175 135" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4" />
+  <ellipse cx="120" cy="45" rx="55" ry="18" fill="rgba(6, 182, 212, 0.18)" stroke="#38BDF8" stroke-width="2" />
+  <circle cx="120" cy="45" r="3" fill="#38BDF8" />
+  <line x1="120" y1="45" x2="175" y2="45" stroke="#38BDF8" stroke-width="2" />
+  <text x="148" y="38" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">r = 3 cm</text>
+  <text x="45" y="95" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">h = 7 cm</text>
+  <text x="120" y="100" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">S_t = ?</text>
+</svg>`
+          }
+        ]
       },
       {
         level: 5,
