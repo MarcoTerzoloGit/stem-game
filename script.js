@@ -136,26 +136,470 @@ const TOPICS = [
       {
         level: 2,
         title: "Due operazioni e precedenze",
-        blueprint: "Risolvi una sequenza di due operazioni rispettando le regole di precedenza e l'eventuale uso di parentesi.",
-        exercises: []
+        blueprint: "Espressione con + e × (o − e ÷) senza parentesi.",
+        exercises: [
+          {
+            id: "numeri-2-01",
+            text: "Per la classe di disegno la maestra prepara 7 quaderni singoli e 4 confezioni da 6 pennarelli ciascuna. Per calcolare il materiale totale si usa l'espressione:\n7 + 4 × 6\nCalcola il risultato dell'espressione (inserisci solo il valore numerico).",
+            answer: "31",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "In un'espressione senza parentesi, la moltiplicazione ha sempre la precedenza rispetto all'addizione: eseguiamo prima 4 × 6 = 24. A questo punto calcoliamo 7 + 24, ottenendo come risultato finale 31.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-02",
+            text: "In pasticceria vengono sfornate 5 teglie contenenti ciascuna 8 biscotti alle mandorle, a cui si aggiungono 15 biscotti già pronti sul bancone. Per contare tutti i biscotti calcola il valore dell'espressione:\n5 × 8 + 15\nInserisci solo il valore numerico del risultato.",
+            answer: "55",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "La moltiplicazione ha la precedenza rispetto all'addizione: svolgiamo per prima l'operazione 5 × 8 = 40. Infine sommiamo 40 + 15, ottenendo 55.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-03",
+            text: "Marco va al mercato con 50 euro nel portafoglio e compra 3 magliette sportive da 12 euro ciascuna. Per scoprire quanti euro gli rimangono risolvi l'espressione:\n50 − 3 × 12\nInserisci solo il valore numerico del risultato.",
+            answer: "14",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "La moltiplicazione deve essere eseguita prima della sottrazione per la regola delle precedenze: calcoliamo prima 3 × 12 = 36. Successivamente sottraiamo questo valore da 50: 50 − 36 = 14.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-04",
+            text: "In una gara a quiz una squadra ottiene 9 risposte corrette da 7 punti ciascuna, ma subisce una penalità di 18 punti per il tempo scaduto. Per trovare il punteggio finale risolvi l'espressione:\n9 × 7 − 18\nInserisci solo il valore numerico del risultato.",
+            answer: "45",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo per prima la moltiplicazione poiché ha la precedenza sulla sottrazione: 9 × 7 = 63. Sottraiamo poi 18 dal risultato parziale calcolando 63 − 18 = 45.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-05",
+            text: "Un gruppo scout parte per un'escursione con una scorta di 60 bottigliette d'acqua. Durante la prima tappa distribuisce equamente 36 bottigliette tra i 4 capisquadra. L'espressione che indica le bottigliette rimaste è:\n60 − 36 ÷ 4\nCalcola il valore dell'espressione (inserisci solo il valore numerico).",
+            answer: "51",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Nelle precedenze aritmetiche, la divisione va sempre eseguita prima della sottrazione: calcoliamo innanzitutto 36 ÷ 4 = 9. Ora possiamo completare il calcolo con la sottrazione: 60 − 9 = 51.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-06",
+            text: "Un laboratorio artigianale produce 84 kg di marmellata che vengono confezionati in barattoli da 2 kg ciascuno. Se 15 di questi barattoli vengono subito venduti, per sapere quanti ne restano calcola il valore dell'espressione:\n84 ÷ 2 − 15\nInserisci solo il valore numerico del risultato.",
+            answer: "27",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "La divisione ha la precedenza rispetto alla sottrazione: svolgiamo prima l'operazione 84 ÷ 2 = 42. Infine eseguiamo la sottrazione calcolando 42 − 15 = 27.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-07",
+            text: "La biblioteca scolastica possiede 100 libri di narrativa. Durante la settimana distribuisce 72 libri in parti uguali tra 6 classi di studenti. Per determinare quanti libri restano disponibili calcola:\n100 − 72 ÷ 6\nInserisci solo il valore numerico del risultato.",
+            answer: "88",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "La divisione deve essere svolta per prima rispetto alla sottrazione: calcoliamo prima 72 ÷ 6 = 12. Successivamente completiamo il calcolo sottraendo 12 da 100: 100 − 12 = 88.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-08",
+            text: "Durante una sessione di allenamento in piscina, un nuotatore compie prima 15 vasche di riscaldamento e poi serie ripetute secondo l'espressione:\n15 + 18 ÷ 3 × 4\nCalcola il valore dell'espressione rispettando le precedenze (inserisci solo il valore numerico).",
+            answer: "39",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Moltiplicazioni e divisioni hanno la precedenza sulle addizioni e, avendo pari priorità tra loro, si svolgono nell'ordine in cui compaiono da sinistra a destra. Eseguiamo quindi prima la divisione 18 ÷ 3 = 6, poi la moltiplicazione 6 × 4 = 24 e infine l'addizione: 15 + 24 = 39.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-09",
+            text: "Per organizzare una festa di classe si acquistano 8 confezioni di succhi di frutta da 6 euro ciascuna e si applica un buono sconto calcolato dividendo 40 euro tra 5 persone. L'espressione della spesa finale è:\n8 × 6 − 40 ÷ 5\nCalcola il valore dell'espressione (inserisci solo il valore numerico).",
+            answer: "40",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Moltiplicazione e divisione hanno entrambe la precedenza sulla sottrazione e si eseguono per prime: calcoliamo 8 × 6 = 48 e 40 ÷ 5 = 8. Infine svolgiamo la sottrazione tra i due valori ottenuti: 48 − 8 = 40.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-2-10",
+            text: "Durante un viaggio in treno lungo una linea di 50 fermate totali, un convoglio rapido salta 4 tratte da 7 fermate ciascuna, ma include successivamente 12 fermate di coincidenza. L'espressione che indica le fermate effettuate è:\n50 − 4 × 7 + 12\nCalcola il valore dell'espressione rispettando le precedenze (inserisci solo il valore numerico).",
+            answer: "34",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per prima cosa eseguiamo la moltiplicazione, che ha la precedenza: 4 × 7 = 28. Rimangono una sottrazione e un'addizione, che hanno pari priorità e vanno quindi eseguite da sinistra a destra: calcoliamo prima 50 − 28 = 22 e infine 22 + 12 = 34.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 3,
         title: "Multipli e divisori (MCD e mcm)",
-        blueprint: "Determina il Massimo Comune Divisore o il minimo comune multiplo tra due o tre numeri naturali.",
-        exercises: []
+        blueprint: "Due numeri da scomporre in fattori primi, poi calcolo di MCD o mcm.",
+        exercises: [
+          {
+            id: "numeri-3-01",
+            text: "Il numero 47 è un numero primo? Rispondi sì o no.",
+            answer: "sì",
+            accepted: ["si", "sì"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Verifichiamo la divisibilità di 47 per i numeri primi minori della sua radice quadrata (2, 3, 5): non è pari, la somma delle cifre 4 + 7 = 11 non è multiplo di 3 e l'ultima cifra non è 0 né 5. Poiché 7² = 49 > 47, non ha altri divisori oltre a 1 e se stesso (la sua scomposizione in fattori primi è semplicemente 47 = 47), quindi è un numero primo.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-02",
+            text: "Calcola il Massimo Comune Divisore tra 18 e 30: MCD(18, 30).\nInserisci solo il valore numerico del risultato.",
+            answer: "6",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo entrambi i numeri in fattori primi: 18 = 2 · 3² e 30 = 2 · 3 · 5. Per calcolare il MCD moltiplichiamo solo i fattori comuni con l'esponente minore, cioè 2 e 3. Otteniamo quindi MCD(18, 30) = 2 · 3 = 6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-03",
+            text: "Calcola il Massimo Comune Divisore tra 36 e 48: MCD(36, 48).\nInserisci solo il valore numerico del risultato.",
+            answer: "12",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo in fattori primi: 36 = 2² · 3² e 48 = 2⁴ · 3. I fattori primi comuni presi con il minimo esponente sono 2² e 3. Calcoliamo quindi MCD(36, 48) = 2² · 3 = 4 · 3 = 12.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-04",
+            text: "Calcola il Massimo Comune Divisore tra 45 e 75: MCD(45, 75).\nInserisci solo il valore numerico del risultato.",
+            answer: "15",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo i due numeri in fattori primi: 45 = 3² · 5 e 75 = 3 · 5². Scegliamo i fattori comuni con l'esponente minore, che sono 3 e 5. Otteniamo quindi MCD(45, 75) = 3 · 5 = 15.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-05",
+            text: "Calcola il Massimo Comune Divisore tra 60 e 90: MCD(60, 90).\nInserisci solo il valore numerico del risultato.",
+            answer: "30",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo entrambi i numeri in fattori primi: 60 = 2² · 3 · 5 e 90 = 2 · 3² · 5. I fattori comuni presi con l'esponente minore sono 2, 3 e 5. Il risultato è MCD(60, 90) = 2 · 3 · 5 = 30.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-06",
+            text: "Calcola il minimo comune multiplo tra 8 e 12: mcm(8, 12).\nInserisci solo il valore numerico del risultato.",
+            answer: "24",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo i due numeri in fattori primi: 8 = 2³ e 12 = 2² · 3. Per trovare il mcm moltiplichiamo tutti i fattori primi, comuni e non comuni, ciascuno con il massimo esponente. Calcoliamo quindi mcm(8, 12) = 2³ · 3 = 8 · 3 = 24.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-07",
+            text: "Calcola il minimo comune multiplo tra 14 e 21: mcm(14, 21).\nInserisci solo il valore numerico del risultato.",
+            answer: "42",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo in fattori primi: 14 = 2 · 7 e 21 = 3 · 7. Moltiplichiamo i fattori comuni e non comuni presi una sola volta con il massimo esponente: 2, 3 e 7. Troviamo così mcm(14, 21) = 2 · 3 · 7 = 42.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-08",
+            text: "Calcola il minimo comune multiplo tra 20 e 24: mcm(20, 24).\nInserisci solo il valore numerico del risultato.",
+            answer: "120",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo i numeri in fattori primi: 20 = 2² · 5 e 24 = 2³ · 3. I fattori primi comuni e non comuni presi con il massimo esponente sono 2³, 3 e 5. Otteniamo mcm(20, 24) = 2³ · 3 · 5 = 8 · 3 · 5 = 120.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-09",
+            text: "Calcola il minimo comune multiplo tra 36 e 45: mcm(36, 45).\nInserisci solo il valore numerico del risultato.",
+            answer: "180",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scomponiamo in fattori primi: 36 = 2² · 3² e 45 = 3² · 5. Scegliamo tutti i fattori comuni e non comuni con il massimo esponente, cioè 2², 3² e 5. Calcoliamo quindi mcm(36, 45) = 2² · 3² · 5 = 4 · 9 · 5 = 180.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-3-10",
+            text: "Due autobus di linea partono contemporaneamente dal capolinea alle ore 8:00. Il primo autobus ripassa dal capolinea ogni 12 minuti, mentre il secondo autobus ripassa ogni 18 minuti. Dopo quanti minuti i due autobus si troveranno di nuovo insieme al capolinea per la prima volta?\nRisposta in minuti (inserisci solo il valore numerico).",
+            answer: "36",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Il tempo necessario perché i due autobus si ritrovino insieme è dato dal minimo comune multiplo tra 12 e 18. Scomponiamo i due numeri in fattori primi: 12 = 2² · 3 e 18 = 2 · 3². Prendiamo i fattori comuni e non comuni con l'esponente maggiore: mcm(12, 18) = 2² · 3² = 4 · 9 = 36 minuti.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 4,
         title: "Numeri relativi",
-        blueprint: "Esegui calcoli aritmetici con numeri interi relativi positivi e negativi.",
-        exercises: []
+        blueprint: "Più operazioni con numeri positivi e negativi, applicando la regola dei segni.",
+        exercises: [
+          {
+            id: "numeri-4-01",
+            text: "In un laboratorio scientifico una provetta si trova alla temperatura di (+5) °C. Inserita in una cella refrigerante, la sua temperatura subisce una variazione di (−12) °C. Per trovare la temperatura finale calcola:\n(+5) + (−12)\nRisposta in °C (inserisci solo il valore numerico intero).",
+            answer: "-7",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sommiamo due numeri con segni discordi: il risultato prende il segno del numero che ha valore assoluto maggiore (il segno meno di −12) e come valore la differenza tra i valori assoluti (12 − 5 = 7). Quindi (+5) + (−12) = −7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-02",
+            text: "In un videogioco di esplorazione, un personaggio scende prima in una grotta fino alla quota di (−9) metri e poi scende ancora di (−14) metri. La sua posizione finale si calcola con l'addizione:\n(−9) + (−14)\nRisposta in metri (inserisci solo il valore numerico intero).",
+            answer: "-23",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Quando sommiamo due numeri concordi negativi, il risultato mantiene il segno meno e ha come valore la somma dei loro valori assoluti: 9 + 14 = 23. Di conseguenza (−9) + (−14) = −23.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-03",
+            text: "Il bilancio della cassa di una cooperativa scolastica registra (+16) euro. Viene annullata una penale precedentemente conteggiata di 9 euro, operazione equivalente a sottrarre un importo negativo:\n(+16) − (−9)\nRisposta in euro (inserisci solo il valore numerico intero).",
+            answer: "25",
+            accepted: ["+25"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sottrarre un numero negativo equivale ad addizionare il suo opposto positivo: i due segni meno consecutivi diventano un segno più. Calcoliamo quindi (+16) − (−9) = 16 + 9 = 25.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-04",
+            text: "Durante un'escursione in montagna la temperatura dell'aria passa da (−7) °C a (−18) °C. La variazione complessiva segnata dal termometro si ottiene con la sottrazione:\n(−18) − (−7)\nRisposta in °C (inserisci solo il valore numerico intero).",
+            answer: "-11",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Trasformiamo la sottrazione in addizione sommando l'opposto: sottrarre (−7) equivale a sommare (+7), ottenendo (−18) + (+7). Poiché i numeri sono discordi, prendiamo il segno del numero con valore assoluto maggiore (−) e calcoliamo la differenza: 18 − 7 = 11, per cui il risultato è −11.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-05",
+            text: "In una gara di orienteering ogni errore di percorso comporta una penalità di (−6) punti. Se una squadra compie 4 errori consecutivi, il punteggio totale delle penalità si calcola moltiplicando:\n(+4) × (−6)\nInserisci solo il valore numerico intero del risultato.",
+            answer: "-24",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per la regola dei segni, il prodotto di due fattori con segni discordi (uno positivo e uno negativo) è sempre negativo. Moltiplichiamo i valori assoluti 4 × 6 = 24 e applichiamo il segno meno, ottenendo −24.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-06",
+            text: "In un'attività di economia a scuola viene annullata una serie di 7 perdite settimanali da (−8) euro ciascuna. L'operazione di compensazione nel bilancio è data dal prodotto:\n(−7) × (−8)\nInserisci solo il valore numerico intero del risultato.",
+            answer: "56",
+            accepted: ["+56"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per la regola dei segni, il prodotto di due numeri concordi negativi è positivo: 'meno per meno fa più'. Moltiplichiamo i valori assoluti 7 × 8 = 56, ottenendo come risultato +56 (o 56).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-07",
+            text: "Un debito complessivo di 54 euro per l'acquisto di materiale sportivo viene suddiviso equamente tra 6 studenti. La quota individuale di debito si determina con la divisione tra numeri relativi:\n(−54) ÷ (+6)\nInserisci solo il valore numerico intero del risultato.",
+            answer: "-9",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Nella divisione tra numeri relativi vale la stessa regola dei segni della moltiplicazione: dividendo due numeri con segni discordi il quoziente è negativo. Eseguiamo 54 ÷ 6 = 9 e attribuiamo il segno meno, ottenendo −9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-08",
+            text: "In una sfida di giochi matematici il punteggio di una manche speciale combina penalità e bonus secondo l'espressione:\n(−4) × (+5) + (+27)\nCalcola il risultato rispettando le precedenze delle operazioni (inserisci solo il valore numerico intero).",
+            answer: "7",
+            accepted: ["+7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Rispettiamo l'ordine delle operazioni eseguendo prima la moltiplicazione: (−4) × (+5) = −20, poiché il prodotto di segni discordi è negativo. Eseguiamo poi l'addizione: (−20) + (+27) = 7, sommando due numeri discordi in cui prevale il valore assoluto del numero positivo.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-09",
+            text: "Durante una prova di collaudo termico, la variazione di stato di un sensore elettronico è descritta dall'espressione:\n(−5) × (−6) − (+42)\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-12",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Eseguiamo per prima la moltiplicazione: il prodotto di due numeri concordi negativi è positivo, per cui (−5) × (−6) = +30. Completiamo con la sottrazione: (+30) − (+42) = 30 − 42 = −12, dato che sottraendo un valore maggiore si ottiene un numero negativo.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-4-10",
+            text: "In una simulazione sull'escursione termica nello spazio, la temperatura stimata per un modulo orbitante è espressa da:\n(−7) × (+4) − (−15)\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-13",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Risolviamo per prima la moltiplicazione: il prodotto di fattori con segni discordi è negativo, quindi (−7) × (+4) = −28. Successivamente affrontiamo la sottrazione: sottrarre un numero negativo equivale a sommare il suo opposto, ottenendo (−28) + 15 = −13.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 5,
         title: "Espressione complessa",
-        blueprint: "Risolvi un'espressione aritmetica completa con parentesi tonde, quadre e le quattro operazioni.",
-        exercises: []
+        blueprint: "Relativi, potenze, radici e parentesi annidate in un'unica espressione.",
+        exercises: [
+          {
+            id: "numeri-5-01",
+            text: "In un laboratorio di robotica a scuola, il percorso a ostacoli di un rover assegna un punteggio calcolato con la seguente espressione:\n7 × (2⁴ − 11) − 5²\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "10",
+            accepted: ["+10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze): calcoliamo prima le potenze 2⁴ = 16 e 5² = 25, ottenendo 7 × (16 − 11) − 25.\nPassaggio 2 (parentesi tonda): svolgiamo la sottrazione nella tonda (16 − 11) = 5, ottenendo 7 × 5 − 25.\nPassaggio 3 (moltiplicazione): eseguiamo la moltiplicazione 7 × 5 = 35, ottenendo 35 − 25.\nPassaggio 4 (sottrazione finale): completiamo l'operazione calcolando 35 − 25 = 10.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-02",
+            text: "Nel bilancio di fine trimestre del giornalino scolastico, il saldo contabile tra vendite e costi straordinari è espresso da:\n6 × (3² − 14) + 4²\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-14",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze): calcoliamo le potenze 3² = 9 e 4² = 16, ottenendo 6 × (9 − 14) + 16.\nPassaggio 2 (parentesi tonda): risolviamo la sottrazione nella tonda (9 − 14) = −5, ottenendo 6 × (−5) + 16.\nPassaggio 3 (moltiplicazione): applichiamo la regola dei segni calcolando 6 × (−5) = −30, ottenendo −30 + 16.\nPassaggio 4 (somma finale): completiamo l'addizione algebrica −30 + 16 = −14.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-03",
+            text: "In una gara di orienteering a cronometro, il distacco in secondi tra due concorrenti è determinato dall'espressione:\n(3⁴ − 17) ÷ 2³ − 15\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-7",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze): calcoliamo le potenze 3⁴ = 81 e 2³ = 8, ottenendo (81 − 17) ÷ 8 − 15.\nPassaggio 2 (parentesi tonda): eseguiamo la sottrazione nella tonda (81 − 17) = 64, ottenendo 64 ÷ 8 − 15.\nPassaggio 3 (divisione): svolgiamo la divisione 64 ÷ 8 = 8, ottenendo 8 − 15.\nPassaggio 4 (sottrazione finale): completiamo il calcolo tra numeri relativi 8 − 15 = −7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-04",
+            text: "In un laboratorio di pasticceria, la variazione di peso in grammi degli ingredienti dosati da una bilancia elettronica è data da:\n4 × (√36 − 11) + √121\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-9",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (radici quadrate): calcoliamo le radici esatte √36 = 6 e √121 = 11, ottenendo 4 × (6 − 11) + 11.\nPassaggio 2 (parentesi tonda): risolviamo la sottrazione nella tonda (6 − 11) = −5, ottenendo 4 × (−5) + 11.\nPassaggio 3 (moltiplicazione): moltiplichiamo con la regola dei segni 4 × (−5) = −20, ottenendo −20 + 11.\nPassaggio 4 (somma finale): completiamo l'addizione algebrica −20 + 11 = −9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-05",
+            text: "Durante il tragitto di una funivia alpina, la variazione di quota registrata da un altimetro digitale è indicata da:\n(√100 − 4) × (2³ − √81)\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-6",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (radici e potenze): calcoliamo le radici √100 = 10, √81 = 9 e la potenza 2³ = 8, ottenendo (10 − 4) × (8 − 9).\nPassaggio 2 (parentesi tonde): risolviamo le operazioni nelle due tonde (10 − 4) = 6 e (8 − 9) = −1, ottenendo 6 × (−1).\nPassaggio 3 (moltiplicazione finale): moltiplichiamo i due numeri concordando il segno 6 × (−1) = −6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-06",
+            text: "In una prova sui materiali condotta in una camera climatica, la temperatura finale in gradi Celsius è calcolata tramite:\n(5² − √81) ÷ (√64 − 10) − √25\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-13",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze e radici): calcoliamo 5² = 25, √81 = 9, √64 = 8 e √25 = 5, ottenendo (25 − 9) ÷ (8 − 10) − 5.\nPassaggio 2 (parentesi tonde): eseguiamo i calcoli nelle due tonde (25 − 9) = 16 e (8 − 10) = −2, ottenendo 16 ÷ (−2) − 5.\nPassaggio 3 (divisione): svolgiamo la divisione con la regola dei segni 16 ÷ (−2) = −8, ottenendo −8 − 5.\nPassaggio 4 (sottrazione finale): completiamo la somma di numeri concordi negativi −8 − 5 = −13.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-07",
+            text: "In un videogioco di avventura, il bilancio finale dei punti raccolti tra gemme e penalità è descritto da:\n[√81 − (2³ + 6)] × 5 − (−2)³\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-17",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze e radici interne): calcoliamo 2³ = 8, √81 = 9 e (−2)³ = −8, ottenendo [9 − (8 + 6)] × 5 − (−8).\nPassaggio 2 (parentesi tonda): risolviamo l'addizione nella tonda interna (8 + 6) = 14, ottenendo [9 − 14] × 5 − (−8).\nPassaggio 3 (parentesi quadra): eseguiamo la sottrazione dentro la quadra [9 − 14] = −5, ottenendo (−5) × 5 − (−8).\nPassaggio 4 (calcolo finale): moltiplichiamo (−5) × 5 = −25 e completiamo −25 − (−8) = −25 + 8 = −17.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-08",
+            text: "Al termine di una regata velica a tappe, la classifica combinata di un equipaggio è calcolata tramite l'espressione:\n[5 × (√25 − 8) + 4²] × 3 − (−2)³\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "11",
+            accepted: ["+11"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze e radici interne): calcoliamo √25 = 5, 4² = 16 e (−2)³ = −8, ottenendo [5 × (5 − 8) + 16] × 3 − (−8).\nPassaggio 2 (parentesi tonda): risolviamo la tonda interna (5 − 8) = −3, ottenendo [5 × (−3) + 16] × 3 − (−8).\nPassaggio 3 (parentesi quadra): svolgiamo la moltiplicazione 5 × (−3) = −15 e la somma [−15 + 16] = 1, ottenendo 1 × 3 − (−8).\nPassaggio 4 (calcolo finale): eseguiamo la moltiplicazione 1 × 3 = 3 e completiamo 3 − (−8) = 3 + 8 = 11.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-09",
+            text: "In una simulazione di traiettoria orbitale di una sonda spaziale, il disallineamento rispetto alla rotta è espresso da:\n[(−4)² − (2³ + √36)] × (−3) − (−2)⁴\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "-22",
+            accepted: [],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze e radici interne): calcoliamo (−4)² = 16, 2³ = 8, √36 = 6 e (−2)⁴ = 16, ottenendo [16 − (8 + 6)] × (−3) − 16.\nPassaggio 2 (parentesi tonda): calcoliamo l'addizione nella tonda interna (8 + 6) = 14, ottenendo [16 − 14] × (−3) − 16.\nPassaggio 3 (parentesi quadra): eseguiamo la sottrazione nella quadra [16 − 14] = 2, ottenendo 2 × (−3) − 16.\nPassaggio 4 (calcolo finale): moltiplichiamo con la regola dei segni 2 × (−3) = −6 e completiamo −6 − 16 = −22.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "numeri-5-10",
+            text: "Durante un'esplorazione oceanica con un batiscafo, la variazione netta di profondità in metri è calcolata tramite l'espressione:\n[√144 − 3 × (2⁴ − √100)] ÷ (−2) + [(−2)³ + √49]\nCalcola il valore dell'espressione (inserisci solo il valore numerico intero).",
+            answer: "2",
+            accepted: ["+2"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Passaggio 1 (potenze e radici interne): calcoliamo le radici e le potenze interne √144 = 12, 2⁴ = 16, √100 = 10, (−2)³ = −8 e √49 = 7, ottenendo [12 − 3 × (16 − 10)] ÷ (−2) + [−8 + 7].\nPassaggio 2 (parentesi tonda): risolviamo la tonda (16 − 10) = 6, ottenendo [12 − 3 × 6] ÷ (−2) + [−8 + 7].\nPassaggio 3 (parentesi quadre): nella prima quadra calcoliamo 12 − 18 = −6 e nella seconda [−8 + 7] = −1, ottenendo (−6) ÷ (−2) + (−1).\nPassaggio 4 (calcolo finale): eseguiamo la divisione (−6) ÷ (−2) = 3 e completiamo la somma algebrica 3 + (−1) = 2.",
+            table: null,
+            svg: null
+          }
+        ]
       }
     ]
   },
