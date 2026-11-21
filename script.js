@@ -1207,23 +1207,149 @@ const TOPICS = [
       {
         level: 1,
         title: "Perimetro con formula diretta",
-        blueprint: "Calcola il perimetro di un poligono regolare o semplice applicando direttamente la formula geometrica.",
+        blueprint: "Una figura semplice con le misure dei lati già date.",
         exercises: [
           {
             id: "geometria-1-01",
-            text: "Osserva la figura qui sotto che mostra un rettangolo con base di 8 cm e altezza di 5 cm.\nCalcola il perimetro del rettangolo in cm (inserisci solo il valore numerico).",
-            answer: "26",
-            accepted: ["26"],
-            tolerance: 0,
+            text: "Una fotografia rettangolare ha la base di 9 cm e l'altezza di 6 cm.\nCalcola il perimetro della fotografia in cm (inserisci solo il valore numerico).",
+            answer: "30",
+            accepted: ["30"],
+            tolerance: 0.01,
             exact: false,
-            explanation: "Il perimetro di un rettangolo si calcola sommando tutti i lati: P = 2 × (base + altezza) = 2 × (8 + 5) = 2 × 13 = 26 cm.",
+            explanation: "Il perimetro del rettangolo si calcola sommando il doppio della base e il doppio dell'altezza: P = 2 × (base + altezza) = 2 × (9 + 6) = 2 × 15 = 30 cm.",
             table: null,
-            svg: `<svg viewBox="0 0 280 150" width="280" height="150" role="img" aria-label="Rettangolo con base di 8 cm e altezza di 5 cm">
-  <rect x="35" y="25" width="200" height="95" fill="var(--black-2)" stroke="var(--blue-400)" stroke-width="3" rx="6" />
-  <text x="135" y="18" fill="var(--text)" font-size="14" font-weight="bold" text-anchor="middle">8 cm</text>
-  <text x="135" y="140" fill="var(--text-dim)" font-size="13" text-anchor="middle">8 cm</text>
-  <text x="20" y="78" fill="var(--text)" font-size="14" font-weight="bold" text-anchor="middle">5 cm</text>
-  <text x="250" y="78" fill="var(--text-dim)" font-size="13" text-anchor="middle">5 cm</text>
+            svg: `<svg viewBox="0 0 280 150" width="280" height="150" role="img" aria-label="Rettangolo con base di 9 cm e altezza di 6 cm">
+  <rect x="40" y="25" width="200" height="95" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="140" y="18" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">9 cm</text>
+  <text x="140" y="140" fill="#94A3B8" font-size="13" text-anchor="middle">9 cm</text>
+  <text x="24" y="78" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">6 cm</text>
+  <text x="256" y="78" fill="#94A3B8" font-size="13" text-anchor="middle">6 cm</text>
+</svg>`
+          },
+          {
+            id: "geometria-1-02",
+            text: "Una piastrella quadrata ha il lato di 8 cm.\nCalcola il perimetro della piastrella in cm (inserisci solo il valore numerico).",
+            answer: "32",
+            accepted: ["32"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il quadrato ha tutti e quattro i lati uguali. Per calcolare il perimetro moltiplichiamo la misura del lato per 4: P = 4 × lato = 4 × 8 = 32 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 220 180" width="220" height="180" role="img" aria-label="Quadrato con lato di 8 cm">
+  <rect x="50" y="30" width="120" height="120" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="110" y="22" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">8 cm</text>
+  <text x="30" y="95" fill="#94A3B8" font-size="13" text-anchor="middle">8 cm</text>
+  <text x="190" y="95" fill="#94A3B8" font-size="13" text-anchor="middle">8 cm</text>
+  <text x="110" y="168" fill="#94A3B8" font-size="13" text-anchor="middle">8 cm</text>
+</svg>`
+          },
+          {
+            id: "geometria-1-03",
+            text: "Un campo da pallavolo rettangolare ha la base di 18 m e l'altezza di 9 m.\nCalcola il perimetro del campo da gioco in metri (inserisci solo il valore numerico).",
+            answer: "54",
+            accepted: ["54"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il perimetro del rettangolo è la somma di tutti i suoi lati: P = 2 × (base + altezza) = 2 × (18 + 9) = 2 × 27 = 54 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-1-04",
+            text: "Un'aiuola triangolare ha i tre lati che misurano rispettivamente 7 m, 10 m e 12 m.\nCalcola il perimetro dell'aiuola in metri (inserisci solo il valore numerico).",
+            answer: "29",
+            accepted: ["29"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il perimetro di qualsiasi triangolo si calcola sommando la misura dei suoi tre lati: P = 7 + 10 + 12 = 29 m.",
+            table: null,
+            svg: `<svg viewBox="0 0 300 170" width="300" height="170" role="img" aria-label="Triangolo con lati di 7 m, 10 m e 12 m">
+  <polygon points="40,135 260,135 110,35" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="150" y="156" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">12 m</text>
+  <text x="62" y="80" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">7 m</text>
+  <text x="200" y="80" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">10 m</text>
+</svg>`
+          },
+          {
+            id: "geometria-1-05",
+            text: "Un cartoncino quadrato per origami ha il lato di 7,5 cm.\nCalcola il perimetro del cartoncino in cm (inserisci solo il valore numerico).",
+            answer: "30",
+            accepted: ["30", "30.0", "30,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Il perimetro del quadrato si calcola moltiplicando la misura del lato per 4: P = 4 × lato = 4 × 7,5 = 30 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-1-06",
+            text: "Un ciondolo ha la forma di un triangolo con i lati che misurano 4,5 cm, 6 cm e 7,5 cm.\nCalcola il perimetro del ciondolo in cm (inserisci solo il valore numerico).",
+            answer: "18",
+            accepted: ["18", "18.0", "18,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Sommiamo le misure dei tre lati del triangolo: P = 4,5 + 6 + 7,5 = 18 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 170" width="280" height="170" role="img" aria-label="Triangolo con lati di 4,5 cm, 6 cm e 7,5 cm">
+  <polygon points="50,135 230,135 50,35" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <rect x="50" y="120" width="15" height="15" fill="none" stroke="#64748B" stroke-width="1.5" />
+  <text x="140" y="156" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">6 cm</text>
+  <text x="24" y="90" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">4,5 cm</text>
+  <text x="155" y="75" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">7,5 cm</text>
+</svg>`
+          },
+          {
+            id: "geometria-1-07",
+            text: "Un pannello decorativo ha la forma di un esagono regolare con ciascun lato lungo 8 cm.\nCalcola il perimetro dell'esagono in cm (inserisci solo il valore numerico).",
+            answer: "48",
+            accepted: ["48"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Un esagono regolare ha 6 lati tutti congruenti. Il perimetro si calcola moltiplicando la misura del lato per 6: P = 6 × lato = 6 × 8 = 48 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 260 190" width="260" height="190" role="img" aria-label="Esagono regolare con lato di 8 cm">
+  <polygon points="195,95 163,151 97,151 65,95 97,39 163,39" fill="rgba(6, 182, 212, 0.1)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="130" y="28" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">8 cm</text>
+  <text x="130" y="172" fill="#94A3B8" font-size="13" text-anchor="middle">8 cm</text>
+</svg>`
+          },
+          {
+            id: "geometria-1-08",
+            text: "La copertina rettangolare di un libro ha la base di 14,5 cm e l'altezza di 21 cm.\nCalcola il perimetro della copertina in cm (inserisci solo il valore numerico).",
+            answer: "71",
+            accepted: ["71", "71.0", "71,0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Sommiamo base e altezza per trovare il semiperimetro: 14,5 + 21 = 35,5 cm. Moltiplichiamo quindi per 2 per ottenere il perimetro: P = 2 × 35,5 = 71 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-1-09",
+            text: "Un giardino quadrato è delimitato da una staccionata lunga in tutto 54 m.\nQuanto misura ciascun lato del giardino in metri? (inserisci solo il valore numerico).",
+            answer: "13.5",
+            accepted: ["13.5", "13,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Poiché il quadrato ha tutti e quattro i lati uguali, la formula inversa del perimetro è lato = P : 4. Calcoliamo quindi: 54 : 4 = 13,5 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-1-10",
+            text: "Un quadro rettangolare ha un perimetro di 38 cm e la base che misura 12 cm.\nQuanto misura l'altezza del quadro in cm? (inserisci solo il valore numerico).",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Calcoliamo prima il semiperimetro dividendo il perimetro per 2: 38 : 2 = 19 cm (somma di base e altezza). Sottraiamo poi la base nota: altezza = 19 - 12 = 7 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 160" width="280" height="160" role="img" aria-label="Rettangolo con perimetro 38 cm, base 12 cm e altezza incognita">
+  <rect x="40" y="25" width="200" height="95" fill="rgba(6, 182, 212, 0.08)" stroke="#38BDF8" stroke-width="2.5" rx="6" />
+  <text x="140" y="18" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">base = 12 cm</text>
+  <text x="24" y="78" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">h = ?</text>
+  <text x="140" y="78" fill="#94A3B8" font-size="14" font-weight="500" text-anchor="middle">Perimetro = 38 cm</text>
+  <text x="140" y="140" fill="#94A3B8" font-size="13" text-anchor="middle">12 cm</text>
 </svg>`
           }
         ]
