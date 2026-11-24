@@ -2362,7 +2362,118 @@ const TOPICS = [
         level: 4,
         title: "Proporzionalità diretta e inversa",
         blueprint: "Riconosci grandezze direttamente o inversamente proporzionali e calcola il valore mancante.",
-        exercises: []
+        exercises: [
+          {
+            id: "misure-4-01",
+            text: "Al mercato 5 kg di arance costano 7,50 €. Quanto costano 8 kg delle stesse arance?\nStabilisci il tipo di proporzionalità e inserisci il prezzo totale in euro (es. 12).",
+            answer: "12",
+            accepted: ["12", "12,00", "12.00"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità diretta: all'aumentare della quantità di arance acquistate, il costo totale aumenta nella stessa misura (il rapporto Prezzo / Quantità è costante: 7,50 ÷ 5 = 1,50 €/kg). Impostando la proporzione 5 : 7,50 = 8 : x, otteniamo x = (7,50 × 8) ÷ 5 = 60 ÷ 5 = 12 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-02",
+            text: "Per imbiancare un edificio scolastico, 4 operai impiegano 6 giorni di lavoro. Quanti giorni impiegherebbero 8 operai lavorando allo stesso ritmo?\nStabilisci il tipo di proporzionalità e inserisci il numero di giorni.",
+            answer: "3",
+            accepted: ["3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità inversa: aumentando il numero di operai, il tempo necessario per completare il lavoro diminuisce proporzionalmente (il prodotto Operai × Giorni è costante: 4 × 6 = 24). Con 8 operai: x = 24 ÷ 8 = 3 giorni.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-03",
+            text: "Considera un viaggio in automobile di lunghezza fissata (ad esempio 200 km). All'aumentare della velocità media dell'auto, il tempo impiegato per completare il tragitto diminuisce in proporzione.\nTra la velocità e il tempo di percorrenza c'è una proporzionalità diretta o inversa? Rispondi scrivendo 'diretta' oppure 'inversa'.",
+            answer: "inversa",
+            accepted: ["inversa"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Si tratta di una proporzionalità inversa: su un percorso di lunghezza fissata, il prodotto tra velocità e tempo è costante (spazio = v × t). Raddoppiando la velocità, il tempo necessario si dimezza.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-04",
+            text: "Un ciclista viaggia a velocità costante e percorre 36 km in 2 ore. Mantenendo la stessa andatura, quanti chilometri percorrerà in 5 ore?\nStabilisci il tipo di proporzionalità e inserisci i chilometri percorsi.",
+            answer: "90",
+            accepted: ["90"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità diretta: viaggiando a velocità costante, la distanza percorsa e il tempo impiegato aumentano nella stessa misura (il rapporto Distanza / Tempo è costante: 36 ÷ 2 = 18 km/h). In 5 ore il ciclista percorrerà x = 18 × 5 = 90 km (oppure dalla proporzione 36 : 2 = x : 5, da cui x = (36 × 5) ÷ 2 = 90 km).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-05",
+            text: "Per riempire una vasca, 2 rubinetti identici aperti contemporaneamente impiegano 18 ore. Se vengono aperti 6 rubinetti uguali ai primi, quante ore saranno necessarie per riempire la stessa vasca?\nStabilisci il tipo di proporzionalità e inserisci il numero di ore.",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità inversa: aumentando il numero di rubinetti con la stessa portata d'acqua, il tempo necessario per riempire la vasca diminuisce proporzionalmente (il prodotto Rubinetti × Ore è costante: 2 × 18 = 36). Con 6 rubinetti serviranno x = 36 ÷ 6 = 6 ore.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-06",
+            text: "Un treno viaggia a una velocità media di 120 km/h e collega due città in 3 ore. Se viaggiasse a una velocità media di 90 km/h, quante ore impiegherebbe per percorrere la stessa tratta?\nStabilisci il tipo di proporzionalità e inserisci le ore di viaggio.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità inversa: su un tragitto di lunghezza costante (120 × 3 = 360 km), al diminuire della velocità il tempo necessario aumenta in modo inversamente proporzionale (il prodotto Velocità × Tempo è costante: 360). Alla velocità di 90 km/h: x = 360 ÷ 90 = 4 ore.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-07",
+            text: "In un negozio il tessuto costa 14 € al metro. Se compri una lunghezza maggiore di stoffa, il costo complessivo da pagare aumenta nello stesso rapporto.\nTra la lunghezza del tessuto acquistato e il costo totale c'è una proporzionalità diretta o inversa? Rispondi scrivendo 'diretta' oppure 'inversa'.",
+            answer: "diretta",
+            accepted: ["diretta"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Si tratta di una proporzionalità diretta: raddoppiando o triplicando i metri di tessuto acquistati, anche la spesa totale raddoppia o triplica. Il rapporto Costo / Lunghezza è costante ed equivale al prezzo unitario (14 €/m).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-08",
+            text: "Un'automobile consuma 15 litri di carburante per percorrere 240 km in autostrada a velocità costante. Quanti litri consumerà per percorrere 400 km nelle stesse condizioni di guida?\nStabilisci il tipo di proporzionalità e inserisci i litri di carburante.",
+            answer: "25",
+            accepted: ["25"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità diretta: a parità di andatura, la distanza percorsa e il carburante consumato variano nello stesso rapporto (il consumo unitario è costante: 240 ÷ 15 = 16 km con 1 litro). Dalla proporzione 240 : 15 = 400 : x, ricaviamo x = (15 × 400) ÷ 240 = 6000 ÷ 240 = 25 litri.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-09",
+            text: "Una squadra di 6 giardinieri impiega 10 giorni per completare la potatura degli alberi di un parco cittadino. Se la squadra fosse composta da 15 giardinieri che lavorano allo stesso ritmo, quanti giorni impiegherebbe?\nStabilisci il tipo di proporzionalità e inserisci il numero di giorni.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità inversa: all'aumentare dei giardinieri al lavoro, il tempo richiesto per completare la potatura diminuisce in proporzione (il prodotto Giardinieri × Giorni è costante: 6 × 10 = 60). Con 15 giardinieri il tempo necessario sarà x = 60 ÷ 15 = 4 giorni.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-4-10",
+            text: "Un podista corre a ritmo costante e in 12 minuti percorre una distanza di 2400 metri. Mantenendo lo stesso ritmo di corsa, quanti metri percorrerà in 20 minuti?\nStabilisci il tipo di proporzionalità e inserisci i metri percorsi.",
+            answer: "4000",
+            accepted: ["4000"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si tratta di una proporzionalità diretta: correndo a velocità costante, il tempo trascorso e la distanza percorsa crescono in modo direttamente proporzionale (rapporto costante: 2400 ÷ 12 = 200 m/min). In 20 minuti percorrerà x = 200 × 20 = 4000 m (oppure impostando 2400 : 12 = x : 20, da cui x = (2400 × 20) ÷ 12 = 4000 m).",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 5,
