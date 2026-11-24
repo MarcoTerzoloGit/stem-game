@@ -1839,7 +1839,164 @@ const TOPICS = [
         level: 5,
         title: "Pitagora e figure combinate",
         blueprint: "Risolvi problemi geometrici con figure composte applicando il teorema di Pitagora.",
-        exercises: []
+        exercises: [
+          {
+            id: "geometria-5-01",
+            text: "Un triangolo rettangolo ha i cateti che misurano 3 cm e 4 cm.\nCalcola la lunghezza dell'ipotenusa in cm (inserisci solo il valore numerico).",
+            answer: "5",
+            accepted: ["5", "5.0", "5,0", "5.00", "5,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Applichiamo il teorema di Pitagora: l'ipotenusa è la radice quadrata della somma dei quadrati dei cateti. Calcoliamo i² = c₁² + c₂² = 3² + 4² = 9 + 16 = 25, quindi i = √25 = 5 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 260 200" width="260" height="200" role="img" aria-label="Triangolo rettangolo con cateti 3 cm e 4 cm e ipotenusa incognita">
+  <polygon points="40,160 200,160 40,40" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <rect x="40" y="145" width="15" height="15" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+  <text x="120" y="178" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">4 cm</text>
+  <text x="25" y="105" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">3 cm</text>
+  <text x="135" y="90" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">i = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-02",
+            text: "Un triangolo rettangolo ha i cateti lunghi 5 cm e 12 cm.\nCalcola la lunghezza dell'ipotenusa in cm (inserisci solo il valore numerico).",
+            answer: "13",
+            accepted: ["13", "13.0", "13,0", "13.00", "13,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Con il teorema di Pitagora calcoliamo i² = c₁² + c₂² = 5² + 12² = 25 + 144 = 169, quindi i = √169 = 13 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 200" width="280" height="200" role="img" aria-label="Triangolo rettangolo con cateti 5 cm e 12 cm e ipotenusa incognita">
+  <polygon points="30,170 250,170 30,50" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <rect x="30" y="155" width="15" height="15" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+  <text x="140" y="188" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">12 cm</text>
+  <text x="15" y="115" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">5 cm</text>
+  <text x="155" y="100" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">i = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-03",
+            text: "Un triangolo rettangolo ha i cateti che misurano 8 cm e 15 cm.\nCalcola la lunghezza dell'ipotenusa in cm (inserisci solo il valore numerico).",
+            answer: "17",
+            accepted: ["17", "17.0", "17,0", "17.00", "17,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Applichiamo il teorema di Pitagora: i² = c₁² + c₂² = 8² + 15² = 64 + 225 = 289. Estraendo la radice quadrata otteniamo i = √289 = 17 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-5-04",
+            text: "Un triangolo rettangolo ha l'ipotenusa lunga 13 cm e un cateto di 5 cm.\nCalcola la lunghezza dell'altro cateto in cm (inserisci solo il valore numerico).",
+            answer: "12",
+            accepted: ["12", "12.0", "12,0", "12.00", "12,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per trovare un cateto applichiamo la formula inversa del teorema di Pitagora: c₂ = √(i² − c₁²). Sostituiamo: c₂ = √(13² − 5²) = √(169 − 25) = √144 = 12 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 260 200" width="260" height="200" role="img" aria-label="Triangolo rettangolo con ipotenusa 13 cm, cateto 5 cm e cateto incognito">
+  <polygon points="40,160 200,160 40,40" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <rect x="40" y="145" width="15" height="15" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+  <text x="25" y="105" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">5 cm</text>
+  <text x="135" y="90" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">13 cm</text>
+  <text x="120" y="178" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">c = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-05",
+            text: "Un triangolo rettangolo ha l'ipotenusa di 25 cm e un cateto lungo 7 cm.\nCalcola la lunghezza dell'altro cateto in cm (inserisci solo il valore numerico).",
+            answer: "24",
+            accepted: ["24", "24.0", "24,0", "24.00", "24,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Con la formula inversa del teorema di Pitagora calcoliamo il cateto mancante: c₂ = √(i² − c₁²) = √(25² − 7²) = √(625 − 49) = √576 = 24 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-5-06",
+            text: "Un triangolo rettangolo ha i cateti che misurano 9 cm e 12 cm.\nCalcola il perimetro del triangolo in cm (inserisci solo il valore numerico).",
+            answer: "36",
+            accepted: ["36", "36.0", "36,0", "36.00", "36,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Per trovare il perimetro dobbiamo prima calcolare l'ipotenusa con il teorema di Pitagora: i = √(9² + 12²) = √(81 + 144) = √225 = 15 cm. Il perimetro è la somma dei tre lati: P = 9 + 12 + 15 = 36 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 270 210" width="270" height="210" role="img" aria-label="Triangolo rettangolo con cateti 9 cm e 12 cm e perimetro incognito">
+  <polygon points="35,170 225,170 35,40" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <rect x="35" y="155" width="15" height="15" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+  <text x="130" y="190" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">12 cm</text>
+  <text x="20" y="110" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">9 cm</text>
+  <text x="145" y="95" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">i = ?</text>
+  <text x="135" y="30" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">P = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-07",
+            text: "Un triangolo rettangolo ha i cateti di 6 cm e 8 cm.\nCalcola l'area del triangolo in cm² (inserisci solo il valore numerico).",
+            answer: "24",
+            accepted: ["24", "24.0", "24,0", "24.00", "24,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "In un triangolo rettangolo i due cateti fungono da base e altezza, quindi l'area si calcola con la formula A = (c₁ × c₂) / 2 = (6 × 8) / 2 = 48 / 2 = 24 cm².",
+            table: null,
+            svg: null
+          },
+          {
+            id: "geometria-5-08",
+            text: "Un rettangolo ha la base lunga 9 cm e l'altezza di 12 cm.\nCalcola la lunghezza della sua diagonale in cm (inserisci solo il valore numerico).",
+            answer: "15",
+            accepted: ["15", "15.0", "15,0", "15.00", "15,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La diagonale di un rettangolo è l'ipotenusa del triangolo rettangolo formato dai due lati. Applichiamo il teorema di Pitagora: d = √(b² + h²) = √(9² + 12²) = √(81 + 144) = √225 = 15 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 270 210" width="270" height="210" role="img" aria-label="Rettangolo con base 9 cm, altezza 12 cm e diagonale incognita">
+  <rect x="45" y="30" width="180" height="150" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" rx="2" />
+  <line x1="45" y1="180" x2="225" y2="30" stroke="#FBBF24" stroke-width="2" stroke-dasharray="6 4" />
+  <text x="135" y="198" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">9 cm</text>
+  <text x="30" y="110" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">12 cm</text>
+  <text x="150" y="115" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">d = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-09",
+            text: "Un rettangolo ha la diagonale di 25 cm e un lato lungo 7 cm.\nCalcola la lunghezza dell'altro lato in cm (inserisci solo il valore numerico).",
+            answer: "24",
+            accepted: ["24", "24.0", "24,0", "24.00", "24,00"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "La diagonale di un rettangolo forma un triangolo rettangolo con i due lati. Usando la formula inversa del teorema di Pitagora troviamo il lato mancante: l = √(d² − l₁²) = √(25² − 7²) = √(625 − 49) = √576 = 24 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 290 180" width="290" height="180" role="img" aria-label="Rettangolo con diagonale 25 cm, lato 7 cm e lato incognito">
+  <rect x="35" y="25" width="220" height="120" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" rx="2" />
+  <line x1="35" y1="145" x2="255" y2="25" stroke="#FBBF24" stroke-width="2" stroke-dasharray="6 4" />
+  <text x="20" y="90" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">7 cm</text>
+  <text x="155" y="95" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">25 cm</text>
+  <text x="145" y="163" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">l = ?</text>
+</svg>`
+          },
+          {
+            id: "geometria-5-10",
+            text: "Un triangolo rettangolo ha i cateti di 8 cm e 15 cm.\nCalcola l'altezza relativa all'ipotenusa in cm (inserisci solo il valore numerico, arrotonda a due decimali).",
+            answer: "7.06",
+            accepted: ["7.06", "7,06"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Prima calcoliamo l'ipotenusa con il teorema di Pitagora: i = √(8² + 15²) = √(64 + 225) = √289 = 17 cm. L'area del triangolo vale A = (c₁ × c₂) / 2 = (8 × 15) / 2 = 60 cm². L'altezza relativa all'ipotenusa si ricava dalla formula dell'area: h = 2 × A / i = 2 × 60 / 17 = 120 / 17 ≈ 7,06 cm.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 210" width="280" height="210" role="img" aria-label="Triangolo rettangolo con cateti 8 cm e 15 cm e altezza relativa all'ipotenusa incognita">
+  <polygon points="30,180 260,180 30,40" fill="rgba(6, 182, 212, 0.12)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" />
+  <rect x="30" y="165" width="15" height="15" fill="none" stroke="#38BDF8" stroke-width="1.5" />
+  <line x1="145" y1="110" x2="85" y2="180" stroke="#FBBF24" stroke-width="2" stroke-dasharray="5 3" />
+  <circle cx="85" cy="180" r="2.5" fill="#FBBF24" />
+  <text x="145" y="198" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">15 cm</text>
+  <text x="17" y="115" fill="#F8FAFC" font-size="14" font-weight="600" text-anchor="middle">8 cm</text>
+  <text x="160" y="100" fill="#F8FAFC" font-size="13" font-weight="600" text-anchor="middle">17 cm</text>
+  <text x="100" y="140" fill="#38BDF8" font-size="14" font-weight="700" text-anchor="middle">h = ?</text>
+</svg>`
+          }
+        ]
       }
     ]
   },
@@ -1854,19 +2011,352 @@ const TOPICS = [
         level: 1,
         title: "Equivalenza semplice",
         blueprint: "Converti una misura di lunghezza, massa o capacità tra multipli e sottomultipli del sistema metrico decimale.",
-        exercises: []
+        exercises: [
+          {
+            id: "misure-1-01",
+            text: "5 km = ? m\nInserisci il numero che completa l'equivalenza.",
+            answer: "5000",
+            accepted: ["5000"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 km = 1000 m, quindi si moltiplica per 1000: 5 × 1000 = 5000 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-02",
+            text: "3 m = ? cm\nInserisci il numero che completa l'equivalenza.",
+            answer: "300",
+            accepted: ["300"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 m = 100 cm, quindi si moltiplica per 100: 3 × 100 = 300 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-03",
+            text: "7000 mm = ? m\nInserisci il numero che completa l'equivalenza.",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 m = 1000 mm, quindi si divide per 1000: 7000 ÷ 1000 = 7 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-04",
+            text: "90 dm = ? m\nInserisci il numero che completa l'equivalenza.",
+            answer: "9",
+            accepted: ["9"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 m = 10 dm, quindi si divide per 10: 90 ÷ 10 = 9 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-05",
+            text: "4 kg = ? g\nInserisci il numero che completa l'equivalenza.",
+            answer: "4000",
+            accepted: ["4000"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 kg = 1000 g, quindi si moltiplica per 1000: 4 × 1000 = 4000 g.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-06",
+            text: "60 hg = ? kg\nInserisci il numero che completa l'equivalenza.",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 kg = 10 hg, quindi si divide per 10: 60 ÷ 10 = 6 kg.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-07",
+            text: "8 hg = ? g\nInserisci il numero che completa l'equivalenza.",
+            answer: "800",
+            accepted: ["800"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 hg = 100 g, quindi si moltiplica per 100: 8 × 100 = 800 g.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-08",
+            text: "2 l = ? ml\nInserisci il numero che completa l'equivalenza.",
+            answer: "2000",
+            accepted: ["2000"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 l = 1000 ml, quindi si moltiplica per 1000: 2 × 1000 = 2000 ml.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-09",
+            text: "50 cl = ? dl\nInserisci il numero che completa l'equivalenza.",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 dl = 10 cl, quindi si divide per 10: 50 ÷ 10 = 5 dl.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-1-10",
+            text: "6 dl = ? cl\nInserisci il numero che completa l'equivalenza.",
+            answer: "60",
+            accepted: ["60"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1 dl = 10 cl, quindi si moltiplica per 10: 6 × 10 = 60 cl.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 2,
         title: "Equivalenze con decimali e tempo",
         blueprint: "Esegui conversioni tra unità di misura con numeri decimali e trasformazioni di ore, minuti e secondi.",
-        exercises: []
+        exercises: [
+          {
+            id: "misure-2-01",
+            text: "2,5 kg = ? g\nInserisci il risultato in grammi.",
+            answer: "2500",
+            accepted: ["2500"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 kg = 1000 g, quindi 2,5 × 1000 = 2500 g.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-02",
+            text: "0,75 m = ? cm\nInserisci il risultato in centimetri.",
+            answer: "75",
+            accepted: ["75"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 m = 100 cm, quindi 0,75 × 100 = 75 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-03",
+            text: "750 ml = ? l\nInserisci il risultato in litri.",
+            answer: "0.75",
+            accepted: ["0.75", "0,75"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 l = 1000 ml, quindi 750 ÷ 1000 = 0,75 l.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-04",
+            text: "1,2 km = ? m\nInserisci il risultato in metri.",
+            answer: "1200",
+            accepted: ["1200"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 km = 1000 m, quindi 1,2 × 1000 = 1200 m.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-05",
+            text: "2 h 15 min = ? min\nInserisci il risultato in minuti.",
+            answer: "135",
+            accepted: ["135"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "2 h = 2 × 60 = 120 min, poi si aggiungono i 15 min: 120 + 15 = 135 min.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-06",
+            text: "1 h 45 min = ? min\nInserisci il risultato in minuti.",
+            answer: "105",
+            accepted: ["105"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 h = 60 min, poi si aggiungono i 45 min: 60 + 45 = 105 min.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-07",
+            text: "200 min = ? h ? min\nInserisci quante ore intere sono contenute in 200 minuti.",
+            answer: "3",
+            accepted: ["3"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "200 ÷ 60 = 3 con resto 20, quindi 200 min = 3 h 20 min. Le ore intere sono 3.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-08",
+            text: "3 min 45 s = ? s\nInserisci il risultato in secondi.",
+            answer: "225",
+            accepted: ["225"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "3 min = 3 × 60 = 180 s, poi si aggiungono i 45 s: 180 + 45 = 225 s.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-09",
+            text: "3 giorni = ? ore\nInserisci il risultato in ore.",
+            answer: "72",
+            accepted: ["72"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "1 giorno = 24 ore, quindi 3 × 24 = 72 ore.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-2-10",
+            text: "Un film inizia alle 20:50 e finisce alle 22:35. Quanto dura il film in minuti?",
+            answer: "105",
+            accepted: ["105"],
+            tolerance: 0.001,
+            exact: false,
+            explanation: "Dalle 20:50 alle 22:35 passano 1 h 45 min. Convertiamo: 1 × 60 + 45 = 105 min.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 3,
         title: "Proporzione con incognita",
         blueprint: "Determina il termine incognito x in una proporzione numerica applicando la proprietà fondamentale.",
-        exercises: []
+        exercises: [
+          {
+            id: "misure-3-01",
+            text: "Risolvi la proporzione:\n3 : 5 = 12 : x\nInserisci il valore di x.",
+            answer: "20",
+            accepted: ["20"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 3 : 5 = 12 : x. Per la proprietà fondamentale, il prodotto dei medi è uguale al prodotto degli estremi: 3 × x = 5 × 12. Quindi 3x = 60 e x = 60 ÷ 3 = 20.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-02",
+            text: "Risolvi la proporzione:\n4 : 7 = 16 : x\nInserisci il valore di x.",
+            answer: "28",
+            accepted: ["28"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 4 : 7 = 16 : x. Per la proprietà fondamentale: 4 × x = 7 × 16. Quindi 4x = 112 e x = 112 ÷ 4 = 28.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-03",
+            text: "Risolvi la proporzione:\n6 : 9 = 14 : x\nInserisci il valore di x.",
+            answer: "21",
+            accepted: ["21"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 6 : 9 = 14 : x. Per la proprietà fondamentale: 6 × x = 9 × 14. Quindi 6x = 126 e x = 126 ÷ 6 = 21.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-04",
+            text: "Risolvi la proporzione:\n5 : 8 = 35 : x\nInserisci il valore di x.",
+            answer: "56",
+            accepted: ["56"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 5 : 8 = 35 : x. Per la proprietà fondamentale: 5 × x = 8 × 35. Quindi 5x = 280 e x = 280 ÷ 5 = 56.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-05",
+            text: "Risolvi la proporzione:\nx : 6 = 15 : 9\nInserisci il valore di x.",
+            answer: "10",
+            accepted: ["10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione x : 6 = 15 : 9. Per la proprietà fondamentale: x × 9 = 6 × 15. Quindi 9x = 90 e x = 90 ÷ 9 = 10.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-06",
+            text: "Risolvi la proporzione:\n8 : x = 12 : 15\nInserisci il valore di x.",
+            answer: "10",
+            accepted: ["10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 8 : x = 12 : 15. Per la proprietà fondamentale: 8 × 15 = x × 12. Quindi 120 = 12x e x = 120 ÷ 12 = 10.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-07",
+            text: "Risolvi la proporzione:\n7 : x = 21 : 18\nInserisci il valore di x (incognita al secondo termine).",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 7 : x = 21 : 18. Per la proprietà fondamentale: 7 × 18 = x × 21. Quindi 126 = 21x e x = 126 ÷ 21 = 6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-08",
+            text: "Risolvi la proporzione:\n9 : 4 = x : 12\nInserisci il valore di x (incognita al terzo termine).",
+            answer: "27",
+            accepted: ["27"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la proporzione 9 : 4 = x : 12. Per la proprietà fondamentale: 9 × 12 = 4 × x. Quindi 108 = 4x e x = 108 ÷ 4 = 27.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-09",
+            text: "Una ricetta per 4 persone richiede 300 g di farina. Quanti grammi di farina servono per preparare la stessa ricetta per 6 persone?\nImposta la proporzione e inserisci il risultato in grammi.",
+            answer: "450",
+            accepted: ["450"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Impostiamo la proporzione persone : farina = persone : farina, cioè 4 : 300 = 6 : x. Per la proprietà fondamentale: 4 × x = 300 × 6. Quindi 4x = 1800 e x = 1800 ÷ 4 = 450 g.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-3-10",
+            text: "Una fotocopiatrice stampa 18 copie in 3 minuti. Quante copie stamperà, allo stesso ritmo, in 7 minuti?\nImposta la proporzione e inserisci il numero di copie.",
+            answer: "42",
+            accepted: ["42"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Impostiamo la proporzione copie : minuti = copie : minuti, cioè 18 : 3 = x : 7. Per la proprietà fondamentale: 18 × 7 = 3 × x. Quindi 126 = 3x e x = 126 ÷ 3 = 42 copie.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 4,
