@@ -2479,7 +2479,118 @@ const TOPICS = [
         level: 5,
         title: "Problema composto con scala",
         blueprint: "Risolvi un problema composto su distanze reali e distanze su mappa applicando la scala di riduzione.",
-        exercises: []
+        exercises: [
+          {
+            id: "misure-5-01",
+            text: "Su una cartina escursionistica con scala 1 : 25.000 la distanza misurata tra due rifugi alpini è di 6 cm.\nQual è la distanza reale in linea d'aria tra i due rifugi? Inserisci il risultato in chilometri (km).",
+            answer: "1,5",
+            accepted: ["1.5", "1,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n6 cm × 25.000 = 150.000 cm.\nPasso 2: Eseguiamo l'equivalenza da centimetri a metri:\n150.000 cm = 1.500 m.\nPasso 3: Eseguiamo l'equivalenza da metri a chilometri:\n1.500 m = 1,5 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-02",
+            text: "La distanza reale tra due stazioni ferroviarie è di 15 km. Un cartografo deve rappresentare questa tratta su una mappa in scala 1 : 100.000.\nQuanti centimetri misurerà la distanza tra le due stazioni sulla carta? Inserisci il risultato in centimetri (cm).",
+            answer: "15",
+            accepted: ["15", "15,0", "15.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Trasformiamo la distanza reale da chilometri a metri:\n15 km = 15.000 m.\nPasso 2: Trasformiamo i metri in centimetri:\n15.000 m = 1.500.000 cm.\nPasso 3: Applichiamo la scala di riduzione dividendo per 100.000:\n1.500.000 cm ÷ 100.000 = 15 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-03",
+            text: "Su una mappa stradale in scala 1 : 50.000 la distanza misurata tra due paesi è di 4,2 cm. Un ciclista viaggia a una velocità media costante di 21 km/h.\nQuanti minuti impiegherà il ciclista a percorrere quel tragitto? Inserisci il risultato in minuti.",
+            answer: "6",
+            accepted: ["6", "6,0", "6.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n4,2 cm × 50.000 = 210.000 cm.\nPasso 2: Eseguiamo l'equivalenza in chilometri:\n210.000 cm = 2.100 m = 2,1 km.\nPasso 3: Calcoliamo il tempo impiegato in ore (t = s / v):\n2,1 km ÷ 21 km/h = 0,1 ore.\nPasso 4: Convertiamo le ore in minuti:\n0,1 × 60 min = 6 minuti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-04",
+            text: "Su una mappa regionale con scala 1 : 200.000 il tragitto tra due città costiere misura 8,5 cm.\nQual è la lunghezza effettiva del tragitto nella realtà? Inserisci il valore in chilometri (km).",
+            answer: "17",
+            accepted: ["17", "17,0", "17.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per il denominatore della scala:\n8,5 cm × 200.000 = 1.700.000 cm.\nPasso 2: Eseguiamo l'equivalenza da centimetri a metri:\n1.700.000 cm = 17.000 m.\nPasso 3: Eseguiamo l'equivalenza da metri a chilometri:\n17.000 m = 17 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-05",
+            text: "Su una carta stradale in scala 1 : 250.000 la distanza tra due località misura 16 cm. Un'automobile compie questo percorso con un consumo medio di 5 litri di carburante ogni 100 km. Sapendo che il carburante costa 1,85 € al litro, quanto si spende per il carburante necessario al tragitto? Inserisci la spesa in euro (es. 3,70).",
+            answer: "3,7",
+            accepted: ["3.7", "3,7", "3.70", "3,70"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n16 cm × 250.000 = 4.000.000 cm.\nPasso 2: Eseguiamo l'equivalenza in chilometri:\n4.000.000 cm = 40.000 m = 40 km.\nPasso 3: Calcoliamo i litri di carburante necessari per 40 km:\n(5 L ÷ 100 km) × 40 km = 2 litri di carburante.\nPasso 4: Calcoliamo la spesa complessiva in euro:\n2 L × 1,85 €/L = 3,70 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-06",
+            text: "Un percorso all'interno di un parco naturale ha una lunghezza reale di 4,8 km. Si vuole disegnarlo su una mappa con scala 1 : 40.000.\nQuanti centimetri misurerà il percorso sulla mappa? Inserisci il risultato in centimetri (cm).",
+            answer: "12",
+            accepted: ["12", "12,0", "12.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Convertiamo la lunghezza reale da chilometri a metri:\n4,8 km = 4.800 m.\nPasso 2: Convertiamo i metri in centimetri:\n4.800 m = 480.000 cm.\nPasso 3: Applichiamo la scala di riduzione dividendo per 40.000:\n480.000 cm ÷ 40.000 = 12 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-07",
+            text: "Su una pianta ferroviaria in scala 1 : 75.000 il tragitto tra due fermate consecutive misura 6 cm. Un treno percorre la tratta a una velocità media costante di 90 km/h.\nQuanti minuti impiega il treno per andare da una fermata all'altra? Inserisci il risultato in minuti.",
+            answer: "3",
+            accepted: ["3", "3,0", "3.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n6 cm × 75.000 = 450.000 cm.\nPasso 2: Eseguiamo l'equivalenza in chilometri:\n450.000 cm = 4.500 m = 4,5 km.\nPasso 3: Calcoliamo il tempo di viaggio in ore (t = s / v):\n4,5 km ÷ 90 km/h = 0,05 ore.\nPasso 4: Convertiamo le ore in minuti:\n0,05 × 60 min = 3 minuti.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-08",
+            text: "Su una mappa topografica in scala 1 : 25.000 la distanza tra una sorgente d'acqua e un lago misura 14 cm.\nA quanti chilometri corrisponde tale distanza nella realtà? Inserisci il risultato in chilometri (km).",
+            answer: "3,5",
+            accepted: ["3.5", "3,5"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la misura reale in centimetri moltiplicando per 25.000:\n14 cm × 25.000 = 350.000 cm.\nPasso 2: Eseguiamo l'equivalenza da centimetri a metri:\n350.000 cm = 3.500 m.\nPasso 3: Eseguiamo l'equivalenza da metri a chilometri:\n3.500 m = 3,5 km.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-09",
+            text: "Su una mappa in scala 1 : 500.000 la distanza stradale tra due capoluoghi misura 14 cm. Un furgone percorre in media 14 km con 1 litro di carburante. Se il carburante costa 1,75 € al litro, quanto si spende per effettuare il viaggio tra i due capoluoghi? Inserisci la spesa in euro (es. 8,75).",
+            answer: "8,75",
+            accepted: ["8.75", "8,75"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n14 cm × 500.000 = 7.000.000 cm.\nPasso 2: Eseguiamo l'equivalenza in chilometri:\n7.000.000 cm = 70.000 m = 70 km.\nPasso 3: Calcoliamo i litri di carburante necessari dividendo per il rendimento:\n70 km ÷ 14 km/L = 5 litri.\nPasso 4: Calcoliamo la spesa complessiva moltiplicando per il prezzo al litro:\n5 L × 1,75 €/L = 8,75 €.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "misure-5-10",
+            text: "Su una carta stradale in scala 1 : 150.000 la distanza tra due uscite autostradali misura 16 cm. Un'auto viaggia a velocità costante di 80 km/h.\nQuanti minuti impiega l'auto a percorrere quel tratto autostradale? Inserisci il tempo in minuti.",
+            answer: "18",
+            accepted: ["18", "18,0", "18.0"],
+            tolerance: 0.01,
+            exact: false,
+            explanation: "Passo 1: Calcoliamo la distanza reale in centimetri moltiplicando per la scala:\n16 cm × 150.000 = 2.400.000 cm.\nPasso 2: Eseguiamo l'equivalenza in chilometri:\n2.400.000 cm = 24.000 m = 24 km.\nPasso 3: Calcoliamo il tempo impiegato in ore (t = s / v):\n24 km ÷ 80 km/h = 0,3 ore.\nPasso 4: Convertiamo le ore in minuti:\n0,3 × 60 min = 18 minuti.",
+            table: null,
+            svg: null
+          }
+        ]
       }
     ]
   },
