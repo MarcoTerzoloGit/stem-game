@@ -3877,13 +3877,965 @@ const TOPICS = [
         level: 4,
         title: "Funzione e tabella di valori",
         blueprint: "Compila una tabella di valori per una funzione lineare del tipo y = mx + q associando ciascun valore di x al rispettivo y.",
-        exercises: []
+        exercises: [
+          {
+            id: "piano-4-01",
+            text: "Data la funzione lineare y = 2x − 1, osserva il grafico nel piano cartesiano.\nQual è il valore di y quando x = 3?",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituendo x = 3 nell'equazione y = 2x − 1 si ottiene: y = 2 × 3 − 1 = 6 − 1 = 5. Ogni volta che x aumenta di 1, y aumenta di 2.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da -5 a 5 e retta y = 2x - 1">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="96" y1="250" x2="206" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="140" cy="162" r="4" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="162" cy="118" r="4" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+</svg>`
+          },
+          {
+            id: "piano-4-02",
+            text: "Un sensore di temperatura segue la legge y = −3x + 4, dove x indica le ore trascorse e y la temperatura in gradi.\nQuanto vale y quando x = 4?",
+            answer: "-8",
+            accepted: ["-8"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituendo x = 4 nella formula y = −3x + 4 si calcola: y = −3 × 4 + 4 = −12 + 4 = −8.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-4-03",
+            text: "Osserva il grafico della retta di equazione y = −x + 2 nel piano cartesiano.\nCalcola il valore di y per x = −3.",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituendo x = −3 nell'equazione y = −x + 2, fai attenzione al segno meno davanti alla x: y = −(−3) + 2 = 3 + 2 = 5.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da -5 a 5 e retta y = -x + 2">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="74" y1="30" x2="250" y2="206" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="140" cy="96" r="4" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="184" cy="140" r="4" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+</svg>`
+          },
+          {
+            id: "piano-4-04",
+            text: "Considera la funzione y = 4x − 7.\nQuanto vale y quando x = −2?",
+            answer: "-15",
+            accepted: ["-15"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituendo x = −2 nella funzione y = 4x − 7 si ottiene: y = 4 × (−2) − 7 = −8 − 7 = −15.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-4-05",
+            text: "La tabella riporta alcuni valori della funzione lineare y = 3x + 2.\nQuanto vale il valore mancante indicato con \"?\"?",
+            answer: "8",
+            accepted: ["8"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Nella tabella, ogni volta che x aumenta di 1, y aumenta di 3. Per x = 2 si ha y = 3 × 2 + 2 = 6 + 2 = 8 (infatti 5 + 3 = 8).",
+            table: {
+              headers: ["x", "y"],
+              rows: [
+                ["−1", "−1"],
+                ["0", "2"],
+                ["1", "5"],
+                ["2", "?"]
+              ]
+            },
+            svg: null
+          },
+          {
+            id: "piano-4-06",
+            text: "La tabella mostra alcuni punti della funzione lineare y = −2x + 5.\nQuanto vale il valore mancante indicato con \"?\"?",
+            answer: "1",
+            accepted: ["1"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituendo x = 2 nella regola y = −2x + 5 si ottiene: y = −2 × 2 + 5 = −4 + 5 = 1.",
+            table: {
+              headers: ["x", "y"],
+              rows: [
+                ["−2", "9"],
+                ["0", "5"],
+                ["2", "?"],
+                ["4", "−3"]
+              ]
+            },
+            svg: null
+          },
+          {
+            id: "piano-4-07",
+            text: "Il punto P(2;5) appartiene alla retta y = 2x + 1? Rispondi sì o no.",
+            answer: "sì",
+            accepted: ["si", "sì"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Per verificare se P(2;5) appartiene alla retta y = 2x + 1, si sostituisce x = 2: y = 2 × 2 + 1 = 4 + 1 = 5. Poiché il risultato coincide con l'ordinata del punto (5), il punto appartiene alla retta: la risposta è sì.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da -5 a 5 e retta y = 2x + 1">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="74" y1="250" x2="184" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+</svg>`
+          },
+          {
+            id: "piano-4-08",
+            text: "Il punto Q(3;−1) appartiene alla retta y = −2x + 3? Rispondi sì o no.",
+            answer: "no",
+            accepted: ["no"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Sostituendo x = 3 nell'equazione y = −2x + 3 si ottiene: y = −2 × 3 + 3 = −6 + 3 = −3. Poiché −3 ≠ −1, il punto Q(3;−1) non sta sulla retta: la risposta è no.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da -5 a 5 e retta y = -2x + 3">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="118" y1="30" x2="228" y2="250" stroke="#38BDF8" stroke-width="2.5" />
+</svg>`
+          },
+          {
+            id: "piano-4-09",
+            text: "Data la funzione y = 3x − 4, per quale valore di x si ha y = 5?",
+            answer: "3",
+            accepted: ["3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si imposta l'equazione 3x − 4 = 5. Sommando 4 a entrambi i membri si ottiene 3x = 9, quindi x = 9 / 3 = 3.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da -5 a 5 e retta y = 3x - 4">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="133" y1="250" x2="206" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+</svg>`
+          },
+          {
+            id: "piano-4-10",
+            text: "Considera la retta di equazione y = −2x − 3.\nPer quale valore di x si ottiene y = 5?",
+            answer: "-4",
+            accepted: ["-4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Si risolve l'equazione −2x − 3 = 5. Aggiungendo 3 a entrambi i membri si ha −2x = 8, da cui x = 8 / (−2) = −4.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 5,
         title: "Retta per due punti e distanza",
         blueprint: "Determina l'equazione della retta passante per due punti o calcola la distanza tra due punti qualsiasi nel piano.",
-        exercises: []
+        exercises: [
+          {
+            id: "piano-5-01",
+            text: "Osserva la retta nel piano cartesiano che passa per i punti A(1;1) e B(3;5).\nQual è il coefficiente angolare m della retta?",
+            answer: "2",
+            accepted: ["2"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Usiamo la formula del coefficiente angolare: m = (yB − yA) / (xB − xA).\nSostituiamo le coordinate di A(1;1) e B(3;5): m = (5 − 1) / (3 − 1) = 4 / 2.\nSemplificando otteniamo m = 2.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(1;1) e B(3;5)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="96" y1="250" x2="206" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="162" cy="118" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="206" cy="30" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="171" y="122" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="215" y="34" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-02",
+            text: "Su una mappa di trekking, un sentiero rettilineo passa per i punti P(−1;−4) e Q(2;5).\nQual è il coefficiente angolare m della retta per P e Q?",
+            answer: "3",
+            accepted: ["3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Calcoliamo la differenza delle ordinate e delle ascisse: m = (yQ − yP) / (xQ − xP).\nSostituiamo P(−1;−4) e Q(2;5): m = (5 − (−4)) / (2 − (−1)) = 9 / 3.\nQuindi il coefficiente angolare è m = 3.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per P(-1;-4) e Q(2;5)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="111" y1="250" x2="184" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="118" cy="228" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="184" cy="30" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="104" y="232" fill="#FBBF24" font-size="11" font-weight="700">P</text>
+  <text x="193" y="34" fill="#FBBF24" font-size="11" font-weight="700">Q</text>
+</svg>`
+          },
+          {
+            id: "piano-5-03",
+            text: "Il profilo di una pista da sci scende passando per i punti A(−2;4) e B(1;−2).\nQual è il coefficiente angolare m della retta per A e B?",
+            answer: "-2",
+            accepted: ["-2"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Applichiamo la formula m = (yB − yA) / (xB − xA).\nSostituiamo A(−2;4) e B(1;−2): m = (−2 − 4) / (1 − (−2)) = −6 / 3.\nPoiché il numeratore è negativo e il denominatore positivo, otteniamo m = −2.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(-2;4) e B(1;-2)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="85" y1="30" x2="195" y2="250" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="96" cy="52" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="162" cy="184" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="104" y="48" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="171" y="188" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-04",
+            text: "Trova l'equazione della retta passante per i punti A(1;3) e B(2;5).\nScrivi la risposta nella forma y = mx + q (inserisci l'equazione senza spazi, es. y=2x+1).",
+            answer: "y=2x+1",
+            accepted: ["y=2x+1", "y=1+2x", "2x+1"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Calcoliamo prima il coefficiente angolare: m = (5 − 3) / (2 − 1) = 2 / 1 = 2.\nSostituiamo m = 2 e il punto A(1;3) in y = mx + q: 3 = 2 × 1 + q, quindi q = 3 − 2 = 1.\nL'equazione della retta è y = 2x + 1.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(1;3) e B(2;5)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="74" y1="250" x2="184" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="162" cy="74" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="184" cy="30" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="171" y="78" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="193" y="34" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-05",
+            text: "Determina l'equazione della retta che passa per i punti A(−1;−4) e B(3;0).\nScrivi la risposta nella forma y = mx + q (inserisci l'equazione senza spazi, es. y=2x+1).",
+            answer: "y=x-3",
+            accepted: ["y=x-3", "y=1x-3", "y=-3+x", "x-3"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Troviamo il coefficiente angolare: m = (0 − (−4)) / (3 − (−1)) = 4 / 4 = 1.\nSostituiamo m = 1 e B(3;0) nell'equazione y = mx + q: 0 = 1 × 3 + q, da cui q = −3.\nLa retta cercata ha equazione y = x − 3.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(-1;-4) e B(3;0)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="96" y1="250" x2="250" y2="96" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="118" cy="228" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="206" cy="140" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="104" y="232" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="206" y="130" fill="#FBBF24" font-size="11" font-weight="700" text-anchor="middle">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-06",
+            text: "Il livello dell'acqua in un serbatoio scende lungo la retta passante per A(−1;5) e B(2;−4).\nScrivi l'equazione della retta nella forma y = mx + q (inserisci la risposta senza spazi, es. y=2x+1).",
+            answer: "y=-3x+2",
+            accepted: ["y=-3x+2", "y=2-3x", "-3x+2"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Calcoliamo il coefficiente angolare: m = (−4 − 5) / (2 − (−1)) = −9 / 3 = −3.\nSostituiamo m = −3 e A(−1;5) in y = mx + q: 5 = (−3) × (−1) + q, cioè 5 = 3 + q.\nRicaviamo q = 5 − 3 = 2, quindi la retta è y = −3x + 2.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(-1;5) e B(2;-4)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="118" y1="30" x2="191" y2="250" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="118" cy="30" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="184" cy="228" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="127" y="34" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="193" y="232" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-07",
+            text: "Una retta y = mx + q passa per i punti A(−2;1) e B(1;−5).\nDopo aver trovato il coefficiente angolare m, calcola il valore dell'intercetta q.",
+            answer: "-3",
+            accepted: ["-3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Prima troviamo il coefficiente angolare: m = (−5 − 1) / (1 − (−2)) = −6 / 3 = −2.\nPoi sostituiamo m = −2 e il punto A(−2;1) in y = mx + q: 1 = (−2) × (−2) + q, cioè 1 = 4 + q.\nOtteniamo q = 1 − 4 = −3.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con retta passante per A(-2;1) e B(1;-5)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <line x1="52" y1="30" x2="162" y2="250" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="96" cy="118" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="162" cy="250" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="104" y="114" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="171" y="246" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-08",
+            text: "Su una mappa di un parco, due panchine si trovano nei punti A(1;1) e B(4;5).\nQual è la distanza tra A e B?",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Calcoliamo le differenze tra le coordinate: Δx = 4 − 1 = 3 e Δy = 5 − 1 = 4.\nApplichiamo il teorema di Pitagora: AB = √(3² + 4²) = √(9 + 16) = √25.\nLa distanza tra A e B è 5.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con segmento tra A(1;1) e B(4;5)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <polyline points="162,118 228,118 228,30" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3" />
+  <line x1="162" y1="118" x2="228" y2="30" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="162" cy="118" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="228" cy="30" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="150" y="114" fill="#FBBF24" font-size="11" font-weight="700">A</text>
+  <text x="236" y="34" fill="#FBBF24" font-size="11" font-weight="700">B</text>
+</svg>`
+          },
+          {
+            id: "piano-5-09",
+            text: "In un campo di regata, due boe sono posizionate nei punti P(−3;−4) e Q(3;4).\nQual è la distanza tra le due boe?",
+            answer: "10",
+            accepted: ["10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Calcoliamo gli spostamenti orizzontale e verticale: Δx = 3 − (−3) = 6 e Δy = 4 − (−4) = 8.\nApplichiamo il teorema di Pitagora: PQ = √(6² + 8²) = √(36 + 64) = √100.\nLa distanza tra le due boe è 10.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con segmento tra P(-3;-4) e Q(3;4)">
+  <line x1="30" y1="30" x2="30" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="52" y1="30" x2="52" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="74" y1="30" x2="74" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="96" y1="30" x2="96" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="118" y1="30" x2="118" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="162" y1="30" x2="162" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="184" y1="30" x2="184" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="206" y1="30" x2="206" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="228" y1="30" x2="228" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="250" y1="30" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="30" x2="250" y2="30" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="52" x2="250" y2="52" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="74" x2="250" y2="74" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="96" x2="250" y2="96" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="118" x2="250" y2="118" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="162" x2="250" y2="162" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="184" x2="250" y2="184" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="206" x2="250" y2="206" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="228" x2="250" y2="228" stroke="#334155" stroke-width="1" />
+  <line x1="30" y1="250" x2="250" y2="250" stroke="#334155" stroke-width="1" />
+  <line x1="24" y1="140" x2="262" y2="140" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="262,136 270,140 262,144" fill="#94A3B8" />
+  <line x1="140" y1="256" x2="140" y2="18" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="136,18 140,10 144,18" fill="#94A3B8" />
+  <text x="273" y="144" fill="#F8FAFC" font-size="12" font-weight="700">x</text>
+  <text x="140" y="9" fill="#F8FAFC" font-size="12" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−5</text>
+  <text x="52" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−4</text>
+  <text x="74" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−3</text>
+  <text x="96" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−2</text>
+  <text x="118" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">−1</text>
+  <text x="162" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">1</text>
+  <text x="184" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">2</text>
+  <text x="206" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">3</text>
+  <text x="228" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">4</text>
+  <text x="250" y="153" fill="#94A3B8" font-size="10" text-anchor="middle">5</text>
+  <text x="133" y="34" fill="#94A3B8" font-size="10" text-anchor="end">5</text>
+  <text x="133" y="56" fill="#94A3B8" font-size="10" text-anchor="end">4</text>
+  <text x="133" y="78" fill="#94A3B8" font-size="10" text-anchor="end">3</text>
+  <text x="133" y="100" fill="#94A3B8" font-size="10" text-anchor="end">2</text>
+  <text x="133" y="122" fill="#94A3B8" font-size="10" text-anchor="end">1</text>
+  <text x="133" y="166" fill="#94A3B8" font-size="10" text-anchor="end">−1</text>
+  <text x="133" y="188" fill="#94A3B8" font-size="10" text-anchor="end">−2</text>
+  <text x="133" y="210" fill="#94A3B8" font-size="10" text-anchor="end">−3</text>
+  <text x="133" y="232" fill="#94A3B8" font-size="10" text-anchor="end">−4</text>
+  <text x="133" y="254" fill="#94A3B8" font-size="10" text-anchor="end">−5</text>
+  <polyline points="74,228 206,228 206,52" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 3" />
+  <line x1="74" y1="228" x2="206" y2="52" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="74" cy="228" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="206" cy="52" r="4.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="61" y="224" fill="#FBBF24" font-size="11" font-weight="700">P</text>
+  <text x="215" y="56" fill="#FBBF24" font-size="11" font-weight="700">Q</text>
+</svg>`
+          },
+          {
+            id: "piano-5-10",
+            text: "Un drone vola in linea retta dalla stazione di ricarica M(−2;5) alla stazione N(3;−7).\nQual è la distanza percorsa dal drone tra M e N?",
+            answer: "13",
+            accepted: ["13"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Calcoliamo le differenze tra le coordinate: Δx = 3 − (−2) = 5 e Δy = −7 − 5 = −12.\nApplichiamo il teorema di Pitagora: MN = √(5² + (−12)²) = √(25 + 144) = √169.\nLa distanza tra le due stazioni è 13.",
+            table: null,
+            svg: null
+          }
+        ]
       }
     ]
   },
