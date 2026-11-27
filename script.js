@@ -2604,32 +2604,587 @@ const TOPICS = [
       {
         level: 1,
         title: "Sostituzione in un'espressione",
-        blueprint: "Calcola il valore numerico di un'espressione letterale sostituendo alle lettere i numeri assegnati.",
-        exercises: []
+        blueprint: "Data un'espressione con una lettera, sostituire un valore e calcolare.",
+        exercises: [
+          {
+            id: "algebra-1-01",
+            text: "Il costo in euro per noleggiare un armadietto a scuola e acquistare x quaderni è rappresentato dall'espressione:\n3x + 2\nCalcola il valore dell'espressione per x = 4.\nInserisci solo il valore numerico intero.",
+            answer: "14",
+            accepted: ["14"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo il valore dato tra parentesi al posto della lettera: 3(4) + 2. Eseguiamo prima la moltiplicazione: 3 × 4 = 12. Infine sommiamo: 12 + 2 = 14.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-02",
+            text: "In una sessione di allenamento in pista, i minuti totali trascorsi tra riscaldamento e a serie di allunghi sono calcolati con l'espressione:\n4a + 5\nCalcola il valore dell'espressione per a = 6.\nInserisci solo il valore numerico intero.",
+            answer: "29",
+            accepted: ["29"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo il valore dato tra parentesi al posto della lettera: 4(6) + 5. Calcoliamo prima il prodotto: 4 × 6 = 24. Aggiungiamo poi il termine noto: 24 + 5 = 29.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-03",
+            text: "Un pasticciere prepara dei vassoi di dolci. I biscotti decorati necessari per n vassoi più una scorta per la vetrina sono dati dall'espressione:\n5n + 12\nCalcola il valore dell'espressione per n = 7.\nInserisci solo il valore numerico intero.",
+            answer: "47",
+            accepted: ["47"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scriviamo la sostituzione inserendo il valore tra parentesi: 5(7) + 12. Svolgiamo prima la moltiplicazione: 5 × 7 = 35. Sommiamo infine: 35 + 12 = 47.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-04",
+            text: "La spesa in euro per noleggiare una bicicletta elettrica per y ore con una quota fissa di assicurazione è calcolata tramite l'espressione:\n7y + 15\nCalcola il valore dell'espressione per y = 8.\nInserisci solo il valore numerico intero.",
+            answer: "71",
+            accepted: ["71"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo la lettera y con il suo valore tra parentesi: 7(8) + 15. Eseguiamo per prima la moltiplicazione: 7 × 8 = 56. Completiamo l'addizione: 56 + 15 = 71.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-05",
+            text: "In un negozio di giochi, il prezzo scontato per l'acquisto di x bustine promozionali è dato dall'espressione:\n5x − 4\nCalcola il valore dell'espressione per x = 6.\nInserisci solo il valore numerico intero.",
+            answer: "26",
+            accepted: ["26"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo il valore dato tra parentesi al posto di x: 5(6) − 4. Calcoliamo prima la moltiplicazione: 5 × 6 = 30. Eseguiamo la sottrazione finale: 30 − 4 = 26.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-06",
+            text: "Per una serata al cinema con gli amici, il costo totale in euro per k biglietti ridotti dopo aver applicato un buono sconto è espresso da:\n6k − 11\nCalcola il valore dell'espressione per k = 9.\nInserisci solo il valore numerico intero.",
+            answer: "43",
+            accepted: ["43"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Inseriamo il valore tra parentesi nell'espressione: 6(9) − 11. Svolgiamo prima il prodotto: 6 × 9 = 54. Concludiamo con la sottrazione: 54 − 11 = 43.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-07",
+            text: "In una sfida a squadre di un videogioco, il punteggio netto accumulato superando m livelli dopo aver detratto le penalità è dato dall'espressione:\n8m − 17\nCalcola il valore dell'espressione per m = 5.\nInserisci solo il valore numerico intero.",
+            answer: "23",
+            accepted: ["23"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo il valore tra parentesi al posto della variabile: 8(5) − 17. Eseguiamo prima la moltiplicazione: 8 × 5 = 40. Sottraiamo infine: 40 − 17 = 23.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-08",
+            text: "Il numero di piastrelle necessarie per pavimentare una superficie quadrata di lato x metri più una corsia di bordo è calcolato con l'espressione:\nx² + 7\nCalcola il valore dell'espressione per x = 6.\nInserisci solo il valore numerico intero.",
+            answer: "43",
+            accepted: ["43"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo la variabile con il suo valore tra parentesi: (6)² + 7. Calcoliamo per prima la potenza: 6² = 36. Sommiamo poi: 36 + 7 = 43.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-09",
+            text: "Durante un esperimento scientifico in laboratorio, la pressione misurata in un condotto al variare della temperatura x è modellizzata dall'espressione:\n2x² + 3\nCalcola il valore dell'espressione per x = −3.\nInserisci solo il valore numerico intero.",
+            answer: "21",
+            accepted: ["21", "+21"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo il valore negativo tra parentesi: 2(−3)² + 3. Eleviamo prima a potenza ricordando che il quadrato di un numero negativo è positivo: (−3)² = 9. Moltiplichiamo 2 × 9 = 18 e sommiamo infine: 18 + 3 = 21.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-1-10",
+            text: "In un gioco a premi a squadre, il punteggio complessivo ottenuto con a risposte esatte e b penalità è regolato dalla formula:\n3a + 2b\nCalcola il valore dell'espressione per a = 5 e b = −2.\nInserisci solo il valore numerico intero.",
+            answer: "11",
+            accepted: ["11", "+11"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Sostituiamo i valori delle lettere scrivendoli tra parentesi: 3(5) + 2(−2). Eseguiamo le due moltiplicazioni: 3 × 5 = 15 e 2 × (−2) = −4. Concludiamo la somma algebrica: 15 + (−4) = 15 − 4 = 11.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 2,
         title: "Equazione a un passaggio",
-        blueprint: "Risolvi un'equazione di primo grado a un solo passaggio applicando il primo o il secondo principio di equivalenza.",
-        exercises: []
+        blueprint: "Una sola operazione inversa per isolare l'incognita.",
+        exercises: [
+          {
+            id: "algebra-2-01",
+            text: "In una biblioteca scolastica, dopo aver sistemato 6 nuovi libri sul primo ripiano, ci sono in totale 19 libri. La situazione è descritta dall'equazione:\nx + 6 = 19\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "13",
+            accepted: ["13"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa dell'addizione: sottraiamo 6 da entrambi i membri dell'equazione. Otteniamo x = 19 − 6, da cui x = 13.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-02",
+            text: "Durante una gara di staffetta, una squadra ha già percorso 14 metri nell'ultima frazione e deve raggiungere il traguardo a 32 metri complessivi, secondo l'equazione:\nx + 14 = 32\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "18",
+            accepted: ["18"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa dell'addizione: sottraiamo 14 da entrambi i membri dell'equazione. Otteniamo x = 32 − 14, da cui x = 18.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-03",
+            text: "Elena aggiunge 27 euro al suo salvadanaio e raggiunge così la somma di 75 euro, come rappresentato dall'equazione:\nx + 27 = 75\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "48",
+            accepted: ["48"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa dell'addizione: sottraiamo 27 da entrambi i membri dell'equazione. Otteniamo x = 75 − 27, da cui x = 48.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-04",
+            text: "Un pasticciere sforna un vassoio di biscotti. Dopo averne venduti 8, gliene restano 13 sul banco, secondo la relazione:\nx − 8 = 13\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "21",
+            accepted: ["21"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della sottrazione: sommiamo 8 a entrambi i membri dell'equazione. Otteniamo x = 13 + 8, da cui x = 21.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-05",
+            text: "Durante un viaggio in treno, dopo aver percorso 19 km rimangono ancora 35 km da percorrere fino alla destinazione, come espresso dall'equazione:\nx − 19 = 35\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "54",
+            accepted: ["54"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della sottrazione: sommiamo 19 a entrambi i membri dell'equazione. Otteniamo x = 35 + 19, da cui x = 54.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-06",
+            text: "In un gioco da tavolo a quiz, a causa di una penalità vengono tolti 46 punti dal totale accumulato da una squadra, che si ritrova con 82 punti:\nx − 46 = 82\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "128",
+            accepted: ["128"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della sottrazione: sommiamo 46 a entrambi i membri dell'equazione. Otteniamo x = 82 + 46, da cui x = 128.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-07",
+            text: "In una confezione di gadget per una festa ci sono 4 sacchetti uguali contenenti ciascuno x adesivi, per un totale di 28 adesivi complessivi:\n4 · x = 28\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della moltiplicazione: dividiamo entrambi i membri dell'equazione per 4. Otteniamo x = 28 ÷ 4, da cui x = 7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-08",
+            text: "Al mercato ortofrutticolo, una cassa contiene 7 confezioni identiche di fragole per una quantità complessiva di 63 cestini, secondo la relazione:\n7 · x = 63\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "9",
+            accepted: ["9"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della moltiplicazione: dividiamo entrambi i membri dell'equazione per 7. Otteniamo x = 63 ÷ 7, da cui x = 9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-09",
+            text: "Un gruppo di amici divide equamente in 3 parti una scorta di caramelle, in modo che ciascuno ne riceva 12, come descritto dall'equazione:\nx / 3 = 12\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "36",
+            accepted: ["36"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della divisione: moltiplichiamo entrambi i membri dell'equazione per 3. Otteniamo x = 12 × 3, da cui x = 36.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-2-10",
+            text: "In un esperimento di fisica in laboratorio, la variazione complessiva di temperatura x viene suddivisa in 5 intervalli uguali, ciascuno pari a −4 °C:\nx / 5 = −4\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "-20",
+            accepted: ["-20", "−20"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Per isolare l'incognita x applichiamo l'operazione inversa della divisione: moltiplichiamo entrambi i membri dell'equazione per 5. Otteniamo x = (−4) × 5, da cui x = −20.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 3,
         title: "Equazione a due passaggi",
-        blueprint: "Risolvi un'equazione di primo grado a due passaggi isolando il termine con l'incognita.",
-        exercises: []
+        blueprint: "Prima si elimina il termine noto, poi si divide per il coefficiente.",
+        exercises: [
+          {
+            id: "algebra-3-01",
+            text: "In cartoleria, Luca acquista 2 penne uguali dal costo di x euro ciascuna e un astuccio da 5 euro, spendendo in totale 13 euro:\n2x + 5 = 13\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 5 da entrambi i membri: 2x = 13 − 5 → 2x = 8.\n2) Dividiamo per il coefficiente di x: x = 8 ÷ 2 → x = 4.\nVerifica per sostituzione: 2 · 4 + 5 = 8 + 5 = 13.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-02",
+            text: "Durante gli allenamenti di nuoto, Marco ha già fatto 7 vasche di riscaldamento e poi nuota 3 serie da x vasche ciascuna, per un totale di 22 vasche:\n3x + 7 = 22\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 7 da entrambi i membri: 3x = 22 − 7 → 3x = 15.\n2) Dividiamo per il coefficiente di x: x = 15 ÷ 3 → x = 5.\nVerifica per sostituzione: 3 · 5 + 7 = 15 + 7 = 22.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-03",
+            text: "Un pasticciere decora 4 torte con lo stesso numero x di fragole ciascuna e ne posiziona altre 9 sul vassoio centrale, usando in tutto 33 fragole:\n4x + 9 = 33\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 9 da entrambi i membri: 4x = 33 − 9 → 4x = 24.\n2) Dividiamo per il coefficiente di x: x = 24 ÷ 4 → x = 6.\nVerifica per sostituzione: 4 · 6 + 9 = 24 + 9 = 33.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-04",
+            text: "Per comprare un videogioco da 49 euro, Giulia utilizza 14 euro dal suo salvadanaio e 5 banconote uguali da x euro:\n5x + 14 = 49\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 14 da entrambi i membri: 5x = 49 − 14 → 5x = 35.\n2) Dividiamo per il coefficiente di x: x = 35 ÷ 5 → x = 7.\nVerifica per sostituzione: 5 · 7 + 14 = 35 + 14 = 49.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-05",
+            text: "Un furgone per le consegne deve compiere un tragitto di 2 tappe da x km ciascuna, ridotto di 3 km per una scorciatoia, per un percorso di 11 km:\n2x − 3 = 11\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sommando 3 a entrambi i membri: 2x = 11 + 3 → 2x = 14.\n2) Dividiamo per il coefficiente di x: x = 14 ÷ 2 → x = 7.\nVerifica per sostituzione: 2 · 7 − 3 = 14 − 3 = 11.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-06",
+            text: "Al cinema, 3 amici acquistano un biglietto ciascuno dal costo di x euro e utilizzano un buono sconto comitiva di 8 euro complessivi, pagando 19 euro:\n3x − 8 = 19\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "9",
+            accepted: ["9"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sommando 8 a entrambi i membri: 3x = 19 + 8 → 3x = 27.\n2) Dividiamo per il coefficiente di x: x = 27 ÷ 3 → x = 9.\nVerifica per sostituzione: 3 · 9 − 8 = 27 − 8 = 19.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-07",
+            text: "In una gara a quiz a punti, una squadra ottiene 6 manche vincenti da x punti ciascuna con una detrazione di 7 punti di penalità, totalizzando 41 punti:\n6x − 7 = 41\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "8",
+            accepted: ["8"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sommando 7 a entrambi i membri: 6x = 41 + 7 → 6x = 48.\n2) Dividiamo per il coefficiente di x: x = 48 ÷ 6 → x = 8.\nVerifica per sostituzione: 6 · 8 − 7 = 48 − 7 = 41.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-08",
+            text: "Da una scorta iniziale di 10 pennarelli nuovi su un banco, l'insegnante distribuisce 2 astucci uguali con x pennarelli ciascuno, lasciandone 4 sul tavolo:\n10 − 2x = 4\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "3",
+            accepted: ["3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 10 da entrambi i membri: −2x = 4 − 10 → −2x = −6.\n2) Dividiamo per il coefficiente di x (−2): x = (−6) ÷ (−2) → x = 3.\nVerifica per sostituzione: 10 − 2 · 3 = 10 − 6 = 4.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-09",
+            text: "Da un credito prepagato di 18 euro su una tessera dei trasporti vengono scalati 3 viaggi identici da x euro l'uno, lasciando 6 euro di credito residuo:\n18 − 3x = 6\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 18 da entrambi i membri: −3x = 6 − 18 → −3x = −12.\n2) Dividiamo per il coefficiente di x (−3): x = (−12) ÷ (−3) → x = 4.\nVerifica per sostituzione: 18 − 3 · 4 = 18 − 12 = 6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-3-10",
+            text: "In un esperimento termico in laboratorio, la temperatura rilevata di 7 °C è ottenuta sommando 23 °C a 4 impulsi termici uguali di intensità x:\n4x + 23 = 7\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "-4",
+            accepted: ["-4", "−4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo il termine noto sottraendo 23 da entrambi i membri: 4x = 7 − 23 → 4x = −16.\n2) Dividiamo per il coefficiente di x: x = (−16) ÷ 4 → x = −4.\nVerifica per sostituzione: 4 · (−4) + 23 = −16 + 23 = 7.",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 4,
         title: "Equazione con parentesi e incognita in entrambi i membri",
         blueprint: "Risolvi un'equazione di primo grado con parentesi e termini con l'incognita presenti in entrambi i membri.",
-        exercises: []
+        exercises: [
+          {
+            id: "algebra-4-01",
+            text: "Due amici confrontano le loro raccolte di figurine. Luca ha 4 album con x figurine ciascuno più 3 figurine sciolte, mentre Matteo ha un album da x figurine più 15 figurine sciolte. I due ragazzi hanno lo stesso numero totale di figurine:\n4x + 3 = x + 15\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Raccogliamo le x a sinistra e i numeri a destra: 4x − x = 15 − 3 → 3x = 12.\n2) Dividiamo per 3: x = 12 ÷ 3 → x = 4.\nVerifica per sostituzione: 4 · 4 + 3 = 16 + 3 = 19 e 4 + 15 = 19. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-02",
+            text: "In un magazzino, 7 scatole uguali contenenti x quaderni ciascuna meno 8 quaderni difettosi equivalgono a 2 scatole identiche più 17 quaderni sfusi:\n7x − 8 = 2x + 17\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Raccogliamo le x a sinistra e i numeri a destra: 7x − 2x = 17 + 8 → 5x = 25.\n2) Dividiamo per 5: x = 25 ÷ 5 → x = 5.\nVerifica per sostituzione: 7 · 5 − 8 = 35 − 8 = 27 e 2 · 5 + 17 = 10 + 17 = 27. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-03",
+            text: "Per due abbonamenti in palestra, la prima formula prevede 3 quote mensili da x euro più 14 euro di iscrizione, mentre la seconda prevede 5 quote mensili da x euro più 2 euro di tessera. Le due formule hanno lo stesso costo totale:\n3x + 14 = 5x + 2\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Raccogliamo i numeri a sinistra e le x a destra: 14 − 2 = 5x − 3x → 12 = 2x.\n2) Dividiamo per 2: x = 12 ÷ 2 → x = 6.\nVerifica per sostituzione: 3 · 6 + 14 = 18 + 14 = 32 e 5 · 6 + 2 = 30 + 2 = 32. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-04",
+            text: "In una gara di robotica, 3 squadre schierano ciascuna un numero di sensori pari a (x − 2), ottenendo lo stesso totale di un laboratorio che ne ha x più 4 di riserva:\n3(x − 2) = x + 4\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "5",
+            accepted: ["5"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo la parentesi applicando la proprietà distributiva: 3x − 6 = x + 4.\n2) Raccogliamo le x a sinistra e i numeri a destra: 3x − x = 4 + 6 → 2x = 10.\n3) Dividiamo per 2: x = 10 ÷ 2 → x = 5.\nVerifica per sostituzione: 3 · (5 − 2) = 3 · 3 = 9 e 5 + 4 = 9. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-05",
+            text: "Risolvi la seguente equazione con una parentesi e l'incognita in entrambi i membri:\n4(x + 1) = 7x − 8\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "4",
+            accepted: ["4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo la parentesi moltiplicando per 4: 4x + 4 = 7x − 8.\n2) Raccogliamo i numeri a sinistra e le x a destra: 4 + 8 = 7x − 4x → 12 = 3x.\n3) Dividiamo per 3: x = 12 ÷ 3 → x = 4.\nVerifica per sostituzione: 4 · (4 + 1) = 4 · 5 = 20 e 7 · 4 − 8 = 28 − 8 = 20. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-06",
+            text: "Determina il valore dell'incognita x nella seguente equazione:\n5(x + 2) = 2x + 1\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "-3",
+            accepted: ["-3", "−3"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo la parentesi moltiplicando per 5: 5x + 10 = 2x + 1.\n2) Raccogliamo le x a sinistra e i numeri a destra: 5x − 2x = 1 − 10 → 3x = −9.\n3) Dividiamo per 3: x = (−9) ÷ 3 → x = −3.\nVerifica per sostituzione: 5 · (−3 + 2) = 5 · (−1) = −5 e 2 · (−3) + 1 = −6 + 1 = −5. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-07",
+            text: "Un laboratorio confeziona 4 scatole da x provette più 7 provette sfuse, mentre un secondo laboratorio prepara 3 cassette contenenti ciascuna (x + 5) provette. Entrambi preparano lo stesso numero di provette:\n4x + 7 = 3(x + 5)\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "8",
+            accepted: ["8"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo la parentesi moltiplicando per 3: 4x + 7 = 3x + 15.\n2) Raccogliamo le x a sinistra e i numeri a destra: 4x − 3x = 15 − 7 → x = 8.\nVerifica per sostituzione: 4 · 8 + 7 = 32 + 7 = 39 e 3 · (8 + 5) = 3 · 13 = 39. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-08",
+            text: "Risolvi la seguente equazione con due parentesi:\n3(x + 4) = 2(2x + 1)\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "10",
+            accepted: ["10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo entrambe le parentesi: 3x + 12 = 4x + 2.\n2) Raccogliamo i numeri a sinistra e le x a destra: 12 − 2 = 4x − 3x → 10 = x.\nVerifica per sostituzione: 3 · (10 + 4) = 3 · 14 = 42 e 2 · (2 · 10 + 1) = 2 · 21 = 42. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-09",
+            text: "Fai attenzione al segno meno davanti alla parentesi e risolvi l'equazione:\n7x − (2x − 5) = 3(x − 1)\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "-4",
+            accepted: ["-4", "−4"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo le parentesi cambiando i segni dopo il meno: 7x − 2x + 5 = 3x − 3 → 5x + 5 = 3x − 3.\n2) Raccogliamo le x a sinistra e i numeri a destra: 5x − 3x = −3 − 5 → 2x = −8.\n3) Dividiamo per 2: x = (−8) ÷ 2 → x = −4.\nVerifica per sostituzione: 7 · (−4) − (2 · (−4) − 5) = −28 − (−13) = −15 e 3 · (−4 − 1) = 3 · (−5) = −15. ✓",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-4-10",
+            text: "Elimina tutte le parentesi facendo attenzione ai segni e determina la soluzione dell'equazione:\n5(x + 1) − (2x − 3) = 2(x + 3)\nQuanto vale x?\nInserisci solo il valore numerico intero.",
+            answer: "-2",
+            accepted: ["-2", "−2"],
+            tolerance: 0,
+            exact: false,
+            explanation: "1) Eliminiamo le parentesi: 5x + 5 − 2x + 3 = 2x + 6 → 3x + 8 = 2x + 6.\n2) Raccogliamo le x a sinistra e i numeri a destra: 3x − 2x = 6 − 8 → x = −2.\nVerifica per sostituzione: 5 · (−2 + 1) − (2 · (−2) − 3) = −5 − (−7) = 2 e 2 · (−2 + 3) = 2 · 1 = 2. ✓",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 5,
         title: "Problema da tradurre in equazione",
         blueprint: "Traduci un problema formulato a parole in un'equazione di primo grado e trova la soluzione richiesta.",
-        exercises: []
+        exercises: [
+          {
+            id: "algebra-5-01",
+            text: "Apri un libro e noti che la somma dei numeri delle due pagine affiancate (due numeri consecutivi) è 49. Qual è il numero della pagina più piccola?\nInserisci solo il numero.",
+            answer: "24",
+            accepted: ["24"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scegliamo come incognita x il numero della pagina più piccola, quindi la pagina successiva è x + 1. Scriviamo l'equazione x + (x + 1) = 49, cioè 2x + 1 = 49. Sottraendo 1 otteniamo 2x = 48, da cui x = 24. La pagina più piccola è la numero 24 (e la successiva è la 25).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-02",
+            text: "Per entrare al luna park paghi 5 euro di ingresso fisso più 3 euro per ogni giostra a cui partecipi. Se alla fine spendi in tutto 26 euro, quante giostre hai fatto?\nInserisci solo il numero.",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x il numero di giostre fatte. La spesa totale è data dalla quota fissa più il costo delle giostre: 5 + 3x = 26. Sottraiamo 5 da entrambi i membri ottenendo 3x = 21, quindi x = 7. Hai fatto 7 giostre.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-03",
+            text: "Marco ha 4 anni più di sua sorella Giulia. Tra 3 anni la somma delle loro età sarà 30 anni. Quanti anni ha oggi Giulia?\nInserisci solo il numero.",
+            answer: "10",
+            accepted: ["10"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Chiamiamo x l'età attuale di Giulia; oggi Marco ha x + 4 anni. Tra 3 anni Giulia avrà x + 3 anni e Marco avrà x + 7 anni, quindi (x + 3) + (x + 7) = 30, cioè 2x + 10 = 30. Risolvendo otteniamo 2x = 20, cioè x = 10. Oggi Giulia ha 10 anni.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-04",
+            text: "La somma di tre numeri interi consecutivi è 72. Qual è il numero più grande tra i tre?\nInserisci solo il numero.",
+            answer: "25",
+            accepted: ["25"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x il più piccolo dei tre numeri; gli altri due sono x + 1 e x + 2. L'equazione è x + (x + 1) + (x + 2) = 72, cioè 3x + 3 = 72. Da 3x = 69 ricaviamo x = 23. I tre numeri sono 23, 24 e 25, quindi il più grande è 25.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-05",
+            text: "Un orto rettangolare ha il perimetro di 56 metri. La lunghezza supera la larghezza di 6 metri. Quanti metri misura la larghezza dell'orto?\nInserisci solo il numero (senza unità di misura).",
+            answer: "11",
+            accepted: ["11"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x la larghezza in metri; la lunghezza sarà x + 6. Il perimetro è la somma dei quattro lati: 2x + 2(x + 6) = 56, cioè 4x + 12 = 56. Sottraendo 12 otteniamo 4x = 44, da cui x = 11. La larghezza dell'orto misura 11 metri.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-06",
+            text: "Oggi un papà ha 38 anni e suo figlio ne ha 14. Quanti anni fa l'età del papà era il triplo di quella del figlio?\nInserisci solo il numero.",
+            answer: "2",
+            accepted: ["2"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Chiamiamo x gli anni trascorsi. Allora x anni fa il papà aveva 38 − x anni e il figlio 14 − x anni, quindi 38 − x = 3(14 − x). Sviluppando otteniamo 38 − x = 42 − 3x, cioè 2x = 4, da cui x = 2. Accadeva 2 anni fa (quando avevano 36 e 12 anni).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-07",
+            text: "La somma di tre numeri pari consecutivi è 90. Qual è il più piccolo dei tre numeri?\nInserisci solo il numero.",
+            answer: "28",
+            accepted: ["28"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x il primo numero pari; i due pari consecutivi successivi sono x + 2 e x + 4. Impostiamo l'equazione x + (x + 2) + (x + 4) = 90, cioè 3x + 6 = 90. Sottraendo 6 abbiamo 3x = 84, quindi x = 28. Il più piccolo dei tre numeri pari è 28.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-08",
+            text: "Sara ha già 18 euro nel salvadanaio e aggiunge 6 euro ogni settimana. Suo fratello Matteo ha 30 euro e aggiunge 4 euro ogni settimana. Dopo quante settimane avranno esattamente la stessa somma?\nInserisci solo il numero.",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x il numero di settimane. Uguagliamo i risparmi dei due fratelli: 18 + 6x = 30 + 4x. Portiamo le x a sinistra e i numeri a destra: 6x − 4x = 30 − 18, cioè 2x = 12, quindi x = 6. Dopo 6 settimane entrambi avranno 54 euro.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-09",
+            text: "Il perimetro di un cartellone rettangolare è 82 cm. La base è 5 cm più del doppio dell'altezza. Quanti centimetri misura la base?\nInserisci solo il numero (senza unità di misura).",
+            answer: "29",
+            accepted: ["29"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Scegliamo come incognita x l'altezza in cm, così la base misura 2x + 5. L'equazione del perimetro è 2x + 2(2x + 5) = 82, cioè 6x + 10 = 82. Da 6x = 72 ricaviamo x = 12 cm per l'altezza, quindi la base misura 2 · 12 + 5 = 29 cm.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "algebra-5-10",
+            text: "Oggi la zia ha il triplo dell'età di Luca. Tra 12 anni la zia avrà il doppio dell'età che avrà Luca. Quanti anni ha oggi Luca?\nInserisci solo il numero.",
+            answer: "12",
+            accepted: ["12"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Indichiamo con x l'età attuale di Luca; oggi la zia ha 3x anni. Tra 12 anni Luca avrà x + 12 anni e la zia 3x + 12 anni, quindi 3x + 12 = 2(x + 12). Svolgendo i calcoli: 3x + 12 = 2x + 24, da cui x = 12. Oggi Luca ha 12 anni (e la zia 36).",
+            table: null,
+            svg: null
+          }
+        ]
       }
     ]
   },
