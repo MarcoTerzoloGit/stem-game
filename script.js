@@ -3199,19 +3199,679 @@ const TOPICS = [
         level: 1,
         title: "Leggere e disegnare un punto",
         blueprint: "Individua le coordinate cartesiane (x, y) di un punto assegnato o individua il punto sulla griglia.",
-        exercises: []
+        exercises: [
+          {
+            id: "piano-1-01",
+            text: "Su una mappa a quadretti, parti dall'origine (0;0) e ti sposti di 4 unità a destra sull'asse x e di 2 unità in alto sull'asse y per raggiungere il punto A.\nQuali sono le coordinate del punto A? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(4;2)",
+            accepted: ["(4;2)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "La prima coordinata (ascissa) indica lo spostamento a destra sull'asse x: 4. La seconda coordinata (ordinata) indica lo spostamento in alto sull'asse y: 2. Quindi il punto A ha coordinate (4;2).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-02",
+            text: "Nel piano cartesiano, il punto P ha coordinate P(7;3).\nQual è l'ascissa del punto P?",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "In una coppia di coordinate (x;y), il primo numero è sempre l'ascissa (la coordinata x) e il secondo è l'ordinata (la coordinata y). Nel punto P(7;3), l'ascissa è quindi 7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-03",
+            text: "Durante una gara di orientamento, una bandierina si trova nel punto B(2;6).\nQual è l'ordinata del punto B?",
+            answer: "6",
+            accepted: ["6"],
+            tolerance: 0,
+            exact: false,
+            explanation: "La seconda coordinata di un punto (x;y) rappresenta sempre l'ordinata, cioè il valore sull'asse verticale y. Nel punto B(2;6), l'ordinata è 6.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-04",
+            text: "Osserva il piano cartesiano nella figura.\nQuali sono le coordinate del punto A? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(3;5)",
+            accepted: ["(3;5)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Partendo dall'origine O(0;0), il punto A si trova in corrispondenza di 3 sull'asse orizzontale x e di 5 sull'asse verticale y. Le sue coordinate sono quindi (3;5).",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da 0 a 8 e punto A alle coordinate (3;5)">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <circle cx="115" cy="115" r="5.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <text x="124" y="108" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+</svg>`
+          },
+          {
+            id: "piano-1-05",
+            text: "Un piccolo robot parte dall'origine (0;0) di una griglia di prova, avanza di 6 unità verso destra e poi sale di 5 unità verso l'alto fino al punto R.\nQuali sono le coordinate del punto R? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(6;5)",
+            accepted: ["(6;5)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Lo spostamento verso destra corrisponde all'ascissa x = 6, mentre lo spostamento verso l'alto corrisponde all'ordinata y = 5. Il punto R si trova quindi alle coordinate (6;5).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-06",
+            text: "Nel piano cartesiano sono segnati tre punti: A, B e C.\nQuali sono le coordinate del punto B? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(6;2)",
+            accepted: ["(6;2)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Osservando il punto B, scendendo in verticale fino all'asse x leggiamo 6, mentre spostandoci in orizzontale fino all'asse y leggiamo 2. Quindi B ha coordinate (6;2).",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da 0 a 8 e i punti A, B e C">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <circle cx="65" cy="140" r="5.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <text x="74" y="133" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+  <circle cx="190" cy="190" r="5.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <text x="199" y="183" fill="#F8FAFC" font-size="13" font-weight="700">B</text>
+  <circle cx="140" cy="65" r="5.5" fill="#FBBF24" stroke="#0F172A" stroke-width="1.5" />
+  <text x="149" y="58" fill="#F8FAFC" font-size="13" font-weight="700">C</text>
+</svg>`
+          },
+          {
+            id: "piano-1-07",
+            text: "Il punto M ha coordinate M(5;0).\nIl punto M si trova sull'asse x o sull'asse y? (Rispondi scrivendo solo x oppure y)",
+            answer: "x",
+            accepted: ["x", "asse x"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il punto M(5;0) ha ascissa 5 e ordinata 0. Poiché ci spostiamo di 5 unità a destra sull'asse orizzontale senza salire (y = 0), il punto si trova sull'asse x.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-08",
+            text: "Dall'origine (0;0), un drone si sposta di 7 unità in alto (asse y) e di 1 unità a destra (asse x), fermandosi nel punto D.\nQuali sono le coordinate del punto D? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(1;7)",
+            accepted: ["(1;7)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Attenzione all'ordine: nelle coordinate (x;y) si scrive sempre prima l'ascissa (spostamento a destra, x = 1) e poi l'ordinata (spostamento in alto, y = 7). Le coordinate di D sono quindi (1;7).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-09",
+            text: "Il punto N ha coordinate N(0;8).\nIl punto N si trova sull'asse x o sull'asse y? (Rispondi scrivendo solo x oppure y)",
+            answer: "y",
+            accepted: ["y", "asse y"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il punto N(0;8) ha ascissa x = 0 e ordinata y = 8. Non ci si sposta a destra dall'origine, ma solo di 8 unità verso l'alto: il punto si trova quindi sull'asse y.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-1-10",
+            text: "Osserva il piano cartesiano con i punti P, Q ed R.\nQuali sono le coordinate del punto R? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(7;0)",
+            accepted: ["(7;0)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il punto R si trova esattamente sull'asse orizzontale x in corrispondenza del valore 7, quindi la sua ascissa è 7 e la sua ordinata è 0. Le coordinate di R sono (7;0).",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con griglia da 0 a 8 e i punti P, Q ed R">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <circle cx="90" cy="65" r="5.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <text x="99" y="58" fill="#F8FAFC" font-size="13" font-weight="700">P</text>
+  <circle cx="165" cy="140" r="5.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <text x="174" y="133" fill="#F8FAFC" font-size="13" font-weight="700">Q</text>
+  <circle cx="215" cy="240" r="5.5" fill="#F472B6" stroke="#0F172A" stroke-width="1.5" />
+  <text x="215" y="229" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">R</text>
+</svg>`
+          }
+        ]
       },
       {
         level: 2,
         title: "Quadranti e distanze su una retta",
         blueprint: "Determina il quadrante di appartenenza di un punto o calcola la distanza tra due punti su rette orizzontali o verticali.",
-        exercises: []
+        exercises: [
+          {
+            id: "piano-2-01",
+            text: "In un videogioco di esplorazione, un tesoro si trova nel punto A(−4;3).\nIn quale quadrante del piano cartesiano si trova il punto A? (Rispondi con I, II, III o IV)",
+            answer: "II",
+            accepted: ["ii", "2"],
+            tolerance: 0,
+            exact: true,
+            explanation: "I quadranti hanno segni fissi: I (+;+), II (−;+), III (−;−) e IV (+;−). Il punto A(−4;3) ha ascissa negativa (x = −4) e ordinata positiva (y = 3), quindi si trova nel II quadrante.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-02",
+            text: "Su una mappa cartesiana, una stazione meteorologica è posizionata nel punto B(5;−2).\nIn quale quadrante si trova il punto B? (Rispondi con I, II, III o IV)",
+            answer: "IV",
+            accepted: ["iv", "4"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Ricorda i segni nei quattro quadranti: I (+;+), II (−;+), III (−;−) e IV (+;−). Poiché B(5;−2) ha ascissa positiva (x = 5) e ordinata negativa (y = −2), appartiene al IV quadrante.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-03",
+            text: "Un sottomarino viene rilevato dal radar alle coordinate P(−6;−1).\nIn quale quadrante si trova il punto P? (Rispondi con I, II, III o IV)",
+            answer: "III",
+            accepted: ["iii", "3"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Nei quadranti i segni sono: I (+;+), II (−;+), III (−;−) e IV (+;−). Il punto P(−6;−1) ha sia l'ascissa sia l'ordinata negative, quindi si trova nel III quadrante.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-04",
+            text: "Un drone parte dall'origine (0;0), si sposta di 3 unità a destra e di 7 unità in alto, fermandosi nel punto D.\nIn quale quadrante si trova il punto D? (Rispondi con I, II, III o IV)",
+            answer: "I",
+            accepted: ["i", "1"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Spostandosi a destra e in alto dall'origine si ottengono coordinate entrambe positive: D(3;7). I segni dei quadranti sono I (+;+), II (−;+), III (−;−) e IV (+;−), quindi D si trova nel I quadrante.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-05",
+            text: "Su una mappa a quadretti, due panchine si trovano nei punti A(−3;2) e B(4;2).\nQual è la distanza tra il punto A e il punto B?",
+            answer: "7",
+            accepted: ["7"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I punti A(−3;2) e B(4;2) hanno la stessa ordinata (y = 2), quindi si trovano sulla stessa retta orizzontale. La distanza è la differenza tra le ascisse: 4 − (−3) = 4 + 3 = 7.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-06",
+            text: "Nel piano cartesiano, due segnali si trovano nei punti C(5;−4) e D(5;5).\nQual è la distanza tra C e D?",
+            answer: "9",
+            accepted: ["9"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I punti C(5;−4) e D(5;5) hanno la stessa ascissa (x = 5), quindi sono allineati verticalmente. La distanza si calcola facendo la differenza tra le ordinate: 5 − (−4) = 5 + 4 = 9.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-07",
+            text: "In un progetto su carta millimetrata, due paletti sono fissati nei punti E(−11;−3) e F(−3;−3).\nQual è la distanza tra E ed F?",
+            answer: "8",
+            accepted: ["8"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Entrambi i punti si trovano nel III quadrante (I (+;+), II (−;+), III (−;−), IV (+;−)) e hanno la stessa ordinata (y = −3). La distanza orizzontale è la differenza tra le ascisse: −3 − (−11) = −3 + 11 = 8.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-08",
+            text: "Un corriere si sposta in linea retta dal punto G(−4;−7) fino al punto H(−4;6).\nQual è la distanza percorsa da G a H?",
+            answer: "13",
+            accepted: ["13"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I due punti hanno la stessa ascissa (x = −4), quindi il percorso è verticale (dal III quadrante (−;−) al II quadrante (−;+)). La distanza è la differenza tra le ordinate: 6 − (−7) = 6 + 7 = 13.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-09",
+            text: "Nel piano cartesiano è dato il punto P(4;−5).\nQuali sono le coordinate del punto P', simmetrico di P rispetto all'asse x? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(4;5)",
+            accepted: ["(4;5)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il simmetrico rispetto all'asse x mantiene la stessa ascissa e cambia il segno dell'ordinata. Il punto P(4;−5) passa così dal IV quadrante (+;−) al I quadrante (+;+), ottenendo coordinate (4;5).",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-2-10",
+            text: "Un architetto disegna il punto Q(3;−6) e vuole tracciarne il simmetrico rispetto all'asse y.\nQuali sono le coordinate del punto simmetrico Q'? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(-3;-6)",
+            accepted: ["(-3;-6)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Il simmetrico rispetto all'asse y cambia il segno dell'ascissa e mantiene invariata l'ordinata. Così Q(3;−6) passa dal IV quadrante (+;−) al III quadrante (−;−), con coordinate (−3;−6).",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 3,
         title: "Poligoni nel piano",
         blueprint: "Calcola perimetro o area di un poligono semplice disegnato nel piano cartesiano a partire dai suoi vertici.",
-        exercises: []
+        exercises: [
+          {
+            id: "piano-3-01",
+            text: "Osserva il rettangolo ABCD disegnato nel piano cartesiano con vertici A(1;2), B(6;2), C(6;5) e D(1;5).\nQual è il perimetro del rettangolo ABCD?",
+            answer: "16",
+            accepted: ["16"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I lati del rettangolo sono paralleli agli assi. La base orizzontale AB misura 6 − 1 = 5 e l'altezza verticale BC misura 5 − 2 = 3. Il perimetro è 2 × (5 + 3) = 2 × 8 = 16.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con rettangolo ABCD di vertici A(1;2), B(6;2), C(6;5), D(1;5)">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <polygon points="65,190 190,190 190,115 65,115" fill="rgba(56, 189, 248, 0.18)" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="65" cy="190" r="4.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="190" cy="190" r="4.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="190" cy="115" r="4.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="65" cy="115" r="4.5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <text x="53" y="204" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+  <text x="198" y="204" fill="#F8FAFC" font-size="13" font-weight="700">B</text>
+  <text x="198" y="109" fill="#F8FAFC" font-size="13" font-weight="700">C</text>
+  <text x="53" y="109" fill="#F8FAFC" font-size="13" font-weight="700">D</text>
+</svg>`
+          },
+          {
+            id: "piano-3-02",
+            text: "Su una mappa digitale, un'area rettangolare PQRS ha i vertici nei punti P(−2;1), Q(5;1), R(5;6) e S(−2;6).\nQual è il perimetro del rettangolo PQRS?",
+            answer: "24",
+            accepted: ["24"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I lati PQ e RS sono orizzontali (stessa ordinata) e misurano 5 − (−2) = 5 + 2 = 7. I lati QR e SP sono verticali (stessa ascissa) e misurano 6 − 1 = 5. Il perimetro è 2 × (7 + 5) = 2 × 12 = 24.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-3-03",
+            text: "Un rettangolo EFGH nel piano cartesiano ha vertici E(−4;−3), F(2;−3), G(2;1) e H(−4;1).\nQual è il perimetro del rettangolo EFGH?",
+            answer: "20",
+            accepted: ["20"],
+            tolerance: 0,
+            exact: false,
+            explanation: "La base orizzontale EF misura 2 − (−4) = 2 + 4 = 6. L'altezza verticale FG misura 1 − (−3) = 1 + 3 = 4. Quindi il perimetro è 2 × (6 + 4) = 2 × 10 = 20.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-3-04",
+            text: "Osserva il rettangolo ABCD disegnato nel piano cartesiano con vertici A(1;1), B(7;1), C(7;5) e D(1;5).\nQual è l'area del rettangolo ABCD?",
+            answer: "24",
+            accepted: ["24"],
+            tolerance: 0,
+            exact: false,
+            explanation: "La base AB è parallela all'asse x e misura 7 − 1 = 6. L'altezza BC è parallela all'asse y e misura 5 − 1 = 4. L'area del rettangolo è base × altezza = 6 × 4 = 24.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con rettangolo ABCD di vertici A(1;1), B(7;1), C(7;5), D(1;5)">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <polygon points="65,215 215,215 215,115 65,115" fill="rgba(52, 211, 153, 0.18)" stroke="#34D399" stroke-width="2.5" />
+  <circle cx="65" cy="215" r="4.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="215" cy="215" r="4.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="215" cy="115" r="4.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="65" cy="115" r="4.5" fill="#34D399" stroke="#0F172A" stroke-width="1.5" />
+  <text x="53" y="229" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+  <text x="222" y="229" fill="#F8FAFC" font-size="13" font-weight="700">B</text>
+  <text x="222" y="109" fill="#F8FAFC" font-size="13" font-weight="700">C</text>
+  <text x="53" y="109" fill="#F8FAFC" font-size="13" font-weight="700">D</text>
+</svg>`
+          },
+          {
+            id: "piano-3-05",
+            text: "Nella planimetria di un giardino, un'aiuola rettangolare KLMN ha vertici K(−5;2), L(4;2), M(4;−1) e N(−5;−1).\nQual è l'area del rettangolo KLMN?",
+            answer: "27",
+            accepted: ["27"],
+            tolerance: 0,
+            exact: false,
+            explanation: "La base orizzontale KL misura 4 − (−5) = 4 + 5 = 9. L'altezza verticale LM misura 2 − (−1) = 2 + 1 = 3. L'area è 9 × 3 = 27.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-3-06",
+            text: "Nel piano cartesiano, un rettangolo TUVW ha vertici T(−6;−5), U(−1;−5), V(−1;2) e W(−6;2).\nQual è l'area del rettangolo TUVW?",
+            answer: "35",
+            accepted: ["35"],
+            tolerance: 0,
+            exact: false,
+            explanation: "La base orizzontale TU misura −1 − (−6) = −1 + 6 = 5. L'altezza verticale UV misura 2 − (−5) = 2 + 5 = 7. L'area del rettangolo è 5 × 7 = 35.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-3-07",
+            text: "Osserva il triangolo rettangolo ABC disegnato nel piano cartesiano con vertici A(1;2), B(7;2) e C(1;6).\nQual è l'area del triangolo ABC?",
+            answer: "12",
+            accepted: ["12"],
+            tolerance: 0,
+            exact: false,
+            explanation: "I cateti AB e AC sono paralleli agli assi e perpendicolari tra loro in A. Il cateto orizzontale AB misura 7 − 1 = 6 e il cateto verticale AC misura 6 − 2 = 4. L'area del triangolo rettangolo è (6 × 4) / 2 = 24 / 2 = 12.",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con triangolo rettangolo ABC di vertici A(1;2), B(7;2), C(1;6)">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <polygon points="65,190 215,190 65,90" fill="rgba(244, 114, 182, 0.18)" stroke="#F472B6" stroke-width="2.5" />
+  <polyline points="65,178 77,178 77,190" fill="none" stroke="#F472B6" stroke-width="1.5" />
+  <circle cx="65" cy="190" r="4.5" fill="#F472B6" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="215" cy="190" r="4.5" fill="#F472B6" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="65" cy="90" r="4.5" fill="#F472B6" stroke="#0F172A" stroke-width="1.5" />
+  <text x="53" y="204" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+  <text x="222" y="204" fill="#F8FAFC" font-size="13" font-weight="700">B</text>
+  <text x="53" y="84" fill="#F8FAFC" font-size="13" font-weight="700">C</text>
+</svg>`
+          },
+          {
+            id: "piano-3-08",
+            text: "Nel piano cartesiano, un triangolo rettangolo PQR ha i cateti paralleli agli assi e vertici P(−3;−2), Q(4;−2) e R(4;4).\nQual è l'area del triangolo PQR?",
+            answer: "21",
+            accepted: ["21"],
+            tolerance: 0,
+            exact: false,
+            explanation: "Il cateto orizzontale PQ misura 4 − (−3) = 4 + 3 = 7. Il cateto verticale QR misura 4 − (−2) = 4 + 2 = 6. L'area del triangolo rettangolo è (7 × 6) / 2 = 42 / 2 = 21.",
+            table: null,
+            svg: null
+          },
+          {
+            id: "piano-3-09",
+            text: "Tre vertici di un rettangolo ABCD con i lati paralleli agli assi sono A(2;2), B(7;2) e C(7;6).\nQuali sono le coordinate del quarto vertice D del rettangolo? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(2;6)",
+            accepted: ["(2;6)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Poiché i lati del rettangolo sono paralleli agli assi, il lato AD è verticale (stessa ascissa di A: x = 2) e il lato CD è orizzontale (stessa ordinata di C: y = 6). Il quarto vertice D ha quindi coordinate (2;6).",
+            table: null,
+            svg: `<svg viewBox="0 0 280 280" width="280" height="280" role="img" aria-label="Piano cartesiano con tre vertici A(2;2), B(7;2) e C(7;6) di un rettangolo">
+  <line x1="65" y1="40" x2="65" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="90" y1="40" x2="90" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="115" y1="40" x2="115" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="165" y1="40" x2="165" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="215" y1="40" x2="215" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="240" y1="40" x2="240" y2="240" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="215" x2="240" y2="215" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="190" x2="240" y2="190" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="165" x2="240" y2="165" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="115" x2="240" y2="115" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="90" x2="240" y2="90" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="65" x2="240" y2="65" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="40" x2="240" y2="40" stroke="#334155" stroke-width="1" />
+  <line x1="40" y1="240" x2="256" y2="240" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="256,236 264,240 256,244" fill="#94A3B8" />
+  <line x1="40" y1="240" x2="40" y2="24" stroke="#94A3B8" stroke-width="2" />
+  <polygon points="36,24 40,16 44,24" fill="#94A3B8" />
+  <text x="269" y="244" fill="#F8FAFC" font-size="13" font-weight="700">x</text>
+  <text x="40" y="12" fill="#F8FAFC" font-size="13" font-weight="700" text-anchor="middle">y</text>
+  <text x="30" y="254" fill="#94A3B8" font-size="11" text-anchor="middle">0</text>
+  <text x="65" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">2</text>
+  <text x="115" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">3</text>
+  <text x="140" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">4</text>
+  <text x="165" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">5</text>
+  <text x="190" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">6</text>
+  <text x="215" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">7</text>
+  <text x="240" y="256" fill="#94A3B8" font-size="11" text-anchor="middle">8</text>
+  <text x="28" y="219" fill="#94A3B8" font-size="11" text-anchor="end">1</text>
+  <text x="28" y="194" fill="#94A3B8" font-size="11" text-anchor="end">2</text>
+  <text x="28" y="169" fill="#94A3B8" font-size="11" text-anchor="end">3</text>
+  <text x="28" y="144" fill="#94A3B8" font-size="11" text-anchor="end">4</text>
+  <text x="28" y="119" fill="#94A3B8" font-size="11" text-anchor="end">5</text>
+  <text x="28" y="94" fill="#94A3B8" font-size="11" text-anchor="end">6</text>
+  <text x="28" y="69" fill="#94A3B8" font-size="11" text-anchor="end">7</text>
+  <text x="28" y="44" fill="#94A3B8" font-size="11" text-anchor="end">8</text>
+  <polyline points="90,190 215,190 215,90" fill="none" stroke="#38BDF8" stroke-width="2.5" />
+  <circle cx="90" cy="190" r="5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="215" cy="190" r="5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <circle cx="215" cy="90" r="5" fill="#38BDF8" stroke="#0F172A" stroke-width="1.5" />
+  <text x="78" y="204" fill="#F8FAFC" font-size="13" font-weight="700">A</text>
+  <text x="222" y="204" fill="#F8FAFC" font-size="13" font-weight="700">B</text>
+  <text x="222" y="84" fill="#F8FAFC" font-size="13" font-weight="700">C</text>
+</svg>`
+          },
+          {
+            id: "piano-3-10",
+            text: "Un rettangolo PQRS ha i lati paralleli agli assi e tre dei suoi vertici si trovano in P(−4;−1), Q(3;−1) e R(3;4).\nQuali sono le coordinate del quarto vertice S? (Scrivi la risposta nel formato (x;y), es. (3;2))",
+            answer: "(-4;4)",
+            accepted: ["(-4;4)"],
+            tolerance: 0,
+            exact: true,
+            explanation: "Poiché i lati del rettangolo sono paralleli agli assi, il lato PS è verticale (stessa ascissa di P: x = −4) e il lato RS è orizzontale (stessa ordinata di R: y = 4). Quindi il quarto vertice S ha coordinate (−4;4).",
+            table: null,
+            svg: null
+          }
+        ]
       },
       {
         level: 4,
